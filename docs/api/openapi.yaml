@@ -1,15 +1,15 @@
 openapi: "3.1.0"
 info:
-  title: AI Security Gateway API
+  title: PromptShield API
   version: "1.0.0"
   description: |
-    OpenAI-compatible AI Gateway with built-in PII redaction, DLP enforcement,
+    Prompt firewall with built-in PII redaction, DLP enforcement,
     budget caps, and smart cost routing across 60+ models and 8+ providers.
 
     ## Servers
 
     - **Self-hosted (OSS):** `http://localhost:8000` — run via Docker Compose
-    - **Managed Cloud:** `https://api.aisecuritygateway.ai` — hosted, 1M free credits
+    - **Local demo:** `http://localhost:8000`
 
     ## Authentication
 
@@ -27,8 +27,8 @@ info:
     Point the official OpenAI SDK at the base URL and use your API key —
     all standard parameters work unchanged.
   contact:
-    name: AI Security Gateway
-    url: https://aisecuritygateway.ai
+    name: PromptShield
+    url: http://localhost:8000
   license:
     name: Apache-2.0
     url: https://github.com/aisecuritygateway/aisecuritygateway/blob/main/LICENSE
@@ -36,8 +36,6 @@ info:
 servers:
   - url: http://localhost:8000
     description: Self-hosted (Docker Compose)
-  - url: https://api.aisecuritygateway.ai
-    description: Managed Cloud
 
 security:
   - BearerAuth: []
@@ -126,7 +124,7 @@ paths:
 
         The request passes through the AI Firewall which:
         1. Scans for PII (28 entity types) and applies DLP policy (block/redact)
-        2. Enforces budget caps and token limits (Managed Cloud only)
+        2. Enforces configured safety policy before forwarding
         3. Routes to the optimal provider via Smart Router (for `oah/*` models, Cloud only)
 
         Supports streaming via `stream: true` (Server-Sent Events).
@@ -163,7 +161,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
         "402":
-          description: Insufficient wallet balance or no credentials (Managed Cloud only)
+          description: Provider credentials are missing or invalid
           content:
             application/json:
               schema:
@@ -280,12 +278,12 @@ components:
             input_per_1m_tokens:
               type: number
               nullable: true
-              description: Input cost per 1M tokens (USD, Managed Cloud only)
+              description: Input cost per 1M tokens, when supplied by the provider
               example: 0.59
             output_per_1m_tokens:
               type: number
               nullable: true
-              description: Output cost per 1M tokens (USD, Managed Cloud only)
+              description: Output cost per 1M tokens, when supplied by the provider
               example: 0.79
 
     ChatCompletionRequest:
