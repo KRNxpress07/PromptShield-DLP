@@ -1,7 +1,6 @@
 """PromptShield risk engine.
 
-Occludra's stock policy is binary: `redact` or `block`, applied globally to
-every request. PromptShield's brief calls for a *contextual* four-way
+PromptShield's brief calls for a *contextual* four-way
 decision — allow / mask / warn / block — driven by the severity of what was
 actually found. This module adds that layer on top of the existing Presidio
 violation list without touching how detection itself works.
