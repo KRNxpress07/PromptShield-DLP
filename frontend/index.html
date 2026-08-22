@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptShield — Inspection Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EEF1F7;
+    --surface: #FFFFFF;
+    --surface-2: #F5F7FB;
+    --ink: #101828;
+    --ink-muted: #56607A;
+    --ink-faint: #8891A8;
+    --line: #D7DEEA;
+    --line-strong: #B9C4D9;
+    --brand: #1D3A8A;
+    --brand-dim: #E3E9FA;
+    --ok: #157F53;
+    --ok-dim: #DCF3E8;
+    --mask: #0E7A82;
+    --mask-dim: #DBF0F0;
+    --warn: #A8670E;
+    --warn-dim: #FBF0DC;
+    --block: #B4231D;
+    --block-dim: #FBE2E0;
+    --radius: 8px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, #F5F8FD 0%, transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  /* ── Header ─────────────────────────────────────────────────────── */
+  .topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+  .brand-block { display: flex; align-items: center; gap: 14px; }
+  .shield-mark { width: 42px; height: 42px; flex-shrink: 0; }
+  .brand-text h1 {
+    font-family: var(--font-display); font-size: 24px; font-weight: 700; margin: 0;
+    letter-spacing: -0.02em; color: var(--ink);
+  }
+  .brand-text p { margin: 2px 0 0; font-size: 13px; color: var(--ink-muted); }
+
+  details.conn-panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 320px; }
+  details.conn-panel summary {
+    cursor: pointer; padding: 10px 14px; font-size: 12.5px; font-weight: 600;
+    color: var(--ink-muted); font-family: var(--font-mono); letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 6px; user-select: none;
+  }
+  details.conn-panel summary::-webkit-details-marker { display: none; }
+  details.conn-panel summary:before { content: "▸"; transition: transform .15s; }
+  details.conn-panel[open] summary:before { transform: rotate(90deg); }
+  .conn-grid { padding: 4px 14px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  .conn-grid label { font-size: 11px; color: var(--ink-faint); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+  .conn-grid input {
+    width: 100%; padding: 7px 9px; border: 1px solid var(--line); border-radius: 5px;
+    font-family: var(--font-mono); font-size: 12.5px; background: var(--surface-2); color: var(--ink);
+  }
+  .conn-grid input:focus { outline: none; border-color: var(--brand); }
+
+  /* ── Console layout ─────────────────────────────────────────────── */
+  .console { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 880px) { .console { grid-template-columns: 1fr; } }
+
+  .pane {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .pane-header {
+    padding: 12px 16px; border-bottom: 1px solid var(--line); display: flex;
+    align-items: center; justify-content: space-between; background: var(--surface-2);
+  }
+  .pane-header h2 {
+    font-family: var(--font-mono); font-size: 11.5px; font-weight: 600; margin: 0;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted);
+  }
+
+  /* ── Input pane ──────────────────────────────────────────────────── */
+  .tabs { display: flex; gap: 4px; }
+  .tab-btn {
+    border: none; background: transparent; padding: 5px 10px; border-radius: 5px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-faint); cursor: pointer;
+  }
+  .tab-btn.active { background: var(--brand); color: #fff; }
+
+  .input-body { padding: 16px; }
+  textarea#text-input {
+    width: 100%; min-height: 220px; resize: vertical; padding: 12px;
+    border: 1px solid var(--line); border-radius: 6px; font-family: var(--font-mono);
+    font-size: 13px; line-height: 1.5; color: var(--ink); background: var(--surface-2);
+  }
+  textarea#text-input:focus { outline: none; border-color: var(--brand); }
+  textarea#text-input::placeholder { color: var(--ink-faint); }
+
+  .dropzone {
+    min-height: 220px; border: 1.5px dashed var(--line-strong); border-radius: 6px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--ink-faint); cursor: pointer; text-align: center; padding: 20px;
+    background: var(--surface-2); transition: border-color .15s, background .15s;
+  }
+  .dropzone.dragover { border-color: var(--brand); background: var(--brand-dim); }
+  .dropzone svg { width: 30px; height: 30px; opacity: 0.6; }
+  .dropzone .dz-title { font-size: 13.5px; color: var(--ink-muted); font-weight: 500; }
+  .dropzone .dz-sub { font-size: 11.5px; font-family: var(--font-mono); }
+  .file-chip {
+    display: inline-flex; align-items: center; gap: 8px; background: var(--brand-dim);
+    color: var(--brand); padding: 6px 10px; border-radius: 6px; font-family: var(--font-mono);
+    font-size: 12.5px; margin-top: 10px;
+  }
+  .file-chip button { border: none; background: none; color: var(--brand); cursor: pointer; font-size: 14px; line-height: 1; padding: 0; }
+
+  .scan-btn {
+    margin-top: 14px; width: 100%; padding: 12px; border: none; border-radius: 6px;
+    background: var(--brand); color: #fff; font-family: var(--font-display); font-weight: 600;
+    font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background .15s;
+  }
+  .scan-btn:hover { background: #16307a; }
+  .scan-btn:disabled { background: var(--ink-faint); cursor: progress; }
+
+  /* ── Readout pane ────────────────────────────────────────────────── */
+  .readout-empty {
+    padding: 60px 24px; display: flex; flex-direction: column; align-items: center;
+    gap: 10px; color: var(--ink-faint); text-align: center;
+  }
+  .readout-empty svg { width: 46px; height: 46px; opacity: 0.35; }
+  .readout-empty .re-title { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em; }
+
+  .readout-body { padding: 18px 16px; }
+
+  /* severity gauge */
+  .gauge-wrap { margin-bottom: 18px; }
+  .gauge-label-row { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-faint); margin-bottom: 5px; }
+  .gauge-track {
+    position: relative; height: 10px; border-radius: 5px; overflow: hidden;
+    background: linear-gradient(90deg, var(--ok) 0%, var(--ok) 1%, var(--mask) 35%, var(--warn) 65%, var(--block) 90%, var(--block) 100%);
+    opacity: 0.28;
+  }
+  .gauge-fill {
+    position: absolute; top: 0; left: 0; height: 100%; border-radius: 5px;
+    background: linear-gradient(90deg, var(--ok) 0%, var(--mask) 35%, var(--warn) 65%, var(--block) 90%);
+    transition: width .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .gauge-marker {
+    position: absolute; top: -4px; width: 2px; height: 18px; background: var(--ink);
+    transition: left .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .gauge-ticks { position: relative; height: 14px; margin-top: 2px; }
+  .gauge-ticks span { position: absolute; font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-faint); transform: translateX(-50%); }
+
+  /* verdict stamp */
+  .stamp-wrap { display: flex; justify-content: center; margin: 8px 0 20px; }
+  .stamp {
+    font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: 0.08em;
+    padding: 10px 22px; border: 3px double currentColor; border-radius: 4px;
+    transform: rotate(-3deg); text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .stamp.action-allow { color: var(--ok); background: var(--ok-dim); }
+  .stamp.action-mask  { color: var(--mask); background: var(--mask-dim); }
+  .stamp.action-warn  { color: var(--warn); background: var(--warn-dim); }
+  .stamp.action-block { color: var(--block); background: var(--block-dim); }
+
+  .reason-line { text-align: center; font-size: 12.5px; color: var(--ink-muted); margin: -10px 0 18px; padding: 0 12px; }
+
+  /* manifest */
+  .manifest-title { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .manifest-list { list-style: none; margin: 0 0 18px; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .manifest-list li {
+    display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-family: var(--font-mono); font-size: 12px;
+    border-bottom: 1px solid var(--line); background: var(--surface);
+  }
+  .manifest-list li:last-child { border-bottom: none; }
+  .manifest-list .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .manifest-list .etype { color: var(--ink); font-weight: 500; flex: 1; }
+  .manifest-list .ecount { color: var(--ink-faint); }
+  .manifest-empty { padding: 14px; text-align: center; color: var(--ink-faint); font-size: 12.5px; font-family: var(--font-mono); border: 1px dashed var(--line); border-radius: 6px; margin-bottom: 18px; }
+
+  details.preview { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 18px; }
+  details.preview summary { cursor: pointer; padding: 9px 12px; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-muted); user-select: none; }
+  details.preview summary::-webkit-details-marker { display: none; }
+  details.preview summary:before { content: "▸ "; }
+  details.preview[open] summary:before { content: "▾ "; }
+  .preview-text { margin: 0; padding: 12px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; white-space: pre-wrap; word-break: break-word; color: var(--ink-muted); max-height: 220px; overflow-y: auto; background: var(--surface-2); }
+
+  .action-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn { flex: 1; min-width: 140px; padding: 11px 14px; border-radius: 6px; font-family: var(--font-display); font-weight: 600; font-size: 13px; cursor: pointer; border: 1.5px solid transparent; }
+  .btn-solid-ok    { background: var(--ok);   color: #fff; }
+  .btn-solid-mask  { background: var(--mask); color: #fff; }
+  .btn-outline-warn{ background: var(--warn-dim); color: var(--warn); border-color: var(--warn); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .block-banner {
+    background: var(--block-dim); color: var(--block); border: 1px solid var(--block);
+    border-radius: 6px; padding: 12px 14px; font-size: 12.5px; text-align: center;
+  }
+
+  /* ── Response pane ───────────────────────────────────────────────── */
+  .response-pane { margin-top: 18px; }
+  .response-card { padding: 16px; }
+  .resp-meta { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-bottom: 10px; }
+  .resp-meta b { color: var(--ink-muted); }
+  .resp-body { padding: 12px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; }
+  .resp-error { padding: 12px; background: var(--block-dim); border: 1px solid var(--block); color: var(--block); border-radius: 6px; font-size: 13px; }
+
+  /* ── Policy footer ───────────────────────────────────────────────── */
+  .policy-footer { margin-top: 22px; }
+  .policy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px 16px; }
+  @media (max-width: 720px) { .policy-grid { grid-template-columns: 1fr; } }
+  .policy-col h3 { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 6px; color: var(--ink-faint); }
+  .policy-col ul { margin: 0; padding: 0; list-style: none; font-size: 12px; color: var(--ink-muted); line-height: 1.8; }
+  .policy-col .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; }
+
+  footer.credit { text-align: center; margin-top: 22px; font-size: 11.5px; color: var(--ink-faint); font-family: var(--font-mono); }
+
+  .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="topbar">
+    <div class="brand-block">
+      <svg class="shield-mark" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z" fill="#1D3A8A"/>
+        <path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z" fill="none" stroke="#E3E9FA" stroke-width="1"/>
+        <path d="M16 23.5 L21.5 29 L33 16" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="brand-text">
+        <h1>PromptShield</h1>
+        <p>Inspection checkpoint for prompts, code &amp; documents — before they reach an external LLM</p>
+      </div>
+    </div>
+
+    <details class="conn-panel" id="conn-panel">
+      <summary>Gateway connection</summary>
+      <div class="conn-grid">
+        <div>
+          <label for="api-base">Gateway URL</label>
+          <input id="api-base" type="text" value="http://localhost:8000">
+        </div>
+        <div>
+          <label for="api-key">Gateway API key</label>
+          <input id="api-key" type="text" placeholder="dev-key-change-me">
+        </div>
+        <div>
+          <label for="provider">Provider</label>
+          <input id="provider" type="text" value="groq">
+        </div>
+        <div>
+          <label for="model">Model</label>
+          <input id="model" type="text" value="llama-3.3-70b-versatile">
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="console">
+    <!-- INPUT PANE -->
+    <div class="pane">
+      <div class="pane-header">
+        <h2>Input</h2>
+        <div class="tabs">
+          <button class="tab-btn active" id="tab-text" onclick="switchTab('text')">Paste text</button>
+          <button class="tab-btn" id="tab-file" onclick="switchTab('file')">Upload file</button>
+        </div>
+      </div>
+      <div class="input-body">
+        <textarea id="text-input" placeholder="Paste a prompt, source code, or log output here...">My email is alice@acme.com and the DB is postgres://admin:S3cretPW@10.0.4.12:5432/prod — can you help me write a migration script?</textarea>
+
+        <div class="dropzone" id="dropzone" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4M12 4L7 9M12 4l5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+          <div class="dz-title">Drop a file, or click to browse</div>
+          <div class="dz-sub">.pdf · .docx · .txt · .py · .log · .json · .env ...</div>
+          <input type="file" id="file-input" style="display:none;">
+          <div id="file-chip-wrap"></div>
+        </div>
+
+        <button class="scan-btn" id="scan-btn" onclick="runScan()">
+          <span id="scan-btn-label">Scan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- READOUT PANE -->
+    <div class="pane">
+      <div class="pane-header">
+        <h2>Inspection readout</h2>
+      </div>
+      <div id="readout-empty" class="readout-empty">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z" stroke-dasharray="3 3"/></svg>
+        <div class="re-title">AWAITING INPUT</div>
+      </div>
+      <div id="readout-body" class="readout-body" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div class="response-pane pane" id="response-pane" style="display:none;">
+    <div class="pane-header"><h2>Response from LLM provider</h2></div>
+    <div class="response-card" id="response-card"></div>
+  </div>
+
+  <div class="pane policy-footer">
+    <div class="pane-header"><h2>What's being scanned for</h2></div>
+    <div class="policy-grid">
+      <div class="policy-col">
+        <h3>Secrets &amp; internal</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--block)"></span>API keys, AWS credentials, private keys</li>
+          <li><span class="dot" style="background:var(--block)"></span>GitHub tokens, Slack webhooks</li>
+          <li><span class="dot" style="background:var(--warn)"></span>DB connection strings, JWTs</li>
+          <li><span class="dot" style="background:var(--mask)"></span>Internal hostnames, private IPs</li>
+        </ul>
+      </div>
+      <div class="policy-col">
+        <h3>Regulated PII</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--warn)"></span>SSNs, credit card numbers</li>
+          <li><span class="dot" style="background:var(--mask)"></span>IBANs</li>
+        </ul>
+      </div>
+      <div class="policy-col">
+        <h3>Everyday PII</h3>
+        <ul>
+          <li><span class="dot" style="background:var(--mask)"></span>Emails, phone numbers, IPs</li>
+          <li><span class="dot" style="background:var(--ok)"></span>Names, locations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="credit">PromptShield — built on Occludra Gateway (Apache 2.0) · risk layer &amp; document handling added on top</footer>
+</div>
+
+<script>
+const ENTITY_COLOR = {
+  PRIVATE_KEY:'var(--block)', AWS_ACCESS_KEY:'var(--block)', API_KEY:'var(--block)',
+  GITHUB_TOKEN:'var(--block)', DB_CONNECTION_STRING:'var(--block)', SLACK_WEBHOOK:'var(--block)',
+  PROMPT_INJECTION:'var(--block)', JWT_TOKEN:'var(--warn)', BEARER_TOKEN:'var(--warn)',
+  GENERIC_SECRET_ASSIGNMENT:'var(--warn)', INTERNAL_HOSTNAME:'var(--warn)', US_SSN:'var(--warn)',
+  CREDIT_CARD:'var(--warn)', IBAN_CODE:'var(--warn)', PRIVATE_IP:'var(--mask)',
+  EMAIL_ADDRESS:'var(--mask)', PHONE_NUMBER:'var(--mask)', IP_ADDRESS:'var(--mask)',
+  PERSON:'var(--ok)', LOCATION:'var(--ok)', NRP:'var(--ok)', DATE_TIME:'var(--ok)'
+};
+
+const STAMP_TEXT = { allow: 'Cleared', mask: 'Sanitized', warn: 'Flagged — review', block: 'Denied' };
+const GAUGE_TICKS = [
+  {v:35, l:'35'}, {v:65, l:'65'}, {v:90, l:'90'}
+];
+
+let activeTab = 'text';
+let selectedFile = null;
+let lastScan = null; // { redacted_text, action, ... }
+let lastOriginalText = '';
+
+function switchTab(tab) {
+  activeTab = tab;
+  document.getElementById('tab-text').classList.toggle('active', tab === 'text');
+  document.getElementById('tab-file').classList.toggle('active', tab === 'file');
+  document.getElementById('text-input').style.display = tab === 'text' ? 'block' : 'none';
+  document.getElementById('dropzone').style.display = tab === 'file' ? 'flex' : 'none';
+}
+
+const dz = document.getElementById('dropzone');
+const fileInput = document.getElementById('file-input');
+dz.addEventListener('click', () => fileInput.click());
+dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('dragover'); });
+dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+dz.addEventListener('drop', e => {
+  e.preventDefault(); dz.classList.remove('dragover');
+  if (e.dataTransfer.files.length) setFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change', e => { if (e.target.files.length) setFile(e.target.files[0]); });
+
+function setFile(file) {
+  selectedFile = file;
+  document.getElementById('file-chip-wrap').innerHTML =
+    `<div class="file-chip">📄 ${file.name} <button onclick="clearFile(event)">✕</button></div>`;
+}
+function clearFile(e) {
+  e.stopPropagation();
+  selectedFile = null;
+  fileInput.value = '';
+  document.getElementById('file-chip-wrap').innerHTML = '';
+}
+
+function gatewayUrl() { return document.getElementById('api-base').value.replace(/\/$/, ''); }
+
+async function runScan() {
+  const btn = document.getElementById('scan-btn');
+  const label = document.getElementById('scan-btn-label');
+  if (activeTab === 'text' && !document.getElementById('text-input').value.trim()) return;
+  if (activeTab === 'file' && !selectedFile) { alert('Choose a file first.'); return; }
+
+  btn.disabled = true;
+  label.innerHTML = '<span class="spinner"></span> Scanning…';
+  document.getElementById('response-pane').style.display = 'none';
+
+  try {
+    let res, data;
+    if (activeTab === 'text') {
+      lastOriginalText = document.getElementById('text-input').value;
+      res = await fetch(`${gatewayUrl()}/v1/scan`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: lastOriginalText, source: 'prompt' })
+      });
+    } else {
+      const fd = new FormData();
+      fd.append('file', selectedFile);
+      res = await fetch(`${gatewayUrl()}/v1/documents/scan`, { method: 'POST', body: fd });
+    }
+    data = await res.json();
+    if (!res.ok) throw new Error(data.detail?.message || data.message || 'Scan failed');
+    if (activeTab === 'file') lastOriginalText = null; // document text lives server-side only
+    lastScan = data;
+    renderReadout(data);
+  } catch (err) {
+    renderScanError(err.message);
+  } finally {
+    btn.disabled = false;
+    label.textContent = 'Scan';
+  }
+}
+
+function renderScanError(msg) {
+  document.getElementById('readout-empty').style.display = 'none';
+  const body = document.getElementById('readout-body');
+  body.style.display = 'block';
+  body.innerHTML = `<div class="block-banner">Couldn't reach the gateway — ${msg}<br><span style="font-family:var(--font-mono);font-size:11px;">Check the Gateway URL in the connection panel, and that docker compose is running.</span></div>`;
+}
+
+function renderReadout(data) {
+  document.getElementById('readout-empty').style.display = 'none';
+  const body = document.getElementById('readout-body');
+  body.style.display = 'block';
+
+  const score = data.risk_score;
+  const markerPos = Math.min(Math.max(score, 2), 98);
+
+  const manifestHtml = data.violations.length
+    ? `<ul class="manifest-list">${groupViolations(data.violations).map(g => `
+        <li><span class="dot" style="background:${ENTITY_COLOR[g.type] || 'var(--ink-faint)'}"></span>
+        <span class="etype">${g.type}</span><span class="ecount">×${g.count}</span></li>`).join('')}</ul>`
+    : `<div class="manifest-empty">No entities matched — nothing to declare.</div>`;
+
+  const previewHtml = data.redacted_text
+    ? `<details class="preview"><summary>Sanitized preview</summary><pre class="preview-text">${escapeHtml(data.redacted_text)}</pre></details>`
+    : '';
+
+  body.innerHTML = `
+    <div class="gauge-wrap">
+      <div class="gauge-label-row"><span>RISK SCORE</span><span>${score} / 100 · ${data.risk_level.toUpperCase()}</span></div>
+      <div class="gauge-track"><div class="gauge-fill" style="width:${markerPos}%"></div><div class="gauge-marker" style="left:${markerPos}%"></div></div>
+      <div class="gauge-ticks">${GAUGE_TICKS.map(t => `<span style="left:${t.v}%">${t.l}</span>`).join('')}</div>
+    </div>
+
+    <div class="stamp-wrap"><div class="stamp action-${data.action}">${STAMP_TEXT[data.action]}</div></div>
+    <div class="reason-line">${escapeHtml(data.reason)}</div>
+
+    <div class="manifest-title">Manifest (${data.violations.length} item${data.violations.length===1?'':'s'})</div>
+    ${manifestHtml}
+    ${previewHtml}
+
+    ${renderActionRow(data)}
+  `;
+}
+
+function groupViolations(violations) {
+  const counts = {};
+  violations.forEach(v => { counts[v.entity_type] = (counts[v.entity_type] || 0) + 1; });
+  return Object.entries(counts).map(([type, count]) => ({ type, count })).sort((a,b)=>b.count-a.count);
+}
+
+function renderActionRow(data) {
+  if (data.action === 'block') {
+    return `<div class="block-banner">Blocked at the checkpoint. Edit the input to remove the flagged secret(s) and rescan.</div>`;
+  }
+  if (data.action === 'allow') {
+    return `<div class="action-row"><button class="btn btn-solid-ok" onclick="sendToLLM(false)">Send to LLM →</button></div>`;
+  }
+  if (data.action === 'mask') {
+    return `<div class="action-row"><button class="btn btn-solid-mask" onclick="sendToLLM(true)">Send sanitized version →</button></div>`;
+  }
+  // warn
+  return `<div class="action-row">
+    <button class="btn btn-solid-mask" onclick="sendToLLM(true)">Send sanitized instead</button>
+    <button class="btn btn-outline-warn" onclick="sendToLLM(false)">Send anyway (unredacted)</button>
+  </div>`;
+}
+
+async function sendToLLM(useSanitized) {
+  const textToSend = useSanitized ? lastScan.redacted_text : (lastOriginalText ?? lastScan.redacted_text);
+  const pane = document.getElementById('response-pane');
+  const card = document.getElementById('response-card');
+  pane.style.display = 'block';
+  card.innerHTML = `<div class="resp-meta"><span class="spinner" style="border-color:rgba(29,58,138,.25);border-top-color:var(--brand)"></span> Sending to provider…</div>`;
+
+  const apiKey = document.getElementById('api-key').value.trim();
+  const provider = document.getElementById('provider').value.trim();
+  const model = document.getElementById('model').value.trim();
+
+  try {
+    const res = await fetch(`${gatewayUrl()}/v1/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'x-provider': provider,
+        'x-model': model
+      },
+      body: JSON.stringify({ model, messages: [{ role: 'user', content: textToSend }] })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      const msg = data.detail?.message || data.message || `Request rejected (${res.status})`;
+      card.innerHTML = `<div class="resp-error">${escapeHtml(msg)}</div>`;
+      return;
+    }
+    if (data.error) {
+      card.innerHTML = `<div class="resp-error">${escapeHtml(data.message || 'Blocked by gateway DLP policy.')}</div>`;
+      return;
+    }
+
+    const content = data.choices?.[0]?.message?.content ?? '(no content returned)';
+    const meta = data.aisg_metadata || {};
+    card.innerHTML = `
+      <div class="resp-meta">
+        <span><b>provider</b> ${provider}</span>
+        <span><b>model</b> ${model}</span>
+        <span><b>latency</b> ${meta.latency_ms ?? '—'}ms</span>
+        <span><b>sent</b> ${useSanitized ? 'sanitized text' : 'original text'}</span>
+      </div>
+      <div class="resp-body">${escapeHtml(content)}</div>
+    `;
+  } catch (err) {
+    card.innerHTML = `<div class="resp-error">Couldn't reach the gateway — ${escapeHtml(err.message)}</div>`;
+  }
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s ?? '';
+  return d.innerHTML;
+}
+</script>
+</body>
+</html>

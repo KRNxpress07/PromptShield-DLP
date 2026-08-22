@@ -181,7 +181,9 @@ class RequestContextMiddleware(BaseHTTPMiddleware):
 
 app.add_middleware(RequestContextMiddleware)
 
-from .routers import health, proxy  # noqa: E402
+from .routers import health, proxy, scan, documents  # noqa: E402
 
 app.include_router(health.router)
 app.include_router(proxy.router)
+app.include_router(scan.router)
+app.include_router(documents.router)
