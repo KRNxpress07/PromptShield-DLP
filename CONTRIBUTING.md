@@ -1,6 +1,6 @@
-# Contributing to Occludra
+# Contributing to PromptShield
 
-Thanks for your interest in contributing to Occludra.
+Thanks for your interest in contributing to PromptShield.
 
 ## Getting Started
 
@@ -37,7 +37,3 @@ pytest tests/ -v
 - Documentation fixes
 - Bug reports with reproduction steps
 - Performance improvements
-
-## Code of Conduct
-
-This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).

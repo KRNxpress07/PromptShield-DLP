@@ -1,12 +1,12 @@
 # Security Policy
 
-Occludra (AI Security Gateway) is a security product. We take vulnerability reports seriously.
+PromptShield is a project demo built on a security gateway. We take vulnerability reports seriously.
 
 ## Reporting a Vulnerability
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, email us at **security@occludra.ai** with:
+For this project, report issues to the repository maintainer rather than sharing them publicly.
 
 - Description of the vulnerability
 - Steps to reproduce
@@ -38,7 +38,7 @@ We credit all confirmed vulnerability reporters in our release notes (unless you
 
 ## Security Best Practices
 
-When deploying Occludra:
+When deploying PromptShield:
 
 - Always set a strong `AISG_API_KEY` — never deploy with the default key
 - Run behind a reverse proxy (nginx, Caddy, Traefik) with TLS in production

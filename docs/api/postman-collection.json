@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "AI Security Gateway API",
+    "name": "PromptShield API",
     "_postman_id": "aisg-oss-collection-v1",
-    "description": "API collection for AI Security Gateway — the AI Firewall & Governance Gateway.\n\nDefault Base URL: http://localhost:8000 (self-hosted via Docker Compose)\nManaged Cloud: https://api.aisecuritygateway.ai\n\nAuthentication: Bearer token.\n\nAll requests go through the AI Firewall, which scans for PII, prompt injections, and enforces DLP policies before forwarding to the LLM provider.",
+    "description": "API collection for PromptShield — a local AI prompt firewall.\n\nDefault Base URL: http://localhost:8000 (run with Docker Compose).\n\nAuthentication: Bearer token for chat forwarding.\n\nAll requests are scanned for PII and prompt injection before optional forwarding to an LLM provider.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
