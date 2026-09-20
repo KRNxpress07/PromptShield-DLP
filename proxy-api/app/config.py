@@ -10,6 +10,9 @@ import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
+from dotenv import load_dotenv
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(PROJECT_ROOT / "proxy-api" / ".env")
 
 import yaml
 from pydantic_settings import BaseSettings
@@ -68,18 +71,24 @@ _gateway_config: dict[str, Any] | None = None
 def get_gateway_config() -> dict[str, Any]:
     """Load and cache config/gateway.yaml with env var substitution."""
     global _gateway_config
+
     if _gateway_config is not None:
         return _gateway_config
 
     config_path = Path(get_settings().config_path)
+
     if not config_path.exists():
         env_path = os.environ.get("AISG_CONFIG_PATH")
+
         if env_path:
             config_path = Path(env_path)
+        else:
+            config_path = PROJECT_ROOT / "config" / "gateway.yaml"
 
     if config_path.exists():
         with open(config_path) as f:
             raw = yaml.safe_load(f)
+
         _gateway_config = _resolve_env_vars(raw or {})
     else:
         _gateway_config = {}

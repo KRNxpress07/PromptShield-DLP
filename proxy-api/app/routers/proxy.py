@@ -15,6 +15,7 @@ import json
 import time
 import uuid
 from typing import Any
+from ..config import get_settings, get_provider_keys, get_dlp_policy, get_api_keys
 
 import litellm
 import structlog
@@ -71,7 +72,19 @@ async def chat_completions(
         raise HTTPException(status_code=400, detail={"error": "invalid_request", "message": "Last message content cannot be empty."})
 
     # ── 1. Auth ──────────────────────────────────────────────────────────────
-    raw_key = request.headers.get("Authorization", "").removeprefix("Bearer ").strip()
+    raw_header = request.headers.get("Authorization", "")
+    raw_key = raw_header.removeprefix("Bearer ").strip()
+
+    print("DEBUG AUTH HEADER:", repr(raw_header))
+    print("DEBUG RAW KEY:", repr(raw_key))
+    print("DEBUG API KEYS:", get_api_keys())
+    print("DEBUG AUTH RESULT:", authenticate(raw_key))
+
+    print("DEBUG AUTH HEADER:", repr(raw_header))
+    print("DEBUG RAW KEY:", repr(raw_key))
+    print("DEBUG AUTH RESULT:", authenticate(raw_key))
+
+   
 
     key_record = authenticate(raw_key)
     if key_record is None:

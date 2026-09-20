@@ -29,7 +29,9 @@ def _load_providers_json() -> dict[str, Any]:
     if env:
         candidates.append(Path(env))
     candidates.append(Path("/app/config/providers.json"))
-    candidates.append(Path(__file__).resolve().parent.parent / "config" / "providers.json")
+    candidates.append(
+    Path(__file__).resolve().parent.parent.parent / "config" / "providers.json"
+)
 
     for p in candidates:
         if p.exists():
