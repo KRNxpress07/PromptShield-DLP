@@ -117,3 +117,14 @@ def test_raise_for_status_model_not_found():
 def test_raise_for_status_success():
     resp = _FakeResponse(200, {"ok": True})
     _raise_for_status(resp)  # should not raise
+
+
+def test_phase1_dlp_block_preserves_422_and_typed_exception():
+    response = _FakeResponse(422, {
+        "error": "pii_policy_violation", "message": "Request blocked",
+        "request_id": "req_phase1", "violations": [],
+    })
+    with pytest.raises(DLPBlockError) as error:
+        _raise_for_status(response)
+    assert error.value.status_code == 422
+    assert error.value.request_id == "req_phase1"

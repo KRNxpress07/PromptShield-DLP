@@ -1,0 +1,113 @@
+id,label,negative_kind,entity_type,start,end,matched_text,prompt
+s-db_connection_string-00,sensitive,,EMAIL_ADDRESS,53,84,dummy_pass_0@db.example.invalid,Inspect this synthetic value: postgresql://synthetic:dummy_pass_0@db.example.invalid:5432/demo
+s-private_ip-00,sensitive,,IP_ADDRESS,30,39,10.42.0.1,Inspect this synthetic value: 10.42.0.1
+s-db_connection_string-01,sensitive,,EMAIL_ADDRESS,18,49,dummy_pass_1@db.example.invalid,mysql://synthetic:dummy_pass_1@db.example.invalid:5432/demo
+s-private_ip-01,sensitive,,IP_ADDRESS,0,12,192.168.25.2,192.168.25.2
+s-db_connection_string-03,sensitive,,EMAIL_ADDRESS,86,117,dummy_pass_3@db.example.invalid,Help redact the following demonstration record before sharing: postgresql://synthetic:dummy_pass_3@db.example.invalid:5432/demo
+s-private_ip-03,sensitive,,IP_ADDRESS,63,75,192.168.25.4,Help redact the following demonstration record before sharing: 192.168.25.4
+s-db_connection_string-06,sensitive,,EMAIL_ADDRESS,72,103,dummy_pass_6@db.example.invalid,"DEBUG fixture audit
+source=synthetic_demo
+value: postgresql://synthetic:dummy_pass_6@db.example.invalid:5432/demo
+result=pending
+Explain the next debugging step."
+s-private_ip-06,sensitive,,IP_ADDRESS,49,58,10.42.6.7,"DEBUG fixture audit
+source=synthetic_demo
+value: 10.42.6.7
+result=pending
+Explain the next debugging step."
+s-db_connection_string-09,sensitive,,EMAIL_ADDRESS,72,103,dummy_pass_9@db.example.invalid,Tool description: a demonstration field contains postgresql://synthetic:dummy_pass_9@db.example.invalid:5432/demo. The tool should produce a concise outline.
+s-private_ip-09,sensitive,,IP_ADDRESS,49,62,192.168.25.10,Tool description: a demonstration field contains 192.168.25.10. The tool should produce a concise outline.
+s-db_connection_string-10,sensitive,,EMAIL_ADDRESS,66,98,dummy_pass_10@db.example.invalid,"Nested demonstration:
+outer:
+  inner:
+    note: mysql://synthetic:dummy_pass_10@db.example.invalid:5432/demo
+  action: summarize the workflow"
+s-private_ip-10,sensitive,,IP_ADDRESS,48,59,10.42.10.11,"Nested demonstration:
+outer:
+  inner:
+    note: 10.42.10.11
+  action: summarize the workflow"
+s-db_connection_string-11,sensitive,,EMAIL_ADDRESS,64,96,dummy_pass_11@db.example.invalid,A colleague wrote a fictional example with (mongodb://synthetic:dummy_pass_11@db.example.invalid:5432/demo). Explain what should be removed before it is shared.
+s-private_ip-11,sensitive,,IP_ADDRESS,44,57,192.168.25.12,A colleague wrote a fictional example with (192.168.25.12). Explain what should be removed before it is shared.
+s-db_connection_string-12,sensitive,,EMAIL_ADDRESS,61,93,dummy_pass_12@db.example.invalid,Review the bracketed synthetic field [postgresql://synthetic:dummy_pass_12@db.example.invalid:5432/demo]; keep the surrounding checklist intact.
+s-private_ip-12,sensitive,,IP_ADDRESS,38,49,10.42.12.13,Review the bracketed synthetic field [10.42.12.13]; keep the surrounding checklist intact.
+s-db_connection_string-14,sensitive,,EMAIL_ADDRESS,862,894,dummy_pass_14@db.example.invalid,"Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: mongodb://synthetic:dummy_pass_14@db.example.invalid:5432/demo
+Keep the steps concise."
+s-private_ip-14,sensitive,,IP_ADDRESS,842,853,10.42.14.15,"Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: 10.42.14.15
+Keep the steps concise."
+s-db_connection_string-15,sensitive,,EMAIL_ADDRESS,83,115,dummy_pass_15@db.example.invalid,"Schema description: ""The fictional protected field contains postgresql://synthetic:dummy_pass_15@db.example.invalid:5432/demo"". Preserve the purpose of the demonstration."
+s-private_ip-15,sensitive,,IP_ADDRESS,60,73,192.168.25.16,"Schema description: ""The fictional protected field contains 192.168.25.16"". Preserve the purpose of the demonstration."
+s-db_connection_string-16,sensitive,,EMAIL_ADDRESS,2850,2882,dummy_pass_16@db.example.invalid,"For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is mysql://synthetic:dummy_pass_16@db.example.invalid:5432/demo
+End with the next step."
+s-private_ip-16,sensitive,,IP_ADDRESS,2832,2843,10.42.16.17,"For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is 10.42.16.17
+End with the next step."
+s-db_connection_string-17,sensitive,,EMAIL_ADDRESS,29,61,dummy_pass_17@db.example.invalid,"{""note"":""mongodb://synthetic:dummy_pass_17@db.example.invalid:5432/demo"",""task"":""summarize the demonstration""}"
+s-private_ip-17,sensitive,,IP_ADDRESS,9,22,192.168.25.18,"{""note"":""192.168.25.18"",""task"":""summarize the demonstration""}"
+s-db_connection_string-18,sensitive,,EMAIL_ADDRESS,69,101,dummy_pass_18@db.example.invalid,"/* Begin synthetic fixture */
+const record = `postgresql://synthetic:dummy_pass_18@db.example.invalid:5432/demo`;
+/* Explain validation before export. */"
+s-private_ip-18,sensitive,,IP_ADDRESS,46,57,10.42.18.19,"/* Begin synthetic fixture */
+const record = `10.42.18.19`;
+/* Explain validation before export. */"
+s-db_connection_string-19,sensitive,,EMAIL_ADDRESS,41,73,dummy_pass_19@db.example.invalid,"Demo log entry <record>mysql://synthetic:dummy_pass_19@db.example.invalid:5432/demo</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+s-private_ip-19,sensitive,,IP_ADDRESS,23,36,192.168.25.20,"Demo log entry <record>192.168.25.20</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+n-07-0,safe,hard_negative,IP_ADDRESS,0,9,192.0.2.1,192.0.2.1
+n-07-1,safe,hard_negative,IP_ADDRESS,23,32,192.0.2.1,Documentation excerpt: 192.0.2.1. Explain the concept.
+n-07-2,safe,hard_negative,IP_ADDRESS,17,26,192.0.2.1,"# Benign fixture
+192.0.2.1
+Task: review the example."
+n-07-3,safe,hard_negative,IP_ADDRESS,40,49,192.0.2.1,Review this public or invalid example: (192.0.2.1).
+n-12-0,safe,hard_negative,CREDIT_CARD,29,48,4111-2222-3333-4444,A checksum-invalid sample is 4111-2222-3333-4444
+n-12-1,safe,hard_negative,CREDIT_CARD,52,71,4111-2222-3333-4444,Documentation excerpt: A checksum-invalid sample is 4111-2222-3333-4444. Explain the concept.
+n-12-2,safe,hard_negative,CREDIT_CARD,46,65,4111-2222-3333-4444,"# Benign fixture
+A checksum-invalid sample is 4111-2222-3333-4444
+Task: review the example."
+n-12-3,safe,hard_negative,CREDIT_CARD,69,88,4111-2222-3333-4444,Review this public or invalid example: (A checksum-invalid sample is 4111-2222-3333-4444).
+n-23-0,safe,hard_negative,EMAIL_ADDRESS,13,34,reader@db.example.com,postgresql://reader@db.example.com/demo
+n-23-1,safe,hard_negative,EMAIL_ADDRESS,36,57,reader@db.example.com,Documentation excerpt: postgresql://reader@db.example.com/demo. Explain the concept.
+n-23-2,safe,hard_negative,EMAIL_ADDRESS,30,51,reader@db.example.com,"# Benign fixture
+postgresql://reader@db.example.com/demo
+Task: review the example."
+n-23-3,safe,hard_negative,EMAIL_ADDRESS,53,74,reader@db.example.com,Review this public or invalid example: (postgresql://reader@db.example.com/demo).
+n-35-0,safe,hard_negative,IP_ADDRESS,11,26,999.999.999.999,The number 999.999.999.999 is invalid
+n-35-1,safe,hard_negative,IP_ADDRESS,34,49,999.999.999.999,Documentation excerpt: The number 999.999.999.999 is invalid. Explain the concept.
+n-35-2,safe,hard_negative,IP_ADDRESS,28,43,999.999.999.999,"# Benign fixture
+The number 999.999.999.999 is invalid
+Task: review the example."
+n-35-3,safe,hard_negative,IP_ADDRESS,51,66,999.999.999.999,Review this public or invalid example: (The number 999.999.999.999 is invalid).
+n-37-0,safe,hard_negative,US_SSN,13,24,000-00-0000,SSN invalid: 000-00-0000
+n-37-1,safe,hard_negative,US_SSN,36,47,000-00-0000,Documentation excerpt: SSN invalid: 000-00-0000. Explain the concept.
+n-37-2,safe,hard_negative,US_SSN,30,41,000-00-0000,"# Benign fixture
+SSN invalid: 000-00-0000
+Task: review the example."
+n-37-3,safe,hard_negative,US_SSN,53,64,000-00-0000,Review this public or invalid example: (SSN invalid: 000-00-0000).
+n-38-0,safe,hard_negative,US_SSN,12,23,123-45-6789,SSN sample: 123-45-6789
+n-38-1,safe,hard_negative,US_SSN,35,46,123-45-6789,Documentation excerpt: SSN sample: 123-45-6789. Explain the concept.
+n-38-2,safe,hard_negative,US_SSN,29,40,123-45-6789,"# Benign fixture
+SSN sample: 123-45-6789
+Task: review the example."
+n-38-3,safe,hard_negative,US_SSN,52,63,123-45-6789,Review this public or invalid example: (SSN sample: 123-45-6789).
+n-39-0,safe,hard_negative,CREDIT_CARD,14,30,4242424242424243,Invalid card: 4242424242424243
+n-39-1,safe,hard_negative,CREDIT_CARD,37,53,4242424242424243,Documentation excerpt: Invalid card: 4242424242424243. Explain the concept.
+n-39-2,safe,hard_negative,CREDIT_CARD,31,47,4242424242424243,"# Benign fixture
+Invalid card: 4242424242424243
+Task: review the example."
+n-39-3,safe,hard_negative,CREDIT_CARD,54,70,4242424242424243,Review this public or invalid example: (Invalid card: 4242424242424243).
+n-47-0,safe,hard_negative,IP_ADDRESS,0,10,10.999.1.1,10.999.1.1 is not a valid private IP
+n-47-1,safe,hard_negative,IP_ADDRESS,23,33,10.999.1.1,Documentation excerpt: 10.999.1.1 is not a valid private IP. Explain the concept.
+n-47-2,safe,hard_negative,IP_ADDRESS,17,27,10.999.1.1,"# Benign fixture
+10.999.1.1 is not a valid private IP
+Task: review the example."
+n-47-3,safe,hard_negative,IP_ADDRESS,40,50,10.999.1.1,Review this public or invalid example: (10.999.1.1 is not a valid private IP).
+n-53-0,safe,hard_negative,EMAIL_ADDRESS,0,19,support@example.com,support@example.com is a public documentation contact
+n-53-1,safe,hard_negative,EMAIL_ADDRESS,23,42,support@example.com,Documentation excerpt: support@example.com is a public documentation contact. Explain the concept.
+n-53-2,safe,hard_negative,EMAIL_ADDRESS,17,36,support@example.com,"# Benign fixture
+support@example.com is a public documentation contact
+Task: review the example."
+n-53-3,safe,hard_negative,EMAIL_ADDRESS,40,59,support@example.com,Review this public or invalid example: (support@example.com is a public documentation contact).

@@ -1,0 +1,1927 @@
+{
+  "s-api_key-00": [],
+  "s-aws_access_key-00": [],
+  "s-aws_secret_key-00": [],
+  "s-aws_session_token-00": [],
+  "s-private_key-00": [],
+  "s-github_token-00": [],
+  "s-slack_webhook-00": [],
+  "s-jwt_token-00": [],
+  "s-bearer_token-00": [],
+  "s-db_connection_string-00": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 53,
+      "end": 84,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-00": [],
+  "s-private_ip-00": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 30,
+      "end": 39,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-00": [],
+  "s-email_address-00": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 30,
+      "end": 52,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-00": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 30,
+      "end": 45,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-00": [
+    {
+      "entity_type": "US_SSN",
+      "start": 30,
+      "end": 41,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-00": [],
+  "s-credit_card-00": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 30,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "s-person-00": [],
+  "s-location-00": [],
+  "s-street_address-00": [],
+  "s-postal_code-00": [],
+  "s-ip_address-00": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 30,
+      "end": 41,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-00": [],
+  "s-iban_code-00": [],
+  "s-prompt_injection-00": [],
+  "s-api_key-01": [],
+  "s-aws_access_key-01": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 0,
+      "end": 20,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-01": [],
+  "s-aws_session_token-01": [],
+  "s-private_key-01": [],
+  "s-github_token-01": [],
+  "s-slack_webhook-01": [],
+  "s-jwt_token-01": [],
+  "s-bearer_token-01": [],
+  "s-db_connection_string-01": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 18,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-01": [],
+  "s-private_ip-01": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 12,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-01": [],
+  "s-email_address-01": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 22,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-01": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 0,
+      "end": 15,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-01": [
+    {
+      "entity_type": "US_SSN",
+      "start": 0,
+      "end": 11,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-01": [],
+  "s-credit_card-01": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 0,
+      "end": 19,
+      "score": 1.0
+    }
+  ],
+  "s-person-01": [],
+  "s-location-01": [],
+  "s-street_address-01": [],
+  "s-postal_code-01": [],
+  "s-ip_address-01": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 9,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-01": [],
+  "s-iban_code-01": [],
+  "s-prompt_injection-01": [],
+  "m-01-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 22,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 25,
+      "end": 40,
+      "score": 1.0
+    }
+  ],
+  "m-01-1": [],
+  "m-01-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 0,
+      "end": 20,
+      "score": 1.0
+    }
+  ],
+  "m-01-3": [],
+  "m-02-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 42,
+      "end": 64,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 67,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "m-02-1": [],
+  "m-02-2": [],
+  "m-02-3": [],
+  "s-api_key-03": [],
+  "s-aws_access_key-03": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 63,
+      "end": 83,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-03": [],
+  "s-aws_session_token-03": [],
+  "s-private_key-03": [],
+  "s-github_token-03": [],
+  "s-slack_webhook-03": [],
+  "s-jwt_token-03": [],
+  "s-bearer_token-03": [],
+  "s-db_connection_string-03": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 86,
+      "end": 117,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-03": [],
+  "s-private_ip-03": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 63,
+      "end": 75,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-03": [],
+  "s-email_address-03": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 63,
+      "end": 85,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-03": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 63,
+      "end": 78,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-03": [
+    {
+      "entity_type": "US_SSN",
+      "start": 63,
+      "end": 74,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-03": [],
+  "s-credit_card-03": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 63,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "s-person-03": [],
+  "s-location-03": [],
+  "s-street_address-03": [],
+  "s-postal_code-03": [],
+  "s-ip_address-03": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 63,
+      "end": 72,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-03": [],
+  "s-iban_code-03": [],
+  "s-prompt_injection-03": [],
+  "m-03-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 63,
+      "end": 85,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 88,
+      "end": 103,
+      "score": 1.0
+    }
+  ],
+  "m-03-1": [],
+  "m-03-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 63,
+      "end": 83,
+      "score": 1.0
+    }
+  ],
+  "m-03-3": [],
+  "m-04-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 59,
+      "end": 81,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 84,
+      "end": 99,
+      "score": 1.0
+    }
+  ],
+  "m-04-1": [],
+  "m-04-2": [],
+  "m-04-3": [],
+  "m-05-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 42,
+      "end": 64,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 67,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "m-05-1": [],
+  "m-05-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 42,
+      "end": 62,
+      "score": 1.0
+    }
+  ],
+  "m-05-3": [],
+  "s-api_key-06": [],
+  "s-aws_access_key-06": [],
+  "s-aws_secret_key-06": [],
+  "s-aws_session_token-06": [],
+  "s-private_key-06": [],
+  "s-github_token-06": [],
+  "s-slack_webhook-06": [],
+  "s-jwt_token-06": [],
+  "s-bearer_token-06": [],
+  "s-db_connection_string-06": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 72,
+      "end": 103,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-06": [],
+  "s-private_ip-06": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 58,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-06": [],
+  "s-email_address-06": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-06": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-06": [
+    {
+      "entity_type": "US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-06": [],
+  "s-credit_card-06": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 49,
+      "end": 68,
+      "score": 1.0
+    }
+  ],
+  "s-person-06": [],
+  "s-location-06": [],
+  "s-street_address-06": [],
+  "s-postal_code-06": [],
+  "s-ip_address-06": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-06": [],
+  "s-iban_code-06": [],
+  "s-prompt_injection-06": [],
+  "m-06-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-06-1": [],
+  "m-06-2": [],
+  "m-06-3": [],
+  "s-api_key-09": [],
+  "s-aws_access_key-09": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-09": [],
+  "s-aws_session_token-09": [],
+  "s-private_key-09": [],
+  "s-github_token-09": [],
+  "s-slack_webhook-09": [],
+  "s-jwt_token-09": [],
+  "s-bearer_token-09": [],
+  "s-db_connection_string-09": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 72,
+      "end": 103,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-09": [],
+  "s-private_ip-09": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 62,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-09": [],
+  "s-email_address-09": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-09": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-09": [
+    {
+      "entity_type": "US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-09": [],
+  "s-credit_card-09": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 49,
+      "end": 68,
+      "score": 1.0
+    }
+  ],
+  "s-person-09": [],
+  "s-location-09": [],
+  "s-street_address-09": [],
+  "s-postal_code-09": [],
+  "s-ip_address-09": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-09": [],
+  "s-iban_code-09": [],
+  "s-prompt_injection-09": [],
+  "m-09-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-09-1": [],
+  "m-09-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 1.0
+    }
+  ],
+  "m-09-3": [],
+  "s-api_key-10": [],
+  "s-aws_access_key-10": [],
+  "s-aws_secret_key-10": [],
+  "s-aws_session_token-10": [],
+  "s-private_key-10": [],
+  "s-github_token-10": [],
+  "s-slack_webhook-10": [],
+  "s-jwt_token-10": [],
+  "s-bearer_token-10": [],
+  "s-db_connection_string-10": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 66,
+      "end": 98,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-10": [],
+  "s-private_ip-10": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 48,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-10": [],
+  "s-email_address-10": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 48,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-10": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 48,
+      "end": 63,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-10": [
+    {
+      "entity_type": "US_SSN",
+      "start": 48,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-10": [],
+  "s-credit_card-10": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 48,
+      "end": 67,
+      "score": 1.0
+    }
+  ],
+  "s-person-10": [],
+  "s-location-10": [],
+  "s-street_address-10": [],
+  "s-postal_code-10": [],
+  "s-ip_address-10": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 48,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-10": [],
+  "s-iban_code-10": [],
+  "s-prompt_injection-10": [],
+  "m-10-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 48,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-10-1": [],
+  "m-10-2": [],
+  "m-10-3": [],
+  "s-api_key-11": [],
+  "s-aws_access_key-11": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 44,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-11": [],
+  "s-aws_session_token-11": [],
+  "s-private_key-11": [],
+  "s-github_token-11": [],
+  "s-slack_webhook-11": [],
+  "s-jwt_token-11": [],
+  "s-bearer_token-11": [],
+  "s-db_connection_string-11": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 64,
+      "end": 96,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-11": [],
+  "s-private_ip-11": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 44,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-11": [],
+  "s-email_address-11": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 44,
+      "end": 67,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-11": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 44,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-11": [
+    {
+      "entity_type": "US_SSN",
+      "start": 44,
+      "end": 55,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-11": [],
+  "s-credit_card-11": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 44,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-person-11": [],
+  "s-location-11": [],
+  "s-street_address-11": [],
+  "s-postal_code-11": [],
+  "s-ip_address-11": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 44,
+      "end": 54,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-11": [],
+  "s-iban_code-11": [],
+  "s-prompt_injection-11": [],
+  "m-11-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 44,
+      "end": 67,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 70,
+      "end": 85,
+      "score": 1.0
+    }
+  ],
+  "m-11-1": [],
+  "m-11-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 44,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "m-11-3": [],
+  "s-api_key-12": [],
+  "s-aws_access_key-12": [],
+  "s-aws_secret_key-12": [],
+  "s-aws_session_token-12": [],
+  "s-private_key-12": [],
+  "s-github_token-12": [],
+  "s-slack_webhook-12": [],
+  "s-jwt_token-12": [],
+  "s-bearer_token-12": [],
+  "s-db_connection_string-12": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 61,
+      "end": 93,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-12": [],
+  "s-private_ip-12": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 38,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-12": [],
+  "s-email_address-12": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 38,
+      "end": 61,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-12": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 38,
+      "end": 53,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-12": [
+    {
+      "entity_type": "US_SSN",
+      "start": 38,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-12": [],
+  "s-credit_card-12": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 38,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "s-person-12": [],
+  "s-location-12": [],
+  "s-street_address-12": [],
+  "s-postal_code-12": [],
+  "s-ip_address-12": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 38,
+      "end": 50,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-12": [],
+  "s-iban_code-12": [],
+  "s-prompt_injection-12": [],
+  "m-13-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 40,
+      "end": 63,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 66,
+      "end": 81,
+      "score": 1.0
+    }
+  ],
+  "m-13-1": [],
+  "m-13-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 40,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "m-13-3": [],
+  "s-api_key-14": [],
+  "s-aws_access_key-14": [],
+  "s-aws_secret_key-14": [],
+  "s-aws_session_token-14": [],
+  "s-private_key-14": [],
+  "s-github_token-14": [],
+  "s-slack_webhook-14": [],
+  "s-jwt_token-14": [],
+  "s-bearer_token-14": [],
+  "s-db_connection_string-14": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 862,
+      "end": 894,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-14": [],
+  "s-private_ip-14": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 842,
+      "end": 853,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-14": [],
+  "s-email_address-14": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 842,
+      "end": 865,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-14": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 842,
+      "end": 857,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-14": [
+    {
+      "entity_type": "US_SSN",
+      "start": 842,
+      "end": 853,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-14": [],
+  "s-credit_card-14": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 842,
+      "end": 858,
+      "score": 1.0
+    }
+  ],
+  "s-person-14": [],
+  "s-location-14": [],
+  "s-street_address-14": [],
+  "s-postal_code-14": [],
+  "s-ip_address-14": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 842,
+      "end": 854,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-14": [],
+  "s-iban_code-14": [],
+  "s-prompt_injection-14": [],
+  "m-14-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 842,
+      "end": 865,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 868,
+      "end": 883,
+      "score": 1.0
+    }
+  ],
+  "m-14-1": [],
+  "m-14-2": [],
+  "m-14-3": [],
+  "s-api_key-15": [],
+  "s-aws_access_key-15": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 60,
+      "end": 80,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-15": [],
+  "s-aws_session_token-15": [],
+  "s-private_key-15": [],
+  "s-github_token-15": [],
+  "s-slack_webhook-15": [],
+  "s-jwt_token-15": [],
+  "s-bearer_token-15": [],
+  "s-db_connection_string-15": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 83,
+      "end": 115,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-15": [],
+  "s-private_ip-15": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 60,
+      "end": 73,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-15": [],
+  "s-email_address-15": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 60,
+      "end": 83,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-15": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 60,
+      "end": 75,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-15": [
+    {
+      "entity_type": "US_SSN",
+      "start": 60,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-15": [],
+  "s-credit_card-15": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 60,
+      "end": 79,
+      "score": 1.0
+    }
+  ],
+  "s-person-15": [],
+  "s-location-15": [],
+  "s-street_address-15": [],
+  "s-postal_code-15": [],
+  "s-ip_address-15": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 60,
+      "end": 70,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-15": [],
+  "s-iban_code-15": [],
+  "s-prompt_injection-15": [],
+  "m-15-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 60,
+      "end": 83,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 86,
+      "end": 101,
+      "score": 1.0
+    }
+  ],
+  "m-15-1": [],
+  "m-15-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 60,
+      "end": 80,
+      "score": 1.0
+    }
+  ],
+  "m-15-3": [],
+  "s-api_key-16": [],
+  "s-aws_access_key-16": [],
+  "s-aws_secret_key-16": [],
+  "s-aws_session_token-16": [],
+  "s-private_key-16": [],
+  "s-github_token-16": [],
+  "s-slack_webhook-16": [],
+  "s-jwt_token-16": [],
+  "s-bearer_token-16": [],
+  "s-db_connection_string-16": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 2850,
+      "end": 2882,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-16": [],
+  "s-private_ip-16": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 2832,
+      "end": 2843,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-16": [],
+  "s-email_address-16": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 2832,
+      "end": 2855,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-16": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 2832,
+      "end": 2847,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-16": [
+    {
+      "entity_type": "US_SSN",
+      "start": 2832,
+      "end": 2843,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-16": [],
+  "s-credit_card-16": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 2832,
+      "end": 2851,
+      "score": 1.0
+    }
+  ],
+  "s-person-16": [],
+  "s-location-16": [],
+  "s-street_address-16": [],
+  "s-postal_code-16": [],
+  "s-ip_address-16": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 2832,
+      "end": 2844,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-16": [],
+  "s-iban_code-16": [],
+  "s-prompt_injection-16": [],
+  "s-api_key-17": [],
+  "s-aws_access_key-17": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 9,
+      "end": 29,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-17": [],
+  "s-aws_session_token-17": [],
+  "s-private_key-17": [],
+  "s-github_token-17": [],
+  "s-slack_webhook-17": [],
+  "s-jwt_token-17": [],
+  "s-bearer_token-17": [],
+  "s-db_connection_string-17": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 29,
+      "end": 61,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-17": [],
+  "s-private_ip-17": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 9,
+      "end": 22,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-17": [],
+  "s-email_address-17": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 9,
+      "end": 32,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-17": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 9,
+      "end": 24,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-17": [
+    {
+      "entity_type": "US_SSN",
+      "start": 9,
+      "end": 20,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-17": [],
+  "s-credit_card-17": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 9,
+      "end": 25,
+      "score": 1.0
+    }
+  ],
+  "s-person-17": [],
+  "s-location-17": [],
+  "s-street_address-17": [],
+  "s-postal_code-17": [],
+  "s-ip_address-17": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 9,
+      "end": 19,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-17": [],
+  "s-iban_code-17": [],
+  "s-prompt_injection-17": [],
+  "s-api_key-18": [],
+  "s-aws_access_key-18": [],
+  "s-aws_secret_key-18": [],
+  "s-aws_session_token-18": [],
+  "s-private_key-18": [],
+  "s-github_token-18": [],
+  "s-slack_webhook-18": [],
+  "s-jwt_token-18": [],
+  "s-bearer_token-18": [],
+  "s-db_connection_string-18": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 69,
+      "end": 101,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-18": [],
+  "s-private_ip-18": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 46,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-18": [],
+  "s-email_address-18": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 46,
+      "end": 69,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-18": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 46,
+      "end": 61,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-18": [
+    {
+      "entity_type": "US_SSN",
+      "start": 46,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-18": [],
+  "s-credit_card-18": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 46,
+      "end": 65,
+      "score": 1.0
+    }
+  ],
+  "s-person-18": [],
+  "s-location-18": [],
+  "s-street_address-18": [],
+  "s-postal_code-18": [],
+  "s-ip_address-18": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 46,
+      "end": 58,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-18": [],
+  "s-iban_code-18": [],
+  "s-prompt_injection-18": [],
+  "m-18-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 46,
+      "end": 69,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 72,
+      "end": 87,
+      "score": 1.0
+    }
+  ],
+  "m-18-1": [],
+  "m-18-2": [],
+  "m-18-3": [],
+  "s-api_key-19": [],
+  "s-aws_access_key-19": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 23,
+      "end": 43,
+      "score": 1.0
+    }
+  ],
+  "s-aws_secret_key-19": [],
+  "s-aws_session_token-19": [],
+  "s-private_key-19": [],
+  "s-github_token-19": [],
+  "s-slack_webhook-19": [],
+  "s-jwt_token-19": [],
+  "s-bearer_token-19": [],
+  "s-db_connection_string-19": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 41,
+      "end": 73,
+      "score": 1.0
+    }
+  ],
+  "s-generic_secret_assignment-19": [],
+  "s-private_ip-19": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 36,
+      "score": 1.0
+    }
+  ],
+  "s-internal_hostname-19": [],
+  "s-email_address-19": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 46,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-19": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 23,
+      "end": 38,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-19": [
+    {
+      "entity_type": "US_SSN",
+      "start": 23,
+      "end": 34,
+      "score": 1.0
+    }
+  ],
+  "s-masked_us_ssn-19": [],
+  "s-credit_card-19": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 23,
+      "end": 42,
+      "score": 1.0
+    }
+  ],
+  "s-person-19": [],
+  "s-location-19": [],
+  "s-street_address-19": [],
+  "s-postal_code-19": [],
+  "s-ip_address-19": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 33,
+      "score": 1.0
+    }
+  ],
+  "s-date_time-19": [],
+  "s-iban_code-19": [],
+  "s-prompt_injection-19": [],
+  "m-19-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 46,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "m-19-1": [],
+  "m-19-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 23,
+      "end": 43,
+      "score": 1.0
+    }
+  ],
+  "m-19-3": [],
+  "o-00-0": [],
+  "o-00-1": [],
+  "o-00-2": [],
+  "o-00-3": [],
+  "o-01-0": [],
+  "o-01-1": [],
+  "o-01-2": [],
+  "o-01-3": [],
+  "o-02-0": [],
+  "o-02-1": [],
+  "o-02-2": [],
+  "o-02-3": [],
+  "o-03-0": [],
+  "o-03-1": [],
+  "o-03-2": [],
+  "o-03-3": [],
+  "o-04-0": [],
+  "o-04-1": [],
+  "o-04-2": [],
+  "o-04-3": [],
+  "o-06-0": [],
+  "o-06-1": [],
+  "o-06-2": [],
+  "o-06-3": [],
+  "o-07-0": [],
+  "o-07-1": [],
+  "o-07-2": [],
+  "o-07-3": [],
+  "o-09-0": [],
+  "o-09-1": [],
+  "o-09-2": [],
+  "o-09-3": [],
+  "o-12-0": [],
+  "o-12-1": [],
+  "o-12-2": [],
+  "o-12-3": [],
+  "o-13-0": [],
+  "o-13-1": [],
+  "o-13-2": [],
+  "o-13-3": [],
+  "o-14-0": [],
+  "o-14-1": [],
+  "o-14-2": [],
+  "o-14-3": [],
+  "o-15-0": [],
+  "o-15-1": [],
+  "o-15-2": [],
+  "o-15-3": [],
+  "o-17-0": [],
+  "o-17-1": [],
+  "o-17-2": [],
+  "o-17-3": [],
+  "o-19-0": [],
+  "o-19-1": [],
+  "o-19-2": [],
+  "o-19-3": [],
+  "o-20-0": [],
+  "o-20-1": [],
+  "o-20-2": [],
+  "o-20-3": [],
+  "o-21-0": [],
+  "o-21-1": [],
+  "o-21-2": [],
+  "o-21-3": [],
+  "o-22-0": [],
+  "o-22-1": [],
+  "o-22-2": [],
+  "o-22-3": [],
+  "o-24-0": [],
+  "o-24-1": [],
+  "o-24-2": [],
+  "o-24-3": [],
+  "o-25-0": [],
+  "o-25-1": [],
+  "o-25-2": [],
+  "o-25-3": [],
+  "o-26-0": [],
+  "o-26-1": [],
+  "o-26-2": [],
+  "o-26-3": [],
+  "o-27-0": [],
+  "o-27-1": [],
+  "o-27-2": [],
+  "o-27-3": [],
+  "o-29-0": [],
+  "o-29-1": [],
+  "o-29-2": [],
+  "o-29-3": [],
+  "o-30-0": [],
+  "o-30-1": [],
+  "o-30-2": [],
+  "o-30-3": [],
+  "o-31-0": [],
+  "o-31-1": [],
+  "o-31-2": [],
+  "o-31-3": [],
+  "o-33-0": [],
+  "o-33-1": [],
+  "o-33-2": [],
+  "o-33-3": [],
+  "o-34-0": [],
+  "o-34-1": [],
+  "o-34-2": [],
+  "o-34-3": [],
+  "o-35-0": [],
+  "o-35-1": [],
+  "o-35-2": [],
+  "o-35-3": [],
+  "o-39-0": [],
+  "o-39-1": [],
+  "o-39-2": [],
+  "o-39-3": [],
+  "n-00-0": [],
+  "n-00-1": [],
+  "n-00-2": [],
+  "n-00-3": [],
+  "n-01-0": [],
+  "n-01-1": [],
+  "n-01-2": [],
+  "n-01-3": [],
+  "n-02-0": [],
+  "n-02-1": [],
+  "n-02-2": [],
+  "n-02-3": [],
+  "n-04-0": [],
+  "n-04-1": [],
+  "n-04-2": [],
+  "n-04-3": [],
+  "n-05-0": [],
+  "n-05-1": [],
+  "n-05-2": [],
+  "n-05-3": [],
+  "n-07-0": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 9,
+      "score": 1.0
+    }
+  ],
+  "n-07-1": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 32,
+      "score": 1.0
+    }
+  ],
+  "n-07-2": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 17,
+      "end": 26,
+      "score": 1.0
+    }
+  ],
+  "n-07-3": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 40,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "n-09-0": [],
+  "n-09-1": [],
+  "n-09-2": [],
+  "n-09-3": [],
+  "n-10-0": [],
+  "n-10-1": [],
+  "n-10-2": [],
+  "n-10-3": [],
+  "n-11-0": [],
+  "n-11-1": [],
+  "n-11-2": [],
+  "n-11-3": [],
+  "n-12-0": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 29,
+      "end": 48,
+      "score": 1.0
+    }
+  ],
+  "n-12-1": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 52,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "n-12-2": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 46,
+      "end": 65,
+      "score": 1.0
+    }
+  ],
+  "n-12-3": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 69,
+      "end": 88,
+      "score": 1.0
+    }
+  ],
+  "n-13-0": [],
+  "n-13-1": [],
+  "n-13-2": [],
+  "n-13-3": [],
+  "n-14-0": [],
+  "n-14-1": [],
+  "n-14-2": [],
+  "n-14-3": [],
+  "n-15-0": [],
+  "n-15-1": [],
+  "n-15-2": [],
+  "n-15-3": [],
+  "n-16-0": [],
+  "n-16-1": [],
+  "n-16-2": [],
+  "n-16-3": [],
+  "n-18-0": [],
+  "n-18-1": [],
+  "n-18-2": [],
+  "n-18-3": [],
+  "n-20-0": [],
+  "n-20-1": [],
+  "n-20-2": [],
+  "n-20-3": [],
+  "n-21-0": [],
+  "n-21-1": [],
+  "n-21-2": [],
+  "n-21-3": [],
+  "n-23-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 13,
+      "end": 34,
+      "score": 1.0
+    }
+  ],
+  "n-23-1": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 36,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "n-23-2": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 30,
+      "end": 51,
+      "score": 1.0
+    }
+  ],
+  "n-23-3": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 53,
+      "end": 74,
+      "score": 1.0
+    }
+  ],
+  "n-25-0": [],
+  "n-25-1": [],
+  "n-25-2": [],
+  "n-25-3": [],
+  "n-28-0": [],
+  "n-28-1": [],
+  "n-28-2": [],
+  "n-28-3": [],
+  "n-29-0": [],
+  "n-29-1": [],
+  "n-29-2": [],
+  "n-29-3": [],
+  "n-30-0": [],
+  "n-30-1": [],
+  "n-30-2": [],
+  "n-30-3": [],
+  "n-31-0": [],
+  "n-31-1": [],
+  "n-31-2": [],
+  "n-31-3": [],
+  "n-32-0": [],
+  "n-32-1": [],
+  "n-32-2": [],
+  "n-32-3": [],
+  "n-34-0": [],
+  "n-34-1": [],
+  "n-34-2": [],
+  "n-34-3": [],
+  "n-35-0": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 11,
+      "end": 26,
+      "score": 1.0
+    }
+  ],
+  "n-35-1": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 34,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "n-35-2": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 28,
+      "end": 43,
+      "score": 1.0
+    }
+  ],
+  "n-35-3": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 51,
+      "end": 66,
+      "score": 1.0
+    }
+  ],
+  "n-37-0": [
+    {
+      "entity_type": "US_SSN",
+      "start": 13,
+      "end": 24,
+      "score": 1.0
+    }
+  ],
+  "n-37-1": [
+    {
+      "entity_type": "US_SSN",
+      "start": 36,
+      "end": 47,
+      "score": 1.0
+    }
+  ],
+  "n-37-2": [
+    {
+      "entity_type": "US_SSN",
+      "start": 30,
+      "end": 41,
+      "score": 1.0
+    }
+  ],
+  "n-37-3": [
+    {
+      "entity_type": "US_SSN",
+      "start": 53,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "n-38-0": [
+    {
+      "entity_type": "US_SSN",
+      "start": 12,
+      "end": 23,
+      "score": 1.0
+    }
+  ],
+  "n-38-1": [
+    {
+      "entity_type": "US_SSN",
+      "start": 35,
+      "end": 46,
+      "score": 1.0
+    }
+  ],
+  "n-38-2": [
+    {
+      "entity_type": "US_SSN",
+      "start": 29,
+      "end": 40,
+      "score": 1.0
+    }
+  ],
+  "n-38-3": [
+    {
+      "entity_type": "US_SSN",
+      "start": 52,
+      "end": 63,
+      "score": 1.0
+    }
+  ],
+  "n-39-0": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 14,
+      "end": 30,
+      "score": 1.0
+    }
+  ],
+  "n-39-1": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 37,
+      "end": 53,
+      "score": 1.0
+    }
+  ],
+  "n-39-2": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 31,
+      "end": 47,
+      "score": 1.0
+    }
+  ],
+  "n-39-3": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 54,
+      "end": 70,
+      "score": 1.0
+    }
+  ],
+  "n-41-0": [],
+  "n-41-1": [],
+  "n-41-2": [],
+  "n-41-3": [],
+  "n-42-0": [],
+  "n-42-1": [],
+  "n-42-2": [],
+  "n-42-3": [],
+  "n-43-0": [],
+  "n-43-1": [],
+  "n-43-2": [],
+  "n-43-3": [],
+  "n-45-0": [],
+  "n-45-1": [],
+  "n-45-2": [],
+  "n-45-3": [],
+  "n-46-0": [],
+  "n-46-1": [],
+  "n-46-2": [],
+  "n-46-3": [],
+  "n-47-0": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 10,
+      "score": 1.0
+    }
+  ],
+  "n-47-1": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 33,
+      "score": 1.0
+    }
+  ],
+  "n-47-2": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 17,
+      "end": 27,
+      "score": 1.0
+    }
+  ],
+  "n-47-3": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 40,
+      "end": 50,
+      "score": 1.0
+    }
+  ],
+  "n-50-0": [],
+  "n-50-1": [],
+  "n-50-2": [],
+  "n-50-3": [],
+  "n-51-0": [],
+  "n-51-1": [],
+  "n-51-2": [],
+  "n-51-3": [],
+  "n-52-0": [],
+  "n-52-1": [],
+  "n-52-2": [],
+  "n-52-3": [],
+  "n-53-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 19,
+      "score": 1.0
+    }
+  ],
+  "n-53-1": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 42,
+      "score": 1.0
+    }
+  ],
+  "n-53-2": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 17,
+      "end": 36,
+      "score": 1.0
+    }
+  ],
+  "n-53-3": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 40,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "n-55-0": [],
+  "n-55-1": [],
+  "n-55-2": [],
+  "n-55-3": [],
+  "n-56-0": [],
+  "n-56-1": [],
+  "n-56-2": [],
+  "n-56-3": [],
+  "n-59-0": [],
+  "n-59-1": [],
+  "n-59-2": [],
+  "n-59-3": []
+}

@@ -1,0 +1,35 @@
+{
+  "test_prompts": 700,
+  "sensitive_prompts": 420,
+  "actually_sanitized_sensitive": 275,
+  "sensitive_outgoing": 280,
+  "sanitization_success_rate": 0.9927272727272727,
+  "residual_leakage_rate_sanitized": 0.0,
+  "residual_leakage_rate_all_nonblock_sensitive": 0.017857142857142856,
+  "post_rescan_residual_prompts": 0,
+  "gold_span_replacement_coverage_rate": 0.9927272727272727,
+  "mean_non_sensitive_char_preservation": 0.9992141126540316,
+  "actions": {
+    "block": 148,
+    "warn": 132,
+    "mask": 186,
+    "allow": 234
+  },
+  "error_counts": {
+    "pii_policy_violation": 148
+  },
+  "processing_error_rate": 0.0,
+  "fail_closed_rejections_including_policy_blocks": 148,
+  "block_subset_prompts": 20,
+  "block_subset_requests": 40,
+  "block_check_failures": 0,
+  "fault_probes": 3,
+  "human_template_count": 150,
+  "human_ratings": "PENDING HUMAN EVALUATION",
+  "definitions": {
+    "success": "Among sensitive prompts actually changed and non-block: all gold characters covered by replacement spans, no exact gold text survives, and no protected rescan finding.",
+    "leakage": "Any exact original gold substring survives. Denominators reported for actually sanitized and ALL non-block sensitive prompts (including missed/allow).",
+    "coverage": "Ground-truth offsets checked against union of original replacement spans, independent of entity label. Secondary to exact-substring leakage; not encoded/semantic leakage.",
+    "structural": "SequenceMatcher ordered unchanged non-sensitive character alignment, placeholder text excluded; not semantic utility."
+  }
+}

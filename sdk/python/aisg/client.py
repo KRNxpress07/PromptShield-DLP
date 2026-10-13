@@ -88,6 +88,7 @@ def _raise_for_status(resp: httpx.Response) -> None:
     if error_code == "pii_policy_violation":
         raise DLPBlockError(
             message,
+            status_code=status,
             violations=body.get("violations", detail.get("violations", [])),
             request_id=body.get("request_id", detail.get("request_id", "")),
             body=body,

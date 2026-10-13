@@ -9,20 +9,19 @@ class TestMaskKey:
     """mask_key() truncation behavior."""
 
     def test_short_key(self):
-        assert mask_key("abcd") == "abcd..."
+        assert mask_key("abcd") == "[REDACTED]..."
 
     def test_exactly_12_chars(self):
-        assert mask_key("123456789012") == "1234..."
+        assert mask_key("123456789012") == "[REDACTED]..."
 
     def test_long_key(self):
         result = mask_key("sk-abcdefghijklmnop")
-        assert result.startswith("sk-abc")
-        assert result.endswith("mnop")
+        assert result == "[REDACTED]..."
         assert "..." in result
 
     def test_empty_key(self):
         result = mask_key("")
-        assert result == "..."
+        assert result == "[REDACTED]..."
 
 
 class TestScrubValue:

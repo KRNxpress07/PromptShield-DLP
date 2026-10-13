@@ -10,7 +10,6 @@ import json
 import logging
 import sys
 import time
-import traceback
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import Any
@@ -37,6 +36,8 @@ class _JsonHandler(logging.StreamHandler):
     """JSON logging handler that emits one structured log line per record."""
 
     def emit(self, record: logging.LogRecord) -> None:
+        if record.name != "aisg.presidio":
+            return  # Dependency diagnostics must not echo scanned content.
         entry = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "level": record.levelname.lower(),
@@ -44,9 +45,6 @@ class _JsonHandler(logging.StreamHandler):
             "message": record.getMessage(),
             "logger": record.name,
         }
-        if record.exc_info and record.exc_info[1]:
-            entry["error"] = str(record.exc_info[1])
-            entry["traceback"] = "".join(traceback.format_exception(*record.exc_info))
         self.stream.write(json.dumps(entry) + "\n")
         self.stream.flush()
 
@@ -82,7 +80,7 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
     """Log inbound request method/path and outbound status/duration."""
 
     async def dispatch(self, request, call_next):
-        path = request.url.path
+        path = request.url.path if request.url.path in {"/process", "/health"} else "unknown"
         method = request.method
         content_length = request.headers.get("content-length")
         _log.info(
@@ -110,7 +108,7 @@ app.add_middleware(RequestLoggingMiddleware)
 @app.exception_handler(Exception)
 async def unhandled_exception_handler(request: Request, exc: Exception):
     """Return a 500 JSON response for uncaught exceptions."""
-    _log.error("Unhandled exception on %s %s: %s", request.method, request.url.path, exc, exc_info=exc)
+    _log.error("unhandled_exception error_type=%s", type(exc).__name__)
     return JSONResponse(
         status_code=500,
         content={"error": "internal_error", "message": "PII service encountered an unexpected error."},
@@ -120,10 +118,10 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     """Return a 422 JSON response for request validation errors."""
-    _log.warning("Validation error on %s %s: %s", request.method, request.url.path, exc.errors())
+    _log.warning("validation_error count=%s", len(exc.errors()))
     return JSONResponse(
         status_code=422,
-        content={"error": "validation_error", "message": "Invalid request format.", "details": exc.errors()},
+        content={"error": "validation_error", "message": "Invalid request format.", "details": [{"type": e.get("type"), "msg": "Invalid field value"} for e in exc.errors()]},
     )
 
 
@@ -165,8 +163,7 @@ async def process(req: ProcessRequest):
     analyzer = _analyzer
     temp_recognizers: list[PatternRecognizer] = []
     request_entities = list(req.entities) if req.entities else None
-    entities_requested = req.entities if req.entities is not None else "all"
-    _log.info("process_start entities_requested=%s", entities_requested)
+    _log.info("process_start entity_filter_count=%s", len(req.entities) if req.entities else 0)
 
     scan_text = req.text
 
@@ -184,6 +181,11 @@ async def process(req: ProcessRequest):
             if request_entities is not None:
                 request_entities.append(entity_name)
 
+    supported = {entity for rec in analyzer.registry.recognizers for entity in rec.supported_entities}
+    if request_entities is not None and not set(request_entities) <= supported:
+        _remove_temp_recognizers(analyzer, temp_recognizers)
+        raise HTTPException(status_code=422, detail="Unsupported protected entity configuration")
+
     analyze_start = time.monotonic()
     try:
         raw_results = analyzer.analyze(
@@ -194,17 +196,16 @@ async def process(req: ProcessRequest):
         )
     except Exception as exc:
         _remove_temp_recognizers(analyzer, temp_recognizers)
-        _log.warning("process_analyze_error before_422 detail=%s", exc)
-        raise HTTPException(status_code=422, detail=str(exc))
+        _log.warning("process_analyze_error error_type=%s", type(exc).__name__)
+        raise HTTPException(status_code=422, detail="Safety processing failed") from None
 
     _remove_temp_recognizers(analyzer, temp_recognizers)
 
     raw_results = filter_false_positives(scan_text, raw_results)
     analyze_duration_ms = int((time.monotonic() - analyze_start) * 1000)
     _log.info(
-        "analyze_complete entities_found=%s entity_types=%s duration_ms=%s",
+        "analyze_complete entities_found=%s duration_ms=%s",
         len(raw_results),
-        sorted({r.entity_type for r in raw_results}),
         analyze_duration_ms,
     )
 
@@ -236,8 +237,8 @@ async def process(req: ProcessRequest):
                 operators=operators,
             )
         except Exception as exc:
-            _log.warning("process_anonymize_error before_422 detail=%s", exc)
-            raise HTTPException(status_code=422, detail=str(exc))
+            _log.warning("process_anonymize_error error_type=%s", type(exc).__name__)
+            raise HTTPException(status_code=422, detail="Safety processing failed") from None
 
         anonymized_text = anon_result.text
         items = [
@@ -252,9 +253,8 @@ async def process(req: ProcessRequest):
         ]
 
     _log.info(
-        "process_complete entities_found=%s entity_types=%s anonymize=%s",
+        "process_complete entities_found=%s anonymize=%s",
         len(results),
-        sorted({r.entity_type for r in results}),
         req.anonymize,
     )
 

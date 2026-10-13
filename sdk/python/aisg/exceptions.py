@@ -19,15 +19,15 @@ class AuthenticationError(AISGError):
 
 
 class DLPBlockError(AISGError):
-    """Raised when the DLP scanner blocks a request (HTTP 400, error=pii_policy_violation).
+    """Raised when DLP blocks a request (HTTP 400/422, error=pii_policy_violation).
 
     Attributes:
         violations: List of detected PII entities.
         request_id: The AISG request ID for this blocked request.
     """
 
-    def __init__(self, message: str, *, violations: list[dict[str, Any]], request_id: str, **kwargs: Any):
-        super().__init__(message, status_code=400, **kwargs)
+    def __init__(self, message: str, *, violations: list[dict[str, Any]], request_id: str, status_code: int = 400, **kwargs: Any):
+        super().__init__(message, status_code=status_code, **kwargs)
         self.violations = violations
         self.request_id = request_id
 

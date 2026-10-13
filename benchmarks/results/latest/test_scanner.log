@@ -1,0 +1,70 @@
+........................................................................ [ 30%]
+........................................................................ [ 61%]
+..............................................F...F.FFFF.FF............. [ 92%]
+.......FF.........                                                       [100%]
+================================== FAILURES ===================================
+_____________________ TestPIIRedaction.test_ssn_detected ______________________
+tests\test_sovereign_safety.py:60: in test_ssn_detected
+    assert "US_SSN" in entity_types
+E   AssertionError: assert 'US_SSN' in []
+______________ TestCreditCardEdgeCases.test_dash_separated_card _______________
+tests\test_sovereign_safety.py:117: in test_dash_separated_card
+    assert len(cc_hits) >= 1
+E   assert 0 >= 1
+E    +  where 0 = len([])
+_____ TestCreditCardEdgeCases.test_space_separated_non_luhn_with_context ______
+tests\test_sovereign_safety.py:137: in test_space_separated_non_luhn_with_context
+    assert len(cc_hits) >= 1
+E   assert 0 >= 1
+E    +  where 0 = len([])
+_______________ TestCreditCardEdgeCases.test_card_expiry_slash ________________
+tests\test_sovereign_safety.py:151: in test_card_expiry_slash
+    assert expiry_match
+E   assert False
+_______________ TestCreditCardEdgeCases.test_cvv_after_keyword ________________
+tests\test_sovereign_safety.py:165: in test_cvv_after_keyword
+    assert cvv_match
+E   assert False
+_________ TestCreditCardEdgeCases.test_full_pci_payload_all_redacted __________
+tests\test_sovereign_safety.py:180: in test_full_pci_payload_all_redacted
+    assert "4111-2222-3333-4444" not in redacted
+E   AssertionError: assert '4111-2222-3333-4444' not in 'Card: 4111-...D]. CVV: 123'
+E     
+E     '4111-2222-3333-4444' is contained here:
+E       Card: 4111-2222-3333-4444. Exp: [REDACTED]. CVV: 123
+E     ?       +++++++++++++++++++
+_______ TestCreditCardEdgeCases.test_dash_card_with_cardholder_context ________
+tests\test_sovereign_safety.py:202: in test_dash_card_with_cardholder_context
+    assert len(cc_hits) >= 1
+E   assert 0 >= 1
+E    +  where 0 = len([])
+_____________ TestCreditCardEdgeCases.test_mixed_pci_hipaa_prompt _____________
+tests\test_sovereign_safety.py:219: in test_mixed_pci_hipaa_prompt
+    assert "CREDIT_CARD" in entity_types
+E   AssertionError: assert 'CREDIT_CARD' in {'DATE_TIME', 'PERSON'}
+___________ TestOverlapSuppression.test_ssn_dash_format_no_datetime ___________
+tests\test_sovereign_safety.py:534: in test_ssn_dash_format_no_datetime
+    assert "US_SSN" in entity_types
+E   AssertionError: assert 'US_SSN' in []
+__________ TestOverlapSuppression.test_non_overlapping_entities_kept __________
+tests\test_sovereign_safety.py:548: in test_non_overlapping_entities_kept
+    assert "US_SSN" in entity_types
+E   AssertionError: assert 'US_SSN' in {'EMAIL_ADDRESS', 'PERSON'}
+============================== warnings summary ===============================
+..\.venv\Lib\site-packages\starlette\testclient.py:37
+  C:\CNS\PromptShield-DLP\.venv\Lib\site-packages\starlette\testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected - ...
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context
+FAILED tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt
+FAILED tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime
+FAILED tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept
+10 failed, 224 passed, 1 warning in 7.65s

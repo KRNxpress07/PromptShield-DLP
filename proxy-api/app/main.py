@@ -23,11 +23,16 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.responses import Response
 
-from .config import get_settings
-from .log_utils import log_scrubber, mask_key
+from .config import get_settings, get_dlp_policy, get_api_keys, get_provider_keys, DLPConfigurationError
+from .dlp import PresidioError
+from .log_utils import log_scrubber, register_secrets, SecretSafeFormatter
 
 settings = get_settings()
 _log_level = getattr(logging, settings.log_level.upper(), logging.INFO)
+
+_standard_handler = logging.StreamHandler()
+_standard_handler.setFormatter(SecretSafeFormatter("%(levelname)s %(message)s"))
+logging.root.handlers = [_standard_handler]
 
 structlog.configure(
     processors=[
@@ -51,6 +56,10 @@ _http_client: httpx.AsyncClient | None = None
 async def lifespan(app: FastAPI):
     """Manage the shared httpx client lifecycle (startup/shutdown)."""
     global _http_client
+    # Startup rejects policy typos before accepting requests or opening clients.
+    get_dlp_policy()
+    register_secrets([record.get("key", "") for record in get_api_keys()])
+    register_secrets(get_provider_keys().values())
     _log.info("startup_begin", log_level=settings.log_level)
     _http_client = httpx.AsyncClient(timeout=10.0)
     _log.info("startup_http_client_ready")
@@ -69,7 +78,7 @@ app = FastAPI(
 @app.exception_handler(Exception)
 async def unhandled_exception_handler(request: Request, exc: Exception):
     """Return a generic 500 JSON response for uncaught exceptions."""
-    _log.error("unhandled_exception", error=str(exc)[:500], exc_info=exc, path=str(request.url.path))
+    _log.error("unhandled_exception", error_type=type(exc).__name__)
     return JSONResponse(
         status_code=500,
         content={"error": "internal_server_error", "message": "An unexpected error occurred. Please retry."},
@@ -79,11 +88,29 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     """Return a 422 JSON response with sanitized Pydantic validation details."""
-    _log.warn("validation_error", errors=str(exc.errors())[:500], path=str(request.url.path))
-    safe_details = [{"loc": e.get("loc"), "msg": e.get("msg"), "type": e.get("type")} for e in exc.errors()]
+    _log.warn("validation_error", findings=len(exc.errors()))
+    safe_details = [{"type": e.get("type"), "msg": "Invalid field value"} for e in exc.errors()]
     return JSONResponse(
         status_code=422,
         content={"error": "validation_error", "message": "Invalid request format.", "details": safe_details},
+    )
+
+
+@app.exception_handler(PresidioError)
+async def security_exception_handler(request: Request, exc: PresidioError):
+    _log.warning(exc.code, status_code=exc.status_code)
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"error": exc.code, "message": exc.message},
+    )
+
+
+@app.exception_handler(DLPConfigurationError)
+async def policy_configuration_handler(request: Request, exc: DLPConfigurationError):
+    _log.error("invalid_dlp_configuration")
+    return JSONResponse(
+        status_code=500,
+        content={"error": "invalid_dlp_configuration", "message": "Invalid server DLP configuration. Request not forwarded."},
     )
 
 

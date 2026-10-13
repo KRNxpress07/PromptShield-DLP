@@ -84,7 +84,7 @@ class TestPIIRedaction:
 
     def test_multiple_entities_all_redacted(self, client):
         resp = client.post("/process", json={
-            "text": "Email me at alice@corp.com, my SSN is 999-88-7777",
+            "text": "Email me at alice@corp.com, my SSN is 321-54-6789",
             "anonymize": True,
             "operators": {
                 "DEFAULT": {"type": "replace", "new_value": "[REDACTED]"},
@@ -96,7 +96,7 @@ class TestPIIRedaction:
         assert "EMAIL_ADDRESS" in entity_types
         assert "US_SSN" in entity_types
         assert "alice@corp.com" not in data["anonymized_text"]
-        assert "999-88-7777" not in data["anonymized_text"]
+        assert "321-54-6789" not in data["anonymized_text"]
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -269,7 +269,7 @@ class TestTabularDataEdgeCases:
         })
         assert resp.status_code == 200
         data = resp.json()
-        ssn_hits = [r for r in data["results"] if r["entity_type"] == "US_SSN"]
+        ssn_hits = [r for r in data["results"] if r["entity_type"] == "MASKED_US_SSN"]
         assert len(ssn_hits) >= 1
 
     def test_masked_ssn_star(self, client):
@@ -279,7 +279,7 @@ class TestTabularDataEdgeCases:
         })
         assert resp.status_code == 200
         data = resp.json()
-        ssn_hits = [r for r in data["results"] if r["entity_type"] == "US_SSN"]
+        ssn_hits = [r for r in data["results"] if r["entity_type"] == "MASKED_US_SSN"]
         assert len(ssn_hits) >= 1
 
     def test_iso_date_yyyy_mm_dd(self, client):
@@ -317,7 +317,7 @@ class TestTabularDataEdgeCases:
         assert resp.status_code == 200
         data = resp.json()
         text = "Address: 45 High Street, London, E1 6AN"
-        loc_hits = [r for r in data["results"] if r["entity_type"] == "LOCATION"]
+        loc_hits = [r for r in data["results"] if r["entity_type"] == "POSTAL_CODE"]
         matched = [text[r["start"]:r["end"]] for r in loc_hits]
         assert any("E1 6AN" in m for m in matched)
 
@@ -329,7 +329,7 @@ class TestTabularDataEdgeCases:
         assert resp.status_code == 200
         data = resp.json()
         text = "Buckingham Palace, London, SW1A 1AA"
-        loc_hits = [r for r in data["results"] if r["entity_type"] == "LOCATION"]
+        loc_hits = [r for r in data["results"] if r["entity_type"] == "POSTAL_CODE"]
         matched = [text[r["start"]:r["end"]] for r in loc_hits]
         assert any("SW1A 1AA" in m for m in matched)
 
@@ -341,7 +341,7 @@ class TestTabularDataEdgeCases:
         assert resp.status_code == 200
         data = resp.json()
         text = "Flat 202, Sunshine Apartments, Mumbai 400001"
-        loc_hits = [r for r in data["results"] if r["entity_type"] == "LOCATION"]
+        loc_hits = [r for r in data["results"] if r["entity_type"] == "POSTAL_CODE"]
         matched = [text[r["start"]:r["end"]] for r in loc_hits]
         assert any("400001" in m for m in matched)
 
@@ -384,7 +384,7 @@ class TestTabularDataEdgeCases:
         assert "EMAIL_ADDRESS" in types
         assert "PHONE_NUMBER" in types
         assert "DATE_TIME" in types
-        assert "US_SSN" in types
+        assert "MASKED_US_SSN" in types
         assert "PERSON" in types
 
 

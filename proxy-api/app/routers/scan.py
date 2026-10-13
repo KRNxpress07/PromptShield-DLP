@@ -4,7 +4,7 @@ This is the standalone "our model decides" step from the PromptShield
 methodology diagram: text goes in, a risk decision comes out. It reuses
 Occludra's existing Presidio-backed dlp.process_messages() so detection
 stays identical to the full chat-completions proxy — this endpoint only
-adds the risk/action layer on top.
+uses the same authoritative risk/action path as chat forwarding.
 
 Deliberately provider-independent: it works with zero LLM API keys
 configured, which matters for a demo — you can show the interception and
@@ -21,7 +21,7 @@ import structlog
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
-from .. import dlp, risk
+from .. import dlp
 from ..config import get_dlp_policy
 from ..models import ChatMessage, DLPViolation
 
@@ -54,34 +54,12 @@ async def run_text_scan(text: str, http_client, request_id: str) -> ScanResponse
     can call it directly after extracting text from a PDF/DOCX/code file,
     without duplicating the DLP + risk-assessment plumbing.
     """
-    dlp_config = get_dlp_policy()
-    score_threshold = dlp_config.get("confidence_threshold", 0.4)
-    entities = dlp_config.get("entities") or None
-
     message = ChatMessage(role="user", content=text)
-
     dlp_start = time.monotonic()
-    try:
-        result = await dlp.process_messages(
-            http_client,
-            [message],
-            entities=entities,
-            score_threshold=score_threshold,
-            anonymize=True,
-        )
-    except dlp.PresidioError:
-        log.error("presidio_unavailable_scan", exc_info=True)
-        raise HTTPException(
-            status_code=500,
-            detail={
-                "error": "security_processing_error",
-                "message": "Safety scan is temporarily unavailable. Please retry shortly.",
-            },
-        )
+    decision = await dlp.inspect_messages(http_client, [message], get_dlp_policy())
+    result = decision.scan
+    assessment = decision.assessment
     dlp_latency_ms = int((time.monotonic() - dlp_start) * 1000)
-
-    violations_dicts = [v.model_dump() for v in result.violations]
-    assessment = risk.assess(violations_dicts)
 
     redacted_text = None
     if result.redacted_messages:

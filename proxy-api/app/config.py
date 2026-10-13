@@ -15,16 +15,52 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(PROJECT_ROOT / "proxy-api" / ".env")
 
 import yaml
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 from pydantic_settings import BaseSettings
+from .risk import Action, SEVERITY_WEIGHTS
+
+
+class DLPConfigurationError(ValueError):
+    """Invalid server policy. Never include configuration values in the error."""
+
+
+class DLPPolicy(BaseModel):
+    """Configured action is a severity floor, never a risk-policy override."""
+
+    model_config = ConfigDict(extra="forbid")
+    action: Action = Action.MASK
+    confidence_threshold: float = Field(default=0.4, ge=0, le=1, allow_inf_nan=False)
+    entities: list[str] | None = None
+
+    @field_validator("action", mode="before")
+    @classmethod
+    def normalize_action(cls, value):
+        return "mask" if value == "redact" else value
+
+    @field_validator("entities")
+    @classmethod
+    def validate_entities(cls, value):
+        if value is not None and (not value or any(not item.strip() for item in value)):
+            raise ValueError("Entity list must contain nonempty labels")
+        if value is not None and not set(value) <= set(SEVERITY_WEIGHTS):
+            raise ValueError("Configured entities must have explicit risk weights")
+        return value
+
+
+def validate_dlp_policy(value: Any) -> DLPPolicy:
+    try:
+        return DLPPolicy.model_validate(value)
+    except (ValidationError, TypeError, ValueError):
+        raise DLPConfigurationError("Invalid DLP policy configuration") from None
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables and .env file."""
 
-    presidio_url: str = "http://presidio:3000"
+    presidio_url: str = "http://localhost:3000"
 
     default_provider: str = "groq"
-    default_model: str = "llama-3.3-70b-versatile"
+    default_model: str = "openai/gpt-oss-120b"
 
     upstream_timeout_seconds: int = 60
 
@@ -114,6 +150,6 @@ def get_api_keys() -> list[dict[str, Any]]:
 
 
 def get_dlp_policy() -> dict[str, Any]:
-    """Return the DLP policy from gateway.yaml."""
+    """Validate even cached configuration; reject permissive typos."""
     cfg = get_gateway_config()
-    return cfg.get("dlp", {})
+    return validate_dlp_policy(cfg.get("dlp", {})).model_dump(mode="json")

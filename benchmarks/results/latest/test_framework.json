@@ -1,0 +1,20 @@
+{
+  "passed": 31,
+  "failed": 0,
+  "skipped": 0,
+  "error": 0,
+  "xfailed": 0,
+  "xpassed": 0,
+  "exit_code": 0,
+  "phase1_passed": 0,
+  "phase2_passed": 0,
+  "failures": [],
+  "arguments": [
+    "benchmarks/tests",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "--tb=short",
+    "--show-capture=no"
+  ]
+}

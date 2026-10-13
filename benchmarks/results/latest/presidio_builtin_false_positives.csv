@@ -1,0 +1,188 @@
+id,label,negative_kind,entity_type,start,end,matched_text,prompt
+s-aws_session_token-00,sensitive,,PERSON,48,128,SYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICA,Inspect this synthetic value: aws_session_token=SYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICASYNTHETICA
+s-private_ip-00,sensitive,,IP_ADDRESS,30,39,10.42.0.1,Inspect this synthetic value: 10.42.0.1
+s-postal_code-00,sensitive,,DATE_TIME,35,38,1AA,Inspect this synthetic value: SW1A 1AA
+s-db_connection_string-01,sensitive,,DATE_TIME,0,59,mysql://synthetic:dummy_pass_1@db.example.invalid:5432/demo,mysql://synthetic:dummy_pass_1@db.example.invalid:5432/demo
+s-private_ip-01,sensitive,,IP_ADDRESS,0,12,192.168.25.2,192.168.25.2
+s-credit_card-01,sensitive,,DATE_TIME,0,19,5555-5555-5555-4444,5555-5555-5555-4444
+m-01-3,sensitive,,LOCATION,0,3,XXX,XXX-XX-4325 | PO Box 124 | EC1A 1BB
+m-02-0,sensitive,,DATE_TIME,71,82,98765 43210,Synthetic record for a fictional contact: synthetic2@example.com | +91 98765 43210. Please summarize the request.
+m-02-3,sensitive,,LOCATION,59,69,Cedar Road,Synthetic record for a fictional contact: ***-**-4326 | 75 Cedar Road | W1A 0AX. Please summarize the request.
+s-private_ip-03,sensitive,,IP_ADDRESS,63,75,192.168.25.4,Help redact the following demonstration record before sharing: 192.168.25.4
+s-postal_code-03,sensitive,,DATE_TIME,68,71,1AA,Help redact the following demonstration record before sharing: SW1A 1AA
+m-03-2,sensitive,,PERSON,108,148,SYNTHETICFSYNTHETICFSYNTHETICFSYNTHETICF,Help redact the following demonstration record before sharing: AKIASYNTHETICFSYNTHE | aws_secret_access_key=SYNTHETICFSYNTHETICFSYNTHETICFSYNTHETICF
+m-03-3,sensitive,,DATE_TIME,101,104,1AA,Help redact the following demonstration record before sharing: XXX-XX-4327 | 48 Willow Street | SW1A 1AA
+m-05-1,sensitive,,DATE_TIME,66,85,"September 12, 1990""","# Synthetic fixture only
+fixture_value = ""Priya Kapoor | Mumbai | September 12, 1990""
+# Explain how to safely handle this field."
+m-05-3,sensitive,,LOCATION,59,69,Cedar Road,"# Synthetic fixture only
+fixture_value = ""XXX-XX-4329 | 78 Cedar Road | W1A 0AX""
+# Explain how to safely handle this field."
+s-private_ip-06,sensitive,,IP_ADDRESS,49,58,10.42.6.7,"DEBUG fixture audit
+source=synthetic_demo
+value: 10.42.6.7
+result=pending
+Explain the next debugging step."
+s-postal_code-06,sensitive,,LOCATION,49,53,SW1A,"DEBUG fixture audit
+source=synthetic_demo
+value: SW1A 1AA
+result=pending
+Explain the next debugging step."
+m-06-3,sensitive,,LOCATION,82,86,SW1A,"DEBUG fixture audit
+source=synthetic_demo
+value: ***-**-4330 | 51 Willow Street | SW1A 1AA
+result=pending
+Explain the next debugging step."
+m-06-3,sensitive,,DATE_TIME,87,90,1AA,"DEBUG fixture audit
+source=synthetic_demo
+value: ***-**-4330 | 51 Willow Street | SW1A 1AA
+result=pending
+Explain the next debugging step."
+s-private_ip-09,sensitive,,IP_ADDRESS,49,62,192.168.25.10,Tool description: a demonstration field contains 192.168.25.10. The tool should produce a concise outline.
+s-private_ip-09,sensitive,,PHONE_NUMBER,49,62,192.168.25.10,Tool description: a demonstration field contains 192.168.25.10. The tool should produce a concise outline.
+s-street_address-09,sensitive,,LOCATION,52,65,Willow Street,Tool description: a demonstration field contains 51 Willow Street. The tool should produce a concise outline.
+s-postal_code-09,sensitive,,DATE_TIME,54,57,1AA,Tool description: a demonstration field contains SW1A 1AA. The tool should produce a concise outline.
+m-09-3,sensitive,,LOCATION,49,52,XXX,Tool description: a demonstration field contains XXX-XX-4333 | 54 Willow Street | SW1A 1AA. The tool should produce a concise outline.
+m-09-3,sensitive,,LOCATION,66,79,Willow Street,Tool description: a demonstration field contains XXX-XX-4333 | 54 Willow Street | SW1A 1AA. The tool should produce a concise outline.
+m-09-3,sensitive,,DATE_TIME,87,90,1AA,Tool description: a demonstration field contains XXX-XX-4333 | 54 Willow Street | SW1A 1AA. The tool should produce a concise outline.
+s-bearer_token-10,sensitive,,PERSON,48,87,Bearer SYNTHETICLSYNTHETICLSYNTHETICLSY,"Nested demonstration:
+outer:
+  inner:
+    note: Bearer SYNTHETICLSYNTHETICLSYNTHETICLSY
+  action: summarize the workflow"
+s-private_ip-10,sensitive,,IP_ADDRESS,48,59,10.42.10.11,"Nested demonstration:
+outer:
+  inner:
+    note: 10.42.10.11
+  action: summarize the workflow"
+s-masked_us_ssn-10,sensitive,,LOCATION,48,51,XXX,"Nested demonstration:
+outer:
+  inner:
+    note: XXX-XX-4331
+  action: summarize the workflow"
+s-private_ip-11,sensitive,,IP_ADDRESS,44,57,192.168.25.12,A colleague wrote a fictional example with (192.168.25.12). Explain what should be removed before it is shared.
+s-private_ip-11,sensitive,,PHONE_NUMBER,43,57,(192.168.25.12,A colleague wrote a fictional example with (192.168.25.12). Explain what should be removed before it is shared.
+s-phone_number-11,sensitive,,DATE_TIME,48,59,98765 43210,A colleague wrote a fictional example with (+91 98765 43210). Explain what should be removed before it is shared.
+s-phone_number-11,sensitive,,PHONE_NUMBER,43,59,(+91 98765 43210,A colleague wrote a fictional example with (+91 98765 43210). Explain what should be removed before it is shared.
+m-11-0,sensitive,,DATE_TIME,74,85,98765 43210,A colleague wrote a fictional example with (synthetic11@example.com | +91 98765 43210). Explain what should be removed before it is shared.
+m-11-3,sensitive,,LOCATION,61,71,Cedar Road,A colleague wrote a fictional example with (XXX-XX-4335 | 84 Cedar Road | W1A 0AX). Explain what should be removed before it is shared.
+s-private_ip-12,sensitive,,IP_ADDRESS,38,49,10.42.12.13,Review the bracketed synthetic field [10.42.12.13]; keep the surrounding checklist intact.
+s-phone_number-12,sensitive,,PHONE_NUMBER,37,53,[+1-202-555-0143,Review the bracketed synthetic field [+1-202-555-0143]; keep the surrounding checklist intact.
+s-masked_us_ssn-12,sensitive,,LOCATION,38,41,XXX,Review the bracketed synthetic field [XXX-XX-4333]; keep the surrounding checklist intact.
+s-private_ip-14,sensitive,,IP_ADDRESS,842,853,10.42.14.15,"Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: 10.42.14.15
+Keep the steps concise."
+s-person-14,sensitive,,PERSON,842,859,"Priya Kapoor
+Keep","Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: Priya Kapoor
+Keep the steps concise."
+s-street_address-14,sensitive,,LOCATION,845,855,Cedar Road,"Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: 84 Cedar Road
+Keep the steps concise."
+m-14-3,sensitive,,LOCATION,859,869,Cedar Road,"Prepare a short explanation of this synthetic troubleshooting scenario. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. The experiment concerns sorting, caching, and reproducible local execution. 
+Fixture: ***-**-4338 | 87 Cedar Road | W1A 0AX
+Keep the steps concise."
+s-private_ip-15,sensitive,,IP_ADDRESS,60,73,192.168.25.16,"Schema description: ""The fictional protected field contains 192.168.25.16"". Preserve the purpose of the demonstration."
+s-private_ip-15,sensitive,,PHONE_NUMBER,60,73,192.168.25.16,"Schema description: ""The fictional protected field contains 192.168.25.16"". Preserve the purpose of the demonstration."
+s-postal_code-15,sensitive,,DATE_TIME,65,68,1AA,"Schema description: ""The fictional protected field contains SW1A 1AA"". Preserve the purpose of the demonstration."
+s-date_time-15,sensitive,,DATE_TIME,60,79,"September 12, 1990""","Schema description: ""The fictional protected field contains September 12, 1990"". Preserve the purpose of the demonstration."
+m-15-3,sensitive,,DATE_TIME,98,101,1AA,"Schema description: ""The fictional protected field contains XXX-XX-4339 | 60 Willow Street | SW1A 1AA"". Preserve the purpose of the demonstration."
+s-private_ip-16,sensitive,,IP_ADDRESS,2832,2843,10.42.16.17,"For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is 10.42.16.17
+End with the next step."
+s-masked_us_ssn-16,sensitive,,LOCATION,2832,2835,XXX,"For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is XXX-XX-4337
+End with the next step."
+s-credit_card-16,sensitive,,DATE_TIME,2832,2851,5555-5555-5555-4444,"For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is 5555-5555-5555-4444
+End with the next step."
+s-person-16,sensitive,,PERSON,2832,2848,"Mira Bennett
+End","For the demonstration, summarize the sequence. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. A queue accepts tasks, checks preconditions, and reports completion without network access. 
+The synthetic record is Mira Bennett
+End with the next step."
+s-private_ip-17,sensitive,,IP_ADDRESS,9,22,192.168.25.18,"{""note"":""192.168.25.18"",""task"":""summarize the demonstration""}"
+s-private_ip-17,sensitive,,PHONE_NUMBER,9,22,192.168.25.18,"{""note"":""192.168.25.18"",""task"":""summarize the demonstration""}"
+s-api_key-18,sensitive,,PERSON,45,108,`sk-ant-api03-SYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETI`,"/* Begin synthetic fixture */
+const record = `sk-ant-api03-SYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETI`;
+/* Explain validation before export. */"
+s-aws_session_token-18,sensitive,,PERSON,64,144,SYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICU,"/* Begin synthetic fixture */
+const record = `aws_session_token=SYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICUSYNTHETICU`;
+/* Explain validation before export. */"
+s-private_ip-18,sensitive,,IP_ADDRESS,46,57,10.42.18.19,"/* Begin synthetic fixture */
+const record = `10.42.18.19`;
+/* Explain validation before export. */"
+s-postal_code-18,sensitive,,DATE_TIME,51,54,1AA,"/* Begin synthetic fixture */
+const record = `SW1A 1AA`;
+/* Explain validation before export. */"
+s-date_time-18,sensitive,,DATE_TIME,46,65,"September 12, 1990`","/* Begin synthetic fixture */
+const record = `September 12, 1990`;
+/* Explain validation before export. */"
+m-18-3,sensitive,,DATE_TIME,84,87,1AA,"/* Begin synthetic fixture */
+const record = `***-**-4342 | 63 Willow Street | SW1A 1AA`;
+/* Explain validation before export. */"
+s-private_ip-19,sensitive,,IP_ADDRESS,23,36,192.168.25.20,"Demo log entry <record>192.168.25.20</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+s-private_ip-19,sensitive,,PHONE_NUMBER,23,36,192.168.25.20,"Demo log entry <record>192.168.25.20</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+s-person-19,sensitive,,PERSON,23,28,Ethan,"Demo log entry <record>Ethan Whitmore</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+s-street_address-19,sensitive,,PERSON,23,29,PO Box,"Demo log entry <record>PO Box 139</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+s-date_time-19,sensitive,,DATE_TIME,26,47,February 1988</record,"Demo log entry <record>14 February 1988</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+m-19-1,sensitive,,DATE_TIME,47,54,2024-05,"Demo log entry <record>Mira Bennett | London | 2024-05-21</record>
+Boundary test: punctuation surrounds the value. Explain safe handling."
+n-05-0,safe,hard_negative,DATE_TIME,23,28,1.2.3,My software version is 1.2.3
+n-05-1,safe,hard_negative,DATE_TIME,46,51,1.2.3,Documentation excerpt: My software version is 1.2.3. Explain the concept.
+n-05-3,safe,hard_negative,DATE_TIME,63,68,1.2.3,Review this public or invalid example: (My software version is 1.2.3).
+n-07-0,safe,hard_negative,IP_ADDRESS,0,9,192.0.2.1,192.0.2.1
+n-07-1,safe,hard_negative,IP_ADDRESS,23,32,192.0.2.1,Documentation excerpt: 192.0.2.1. Explain the concept.
+n-07-2,safe,hard_negative,IP_ADDRESS,17,26,192.0.2.1,"# Benign fixture
+192.0.2.1
+Task: review the example."
+n-07-3,safe,hard_negative,IP_ADDRESS,40,49,192.0.2.1,Review this public or invalid example: (192.0.2.1).
+n-09-0,safe,hard_negative,DATE_TIME,29,45,"January 15, 2025","Our release is scheduled for January 15, 2025"
+n-09-1,safe,hard_negative,DATE_TIME,52,68,"January 15, 2025","Documentation excerpt: Our release is scheduled for January 15, 2025. Explain the concept."
+n-09-2,safe,hard_negative,DATE_TIME,46,56,January 15,"# Benign fixture
+Our release is scheduled for January 15, 2025
+Task: review the example."
+n-09-2,safe,hard_negative,DATE_TIME,58,62,2025,"# Benign fixture
+Our release is scheduled for January 15, 2025
+Task: review the example."
+n-09-3,safe,hard_negative,DATE_TIME,69,85,"January 15, 2025","Review this public or invalid example: (Our release is scheduled for January 15, 2025)."
+n-10-0,safe,hard_negative,PERSON,0,5,Alice,Alice is a character in a sorting example
+n-10-1,safe,hard_negative,PERSON,23,28,Alice,Documentation excerpt: Alice is a character in a sorting example. Explain the concept.
+n-10-2,safe,hard_negative,PERSON,17,22,Alice,"# Benign fixture
+Alice is a character in a sorting example
+Task: review the example."
+n-10-3,safe,hard_negative,PERSON,40,45,Alice,Review this public or invalid example: (Alice is a character in a sorting example).
+n-23-0,safe,hard_negative,EMAIL_ADDRESS,13,34,reader@db.example.com,postgresql://reader@db.example.com/demo
+n-23-1,safe,hard_negative,EMAIL_ADDRESS,36,57,reader@db.example.com,Documentation excerpt: postgresql://reader@db.example.com/demo. Explain the concept.
+n-23-2,safe,hard_negative,EMAIL_ADDRESS,30,51,reader@db.example.com,"# Benign fixture
+postgresql://reader@db.example.com/demo
+Task: review the example."
+n-23-3,safe,hard_negative,EMAIL_ADDRESS,53,74,reader@db.example.com,Review this public or invalid example: (postgresql://reader@db.example.com/demo).
+n-50-0,safe,hard_negative,LOCATION,0,6,London,London is used in a public geography quiz
+n-50-1,safe,hard_negative,LOCATION,23,29,London,Documentation excerpt: London is used in a public geography quiz. Explain the concept.
+n-50-2,safe,hard_negative,LOCATION,17,23,London,"# Benign fixture
+London is used in a public geography quiz
+Task: review the example."
+n-50-3,safe,hard_negative,LOCATION,40,46,London,Review this public or invalid example: (London is used in a public geography quiz).
+n-51-0,safe,hard_negative,DATE_TIME,28,38,2024-05-21,The public holiday falls on 2024-05-21
+n-51-1,safe,hard_negative,DATE_TIME,51,61,2024-05-21,Documentation excerpt: The public holiday falls on 2024-05-21. Explain the concept.
+n-51-2,safe,hard_negative,DATE_TIME,45,55,2024-05-21,"# Benign fixture
+The public holiday falls on 2024-05-21
+Task: review the example."
+n-51-3,safe,hard_negative,DATE_TIME,68,78,2024-05-21,Review this public or invalid example: (The public holiday falls on 2024-05-21).
+n-52-0,safe,hard_negative,PERSON,0,12,Mira Bennett,Mira Bennett is an invented character
+n-52-1,safe,hard_negative,PERSON,23,35,Mira Bennett,Documentation excerpt: Mira Bennett is an invented character. Explain the concept.
+n-52-2,safe,hard_negative,PERSON,17,29,Mira Bennett,"# Benign fixture
+Mira Bennett is an invented character
+Task: review the example."
+n-52-3,safe,hard_negative,PERSON,40,52,Mira Bennett,Review this public or invalid example: (Mira Bennett is an invented character).
+n-53-0,safe,hard_negative,EMAIL_ADDRESS,0,19,support@example.com,support@example.com is a public documentation contact
+n-53-1,safe,hard_negative,EMAIL_ADDRESS,23,42,support@example.com,Documentation excerpt: support@example.com is a public documentation contact. Explain the concept.
+n-53-2,safe,hard_negative,EMAIL_ADDRESS,17,36,support@example.com,"# Benign fixture
+support@example.com is a public documentation contact
+Task: review the example."
+n-53-3,safe,hard_negative,EMAIL_ADDRESS,40,59,support@example.com,Review this public or invalid example: (support@example.com is a public documentation contact).

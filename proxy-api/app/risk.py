@@ -53,6 +53,7 @@ SEVERITY_WEIGHTS: dict[str, int] = {
     "PRIVATE_KEY": 100,
     "AWS_ACCESS_KEY": 100,
     "AWS_SECRET_KEY": 100,
+    "AWS_SESSION_TOKEN": 95,
     "API_KEY": 95,
     "GITHUB_TOKEN": 95,
     "DB_CONNECTION_STRING": 93,
@@ -65,6 +66,9 @@ SEVERITY_WEIGHTS: dict[str, int] = {
     "PRIVATE_IP": 45,
     # Regulated PII — high because of legal/compliance exposure
     "US_SSN": 85,
+    "MASKED_US_SSN": 55,
+    "STREET_ADDRESS": 40,
+    "POSTAL_CODE": 25,
     "CREDIT_CARD": 80,
     "IBAN_CODE": 70,
     # Everyday PII — sensitive but common enough that auto-redact (not an
@@ -174,5 +178,19 @@ def _reason_for(action: Action, worst_entity: str, count: int) -> str:
     if action is Action.MASK:
         return f"Low-sensitivity content found ({count} {plural}, e.g. {worst_entity}) — redacted automatically."
     if action is Action.WARN:
-        return f"Sensitive content found ({count} {plural}, highest: {worst_entity}) — confirm before sending."
+        return f"Sensitive content found ({count} {plural}, highest: {worst_entity}) — sanitization required before sending."
     return f"High-severity content found ({count} {plural}, highest: {worst_entity}) — request blocked."
+
+
+def decide(violations: list[dict], minimum_action: Action) -> RiskAssessment:
+    """Authoritative policy for inspection and egress; config can only tighten."""
+    assessment = assess(violations)
+    order = [Action.ALLOW, Action.MASK, Action.WARN, Action.BLOCK]
+    if violations and order.index(minimum_action) > order.index(assessment.action):
+        assessment.action = minimum_action
+        assessment.reason = (
+            "Request blocked by configured DLP policy."
+            if minimum_action is Action.BLOCK
+            else "Configured DLP policy requires sanitization before sending."
+        )
+    return assessment

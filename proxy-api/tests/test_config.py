@@ -19,12 +19,12 @@ class TestSettingsDefaults:
 
     def test_default_presidio_url(self):
         s = Settings()
-        assert s.presidio_url == "http://presidio:3000"
+        assert s.presidio_url == "http://localhost:3000"
 
     def test_default_provider_and_model(self):
         s = Settings()
         assert s.default_provider == "groq"
-        assert "llama" in s.default_model.lower()
+        assert s.default_model == "openai/gpt-oss-120b"
 
     def test_default_rate_limit(self):
         s = Settings()
@@ -157,7 +157,7 @@ class TestConfigHelpers:
         import app.config as cfg
         cfg._gateway_config = {"dlp": {"action": "redact", "confidence_threshold": 0.5}}
         result = get_dlp_policy()
-        assert result["action"] == "redact"
+        assert result["action"] == "mask"
         assert result["confidence_threshold"] == 0.5
         cfg._gateway_config = None
 
@@ -166,5 +166,5 @@ class TestConfigHelpers:
         cfg._gateway_config = {}
         assert get_provider_keys() == {}
         assert get_api_keys() == []
-        assert get_dlp_policy() == {}
+        assert get_dlp_policy() == {"action": "mask", "confidence_threshold": 0.4, "entities": None}
         cfg._gateway_config = None

@@ -1,114 +1,88 @@
 # PromptShield
 
-PromptShield is a local AI prompt firewall. It inspects prompts, source code, logs, and uploaded documents before they are sent to an external large-language model (LLM).
+PromptShield is an academic prototype for local inspection of text before optional forwarding to an external LLM. It uses Microsoft Presidio, spaCy English NER, and project-specific rules.
 
-It detects sensitive data and prompt-injection attempts, produces a redacted preview, calculates a risk score, and returns one of four decisions: **allow**, **mask**, **warn**, or **block**.
+## Active protection
 
-## Demo features
+- PII: emails, phones, checksum-valid credit cards, structurally valid SSNs, masked SSN fragments, names/locations, dates, IBANs, IP addresses, bounded English street/PO-box shapes and selected postal-code formats.
+- Secrets: legacy/project/service/admin OpenAI-style shapes, Anthropic-style shapes, Google/Gemini shapes, Groq shapes, selected GitHub token families, AKIA/ASIA AWS access IDs, context-labeled AWS secret/session values, complete/incomplete PEM private-key blocks, Slack webhook URLs, structurally JSON-valid JWTs, bearer tokens, credential-bearing database URIs, and keyword-based secret assignments.
+- Infrastructure: RFC1918 IPv4 and .internal/.local/.corp/.lan hostnames.
+- Integrity: selected English prompt-injection patterns.
 
-- Sensitive-data detection for emails, API keys, AWS keys, database URLs, private keys, GitHub tokens, JWTs, private IP addresses, and internal hostnames.
-- Prompt-injection and jailbreak-pattern detection.
-- Four-way risk policy: allow, mask, warn, and block.
-- PDF, DOCX, source-code, log, and plain-text scanning.
-- Browser-based inspection console.
-- Optional OpenAI-compatible gateway for forwarding approved prompts to a configured LLM provider.
+Detection is based on format/context, not credential liveness. Provider integration does not imply reliable provider-specific key detection. Together, Mistral, DeepInfra and xAI have **no provider-specific key-format detector verified in this phase**; explicit key assignments and bearer contexts can still be inspected.
 
-## Architecture
+## Enforcement and outbound coverage
 
-```text
-Browser console / application
-            |
-            v
-       PromptShield API
-            |
-            +--> Presidio detection service --> risk policy --> allow / mask / warn / block
-            |
-            +--> optional LLM provider forwarding for approved content
-```
+Scan and chat share one risk/policy decision. Blocked content never starts either provider forwarder. Nonblocking detected content is sanitized, checked for retained original values, and re-scanned once before forwarding; scanner/sanitization uncertainty fails closed.
+
+The gateway inspects message text parts and names; tool/function names, descriptions, schemas and nested arrays; response formats/schemas; stop strings; user identifiers; thinking/options; user-supplied model names (including x-model); and extra-header values. User-defined structural keys are also inspected and rejected when safe renaming is impossible. Sensitive routing/function/reference identifiers are rejected when replacement would leave an unusable protocol identifier. All these fields come from the same allowlist used by LiteLLM forwarding.
+
+Exact validated protocol constants (message roles, known type tags), numbers/booleans/null, server-selected routing defaults, incoming gateway authentication, and server provider credentials are control data rather than free-form prompt content. Supplied extra_headers are outbound data and are inspected. Credential-bearing header overrides (Authorization, Proxy-Authorization, api-key, x-api-key, x-goog-api-key, x-amz-security-token) are rejected; provider authentication remains server-owned.
+
+**Unsupported non-text message content is rejected** with HTTP 422 / unsupported_dlp_content: images, audio, raw files, unknown multimodal objects, binary objects and encoded data-URI blobs. No OCR, image analysis, output/response DLP, or media bypass is implemented. Text-part arrays preserve their original structure.
+
+Walk limits: depth 20, 20,000 nodes, 2,000 nonempty textual slots per outbound request. Excessive structure fails closed. Repeated identical text uses a per-pass response cache while every occurrence still contributes to risk. Verification scans only changed values; unchanged literals retain their already-inspected values.
+
+## Limits
+
+This is not a complete enterprise DLP system. It does not classify proprietary/confidential prose semantically, discover every opaque credential, guarantee zero false negatives, verify signatures/issuance, or inspect LLM output. Postal/street rules are bounded heuristics; phone detection does not prove a number is assigned. Credit cards retain checksum validation; invalid card samples and invalid/excluded SSNs are not treated as valid identifiers. CVV and card-expiry-specific detection are out of scope.
+
+PDF/DOCX upload endpoints inspect extracted text, not images or every document part. Identity, secure per-user key storage, deployment/TLS hardening, benchmarking, and general detector tuning remain separate work. Do not use real secrets in a demonstration.
 
 ## Run locally
 
-### Prerequisites
+Docker Desktop is required for the provided deployment. Create a root .env (the repository has no root .env.example):
 
-- Docker Desktop with the WSL 2 engine enabled.
-- Python 3 (only needed to serve the static frontend).
-
-### Start the backend
-
-```powershell
-docker compose up --build
-```
-
-The API is available at `http://localhost:8000`. The direct scanner works without a Groq, OpenAI, or other provider key.
-
-### Start the inspection console
-
-In a second terminal:
-
-```powershell
-cd frontend
-python -m http.server 5500
-```
-
-Open `http://localhost:5500`. Keep Docker running while using the console.
-
-## Quick test
-
-```powershell
-$body = @{ text = 'My AWS key is AKIAIOSFODNN7EXAMPLE and email is demo@example.com' } | ConvertTo-Json
-Invoke-RestMethod -Uri http://localhost:8000/v1/scan -Method Post -ContentType 'application/json' -Body $body
-```
-
-Expected result: a high-risk or blocked decision, a violation manifest, and a redacted preview. The value above is a public dummy test key; never test with a real credential.
-
-## API endpoints
-
-| Endpoint | Purpose |
-| --- | --- |
-| `POST /v1/scan` | Scan text and return the risk decision. |
-| `POST /v1/documents/scan` | Upload and scan a PDF, DOCX, or supported text/code file. |
-| `POST /v1/chat/completions` | Optionally forward approved content to an LLM provider. |
-| `GET /health` | Check service health. |
-
-## Risk decisions
-
-| Decision | Meaning |
-| --- | --- |
-| **allow** | No meaningful risk was detected. |
-| **mask** | Low-risk sensitive data is redacted before it can be forwarded. |
-| **warn** | Content needs explicit human review. |
-| **block** | High-risk secrets or prompt injection were detected; do not forward it. |
-
-## Configuration
-
-Copy `.env.example` to `.env`. A provider API key is only required for `POST /v1/chat/completions`; the scan and document endpoints run locally.
-
-```env
+~~~env
 GROQ_API_KEY=
 AISG_API_KEY=choose-a-long-random-local-key
-```
+~~~
 
-Detection policy and provider configuration are in `config/gateway.yaml`. Custom recognition patterns are in `presidio/recognizers.yaml`.
+A provider key is required only for chat forwarding. No provider key is needed for text/document inspection.
 
-## Project structure
+~~~powershell
+docker compose up --build
+~~~
 
-```text
-frontend/                 Static inspection console
-proxy-api/app/risk.py     Four-way risk score and policy
-proxy-api/app/routers/    Scan, document, health, and proxy endpoints
-presidio/                 Detection and anonymization service
-config/gateway.yaml       Provider, authentication, and DLP policy
-docs/api/                 API reference artifacts
-```
+Serve the frontend in another terminal:
 
-## Presentation notes
+~~~powershell
+cd frontend
+python -m http.server 5500
+~~~
 
-1. Start Docker and open the local console.
-2. Scan a harmless prompt to show an **allow** result.
-3. Scan a dummy credential or injection prompt to show **block**, the score, violations, and redaction.
-4. Upload a sample `.txt`, `.py`, `.log`, PDF, or DOCX file to demonstrate document handling.
-5. Explain the trade-off: regex-based lightweight detection is fast and transparent, but may produce more false positives than a heavier model-based approach.
+Open http://localhost:5500; default API URL is http://localhost:8000. The browser's API Key is the gateway authentication key, not a per-user provider key.
 
-## Attribution
+| Endpoint | Purpose |
+|---|---|
+| POST /v1/scan | Text inspection, decision and sanitized preview |
+| POST /v1/documents/scan | Supported extracted-document/text inspection |
+| POST /v1/chat/completions | Complete supported textual payload inspection and optional forwarding |
+| GET /health | Dependency/recognizer information |
 
-Presidio-based detection pipeline. PromptShield adds the four-way risk policy, direct scan endpoints, document scanning, custom recognizers, and inspection console. See [LICENSE](LICENSE) for the upstream Apache 2.0 license.
+| Decision | Server behavior |
+|---|---|
+| allow | No detected finding; forward unchanged |
+| mask | Replace protected text and verify before egress |
+| warn | Require sanitization and verification before egress; no raw warning override |
+| block | Return 422; no provider function executes |
+
+Gateway policy/provider keys: config/gateway.yaml. Provider adapters: config/providers.json. The sole project detector definition source is presidio/app/recognizers.py. presidio/recognizers.yaml is a retired explanatory stub; edits there have no effect. Invalid project pattern configuration refuses scanner startup. Unknown requested entities are rejected; gateway entity lists require explicit risk weights.
+
+## Verification and reports
+
+Repository tests reject external TCP/DNS and use synthetic values, in-memory transports, and mocked providers. Run service suites separately because both use an app package:
+
+~~~powershell
+cd proxy-api
+python -m pytest tests -q
+~~~
+
+Run the scanner suite from presidio and SDK suite from sdk/python. Use an isolated environment with dummy/no credential variables and disabled dotenv loading, as recorded in the reports.
+
+- docs/DLP_IMPLEMENTATION_AUDIT.md — historical baseline
+- docs/PHASE1_SECURITY_HARDENING_REPORT.md — fail-closed enforcement
+- docs/PHASE2_BASELINE_TEST_TRIAGE.md — requirement/fixture decisions
+- docs/PHASE2_DETECTION_COVERAGE_REPORT.md — active coverage, exact test outcomes, and remaining gaps
+
+The project builds on Occludra Gateway (Apache 2.0). Presidio/spaCy supply core recognition/anonymization; PromptShield adds inspection workflows, risk integration, document handling, and bounded outbound inspection.

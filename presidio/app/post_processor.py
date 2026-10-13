@@ -20,13 +20,21 @@ _COMPLEMENTARY_PAIRS: frozenset[frozenset[str]] = frozenset({
     frozenset({"STREET_ADDRESS", "PERSON"}),
 })
 
+_PROTECTED_ENTITIES = frozenset({
+    "PRIVATE_KEY", "AWS_ACCESS_KEY", "AWS_SECRET_KEY", "API_KEY",
+    "GITHUB_TOKEN", "SLACK_WEBHOOK", "DB_CONNECTION_STRING", "PROMPT_INJECTION",
+    "AWS_SESSION_TOKEN", "JWT_TOKEN", "BEARER_TOKEN", "GENERIC_SECRET_ASSIGNMENT",
+    "MASKED_US_SSN", "US_SSN", "PRIVATE_IP", "INTERNAL_HOSTNAME", "POSTAL_CODE",
+})
+
 
 def _remove_overlapping_lower_confidence(results: list) -> list:
-    """When two different entity types overlap, keep the higher-confidence one.
+    """Suppress only contained lower-confidence, nonblocking findings.
 
     Handles cases like "880 32 4565" being detected as both US_SSN (0.85)
     and DATE_TIME (0.40) — the lower-score DATE_TIME is suppressed.
-    Same-type overlaps are left to Presidio's built-in deduplication.
+    Partial overlaps retain both spans so no detected sensitive tail is lost.
+    Blocking findings always survive. Same-type overlaps use Presidio deduplication.
     Complementary pairs (e.g. STREET_ADDRESS + LOCATION) are never suppressed.
     """
     if len(results) <= 1:
@@ -41,15 +49,25 @@ def _remove_overlapping_lower_confidence(results: list) -> list:
                 continue
             if a.entity_type == b.entity_type:
                 continue
+            if a.entity_type in _PROTECTED_ENTITIES or b.entity_type in _PROTECTED_ENTITIES:
+                # A complete protected span already covers this date-like tail.
+                if a.entity_type == "DATE_TIME" and b.start <= a.start and a.end <= b.end:
+                    suppressed.add(i)
+                    break
+                if b.entity_type == "DATE_TIME" and a.start <= b.start and b.end <= a.end:
+                    suppressed.add(j)
+                continue
             if frozenset({a.entity_type, b.entity_type}) in _COMPLEMENTARY_PAIRS:
                 continue
             if not _spans_overlap(a.start, a.end, b.start, b.end):
                 continue
             if a.score >= b.score:
-                suppressed.add(j)
+                if a.start <= b.start and b.end <= a.end:
+                    suppressed.add(j)
             else:
-                suppressed.add(i)
-                break
+                if b.start <= a.start and a.end <= b.end:
+                    suppressed.add(i)
+                    break
 
     return [r for idx, r in enumerate(results) if idx not in suppressed]
 

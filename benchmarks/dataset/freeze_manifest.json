@@ -1,0 +1,12 @@
+{
+  "version": "synthetic-v1",
+  "seed": 20261013,
+  "sha256": "f40f25979a6c328e660a47ebf45d6b7bb81a27a6c94cfd39229a99f6784f34bc",
+  "dev_sha256": "4aa89ea538f3cbe99e3d08b0741ef465ecfbd9ecc18a37f1da81b9d751069f2a",
+  "test_sha256": "70944ef6de2487c7ec2e0a5b31df5295a8510ed4a20b30e79dbed4d51de876ff",
+  "total": 1000,
+  "dev": 300,
+  "test": 700,
+  "annotation_policy": "Authored insertion offsets; protected fictional values in sensitive tasks. Public/documentation/invalid or conceptual examples are safe, including deliberate policy-conflict controls. No detector outputs used as labels.",
+  "split_policy": "30% of template/topic families per stratum, no template family crosses dev/test; entities and some value families shared."
+}

@@ -1,0 +1,4696 @@
+{
+  "s-api_key-00": [
+    {
+      "entity_type": "API_KEY",
+      "start": 30,
+      "end": 86,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-00": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 30,
+      "end": 50,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-00": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 30,
+      "end": 92,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-00": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 30,
+      "end": 128,
+      "score": 0.95
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 48,
+      "end": 128,
+      "score": 0.85
+    }
+  ],
+  "s-private_key-00": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 30,
+      "end": 181,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-00": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 30,
+      "end": 129,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-00": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 30,
+      "end": 109,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-00": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 30,
+      "end": 140,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-00": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 30,
+      "end": 69,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-00": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 30,
+      "end": 94,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-00": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 30,
+      "end": 58,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-00": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 30,
+      "end": 39,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 30,
+      "end": 39,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-00": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 30,
+      "end": 47,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-00": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 30,
+      "end": 52,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-00": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 30,
+      "end": 45,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-00": [
+    {
+      "entity_type": "US_SSN",
+      "start": 30,
+      "end": 41,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-00": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 30,
+      "end": 41,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-00": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 30,
+      "end": 49,
+      "score": 1.0
+    }
+  ],
+  "s-person-00": [
+    {
+      "entity_type": "PERSON",
+      "start": 30,
+      "end": 42,
+      "score": 0.85
+    }
+  ],
+  "s-location-00": [
+    {
+      "entity_type": "LOCATION",
+      "start": 30,
+      "end": 36,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-00": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 30,
+      "end": 46,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-00": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 30,
+      "end": 38,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-00": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 30,
+      "end": 41,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-00": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 30,
+      "end": 48,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-00": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 30,
+      "end": 52,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-00": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 30,
+      "end": 58,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-01": [
+    {
+      "entity_type": "API_KEY",
+      "start": 0,
+      "end": 40,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-01": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 0,
+      "end": 20,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-01": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 0,
+      "end": 62,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-01": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 0,
+      "end": 98,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-01": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 0,
+      "end": 159,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-01": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 0,
+      "end": 40,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-01": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 0,
+      "end": 79,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-01": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 0,
+      "end": 110,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-01": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 0,
+      "end": 39,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-01": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 0,
+      "end": 59,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-01": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 0,
+      "end": 31,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-01": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 0,
+      "end": 12,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 12,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-01": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 0,
+      "end": 9,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-01": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 22,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-01": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 0,
+      "end": 15,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-01": [
+    {
+      "entity_type": "US_SSN",
+      "start": 0,
+      "end": 11,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-01": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 0,
+      "end": 11,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-01": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 0,
+      "end": 19,
+      "score": 1.0
+    }
+  ],
+  "s-person-01": [
+    {
+      "entity_type": "PERSON",
+      "start": 0,
+      "end": 16,
+      "score": 0.85
+    }
+  ],
+  "s-location-01": [
+    {
+      "entity_type": "LOCATION",
+      "start": 0,
+      "end": 5,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-01": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 0,
+      "end": 10,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-01": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 0,
+      "end": 8,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-01": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 9,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-01": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 0,
+      "end": 16,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-01": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 0,
+      "end": 22,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-01": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 0,
+      "end": 25,
+      "score": 0.9
+    }
+  ],
+  "m-01-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 22,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 25,
+      "end": 40,
+      "score": 1.0
+    }
+  ],
+  "m-01-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 0,
+      "end": 12,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 15,
+      "end": 21,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 24,
+      "end": 34,
+      "score": 0.85
+    }
+  ],
+  "m-01-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 0,
+      "end": 20,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 23,
+      "end": 85,
+      "score": 0.95
+    }
+  ],
+  "m-01-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 0,
+      "end": 11,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 0,
+      "end": 3,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 14,
+      "end": 24,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 27,
+      "end": 35,
+      "score": 0.85
+    }
+  ],
+  "m-02-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 42,
+      "end": 64,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 67,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "m-02-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 42,
+      "end": 56,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 59,
+      "end": 67,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 70,
+      "end": 88,
+      "score": 0.85
+    }
+  ],
+  "m-02-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 42,
+      "end": 62,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 65,
+      "end": 127,
+      "score": 0.95
+    }
+  ],
+  "m-02-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 42,
+      "end": 53,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 56,
+      "end": 69,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 59,
+      "end": 69,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 72,
+      "end": 79,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-03": [
+    {
+      "entity_type": "API_KEY",
+      "start": 63,
+      "end": 124,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-03": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 63,
+      "end": 83,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-03": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 63,
+      "end": 125,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-03": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 63,
+      "end": 161,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-03": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 63,
+      "end": 222,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-03": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 63,
+      "end": 103,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-03": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 63,
+      "end": 142,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-03": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 63,
+      "end": 173,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-03": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 63,
+      "end": 102,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-03": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 63,
+      "end": 127,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-03": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 63,
+      "end": 94,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-03": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 63,
+      "end": 75,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 63,
+      "end": 75,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-03": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 63,
+      "end": 72,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-03": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 63,
+      "end": 85,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-03": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 63,
+      "end": 78,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-03": [
+    {
+      "entity_type": "US_SSN",
+      "start": 63,
+      "end": 74,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-03": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 63,
+      "end": 74,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-03": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 63,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "s-person-03": [
+    {
+      "entity_type": "PERSON",
+      "start": 63,
+      "end": 77,
+      "score": 0.85
+    }
+  ],
+  "s-location-03": [
+    {
+      "entity_type": "LOCATION",
+      "start": 63,
+      "end": 71,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-03": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 63,
+      "end": 79,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-03": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 63,
+      "end": 71,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-03": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 63,
+      "end": 72,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-03": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 63,
+      "end": 81,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-03": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 63,
+      "end": 85,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-03": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 63,
+      "end": 79,
+      "score": 0.85
+    }
+  ],
+  "m-03-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 63,
+      "end": 85,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 88,
+      "end": 103,
+      "score": 1.0
+    }
+  ],
+  "m-03-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 63,
+      "end": 75,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 78,
+      "end": 84,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 87,
+      "end": 103,
+      "score": 0.85
+    }
+  ],
+  "m-03-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 63,
+      "end": 83,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 86,
+      "end": 148,
+      "score": 0.95
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 108,
+      "end": 148,
+      "score": 0.85
+    }
+  ],
+  "m-03-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 63,
+      "end": 74,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 77,
+      "end": 93,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 96,
+      "end": 104,
+      "score": 0.85
+    }
+  ],
+  "m-04-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 59,
+      "end": 81,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 84,
+      "end": 99,
+      "score": 1.0
+    }
+  ],
+  "m-04-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 59,
+      "end": 75,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 78,
+      "end": 83,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 86,
+      "end": 96,
+      "score": 0.85
+    }
+  ],
+  "m-04-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 59,
+      "end": 79,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 82,
+      "end": 144,
+      "score": 0.95
+    }
+  ],
+  "m-04-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 59,
+      "end": 70,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 73,
+      "end": 83,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 86,
+      "end": 94,
+      "score": 0.85
+    }
+  ],
+  "m-05-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 42,
+      "end": 64,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 67,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "m-05-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 42,
+      "end": 54,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 57,
+      "end": 63,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 66,
+      "end": 85,
+      "score": 0.85
+    }
+  ],
+  "m-05-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 42,
+      "end": 62,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 65,
+      "end": 128,
+      "score": 0.95
+    }
+  ],
+  "m-05-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 42,
+      "end": 53,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 56,
+      "end": 69,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 59,
+      "end": 69,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 72,
+      "end": 79,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-06": [
+    {
+      "entity_type": "API_KEY",
+      "start": 49,
+      "end": 89,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-06": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-06": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 49,
+      "end": 111,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-06": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 49,
+      "end": 147,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-06": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 49,
+      "end": 200,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-06": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 49,
+      "end": 148,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-06": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 49,
+      "end": 128,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-06": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 49,
+      "end": 159,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-06": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 49,
+      "end": 88,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-06": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 49,
+      "end": 113,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-06": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 49,
+      "end": 77,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-06": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 49,
+      "end": 58,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 58,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-06": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 49,
+      "end": 66,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-06": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-06": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-06": [
+    {
+      "entity_type": "US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-06": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-06": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 49,
+      "end": 68,
+      "score": 1.0
+    }
+  ],
+  "s-person-06": [
+    {
+      "entity_type": "PERSON",
+      "start": 49,
+      "end": 61,
+      "score": 0.85
+    }
+  ],
+  "s-location-06": [
+    {
+      "entity_type": "LOCATION",
+      "start": 49,
+      "end": 55,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-06": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 49,
+      "end": 65,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-06": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 49,
+      "end": 57,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 49,
+      "end": 53,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-06": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 60,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-06": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 49,
+      "end": 67,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-06": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-06": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 49,
+      "end": 70,
+      "score": 0.85
+    }
+  ],
+  "m-06-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-06-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 49,
+      "end": 63,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 66,
+      "end": 74,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 77,
+      "end": 93,
+      "score": 0.85
+    }
+  ],
+  "m-06-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 72,
+      "end": 134,
+      "score": 0.95
+    }
+  ],
+  "m-06-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 63,
+      "end": 79,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 82,
+      "end": 90,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 82,
+      "end": 86,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-09": [
+    {
+      "entity_type": "API_KEY",
+      "start": 49,
+      "end": 88,
+      "score": 0.9
+    }
+  ],
+  "s-aws_access_key-09": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-09": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 49,
+      "end": 111,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-09": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 49,
+      "end": 147,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-09": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 49,
+      "end": 208,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-09": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 49,
+      "end": 89,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-09": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 49,
+      "end": 128,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-09": [],
+  "s-bearer_token-09": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 49,
+      "end": 89,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-09": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 49,
+      "end": 114,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-09": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 49,
+      "end": 81,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-09": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 62,
+      "score": 0.95
+    }
+  ],
+  "s-internal_hostname-09": [],
+  "s-email_address-09": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-09": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-09": [
+    {
+      "entity_type": "US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-09": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-09": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 49,
+      "end": 68,
+      "score": 1.0
+    }
+  ],
+  "s-person-09": [
+    {
+      "entity_type": "PERSON",
+      "start": 49,
+      "end": 65,
+      "score": 0.85
+    }
+  ],
+  "s-location-09": [
+    {
+      "entity_type": "LOCATION",
+      "start": 49,
+      "end": 54,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-09": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 49,
+      "end": 66,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 52,
+      "end": 65,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-09": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 49,
+      "end": 57,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-09": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 49,
+      "end": 59,
+      "score": 0.95
+    }
+  ],
+  "s-date_time-09": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 49,
+      "end": 67,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-09": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-09": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 49,
+      "end": 74,
+      "score": 0.9
+    }
+  ],
+  "m-09-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 49,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-09-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 49,
+      "end": 61,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 64,
+      "end": 70,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 73,
+      "end": 89,
+      "score": 0.85
+    }
+  ],
+  "m-09-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 49,
+      "end": 69,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 72,
+      "end": 134,
+      "score": 0.95
+    }
+  ],
+  "m-09-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 49,
+      "end": 60,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 49,
+      "end": 52,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 63,
+      "end": 79,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 66,
+      "end": 79,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 82,
+      "end": 90,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-10": [
+    {
+      "entity_type": "API_KEY",
+      "start": 48,
+      "end": 104,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-10": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 48,
+      "end": 68,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-10": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 48,
+      "end": 110,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-10": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 48,
+      "end": 146,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-10": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 48,
+      "end": 199,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-10": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 48,
+      "end": 147,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-10": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 48,
+      "end": 127,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-10": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 48,
+      "end": 159,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-10": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 48,
+      "end": 87,
+      "score": 0.85
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 48,
+      "end": 87,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-10": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 48,
+      "end": 108,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-10": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 48,
+      "end": 77,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-10": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 48,
+      "end": 59,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 48,
+      "end": 59,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-10": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 48,
+      "end": 66,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-10": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 48,
+      "end": 71,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-10": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 48,
+      "end": 63,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-10": [
+    {
+      "entity_type": "US_SSN",
+      "start": 48,
+      "end": 59,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-10": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 48,
+      "end": 59,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 48,
+      "end": 51,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-10": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 48,
+      "end": 67,
+      "score": 1.0
+    }
+  ],
+  "s-person-10": [
+    {
+      "entity_type": "PERSON",
+      "start": 48,
+      "end": 60,
+      "score": 0.85
+    }
+  ],
+  "s-location-10": [
+    {
+      "entity_type": "LOCATION",
+      "start": 48,
+      "end": 54,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-10": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 48,
+      "end": 58,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-10": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 48,
+      "end": 56,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-10": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 48,
+      "end": 60,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-10": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 48,
+      "end": 64,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-10": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 48,
+      "end": 70,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-10": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 48,
+      "end": 69,
+      "score": 0.85
+    }
+  ],
+  "m-10-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 48,
+      "end": 71,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 74,
+      "end": 89,
+      "score": 1.0
+    }
+  ],
+  "m-10-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 48,
+      "end": 62,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 65,
+      "end": 73,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 76,
+      "end": 86,
+      "score": 0.85
+    }
+  ],
+  "m-10-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 48,
+      "end": 68,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 71,
+      "end": 133,
+      "score": 0.95
+    }
+  ],
+  "m-10-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 48,
+      "end": 59,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 62,
+      "end": 72,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 75,
+      "end": 83,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-11": [
+    {
+      "entity_type": "API_KEY",
+      "start": 44,
+      "end": 84,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-11": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 44,
+      "end": 64,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-11": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 44,
+      "end": 106,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-11": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 44,
+      "end": 142,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-11": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 44,
+      "end": 203,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-11": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 44,
+      "end": 84,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-11": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 44,
+      "end": 123,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-11": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 44,
+      "end": 155,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-11": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 44,
+      "end": 83,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-11": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 44,
+      "end": 106,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-11": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 44,
+      "end": 76,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-11": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 44,
+      "end": 57,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 44,
+      "end": 57,
+      "score": 0.6
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 43,
+      "end": 57,
+      "score": 0.4
+    }
+  ],
+  "s-internal_hostname-11": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 44,
+      "end": 54,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-11": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 44,
+      "end": 67,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-11": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 44,
+      "end": 59,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 43,
+      "end": 59,
+      "score": 0.4
+    }
+  ],
+  "s-us_ssn-11": [
+    {
+      "entity_type": "US_SSN",
+      "start": 44,
+      "end": 55,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-11": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 44,
+      "end": 55,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-11": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 44,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-person-11": [
+    {
+      "entity_type": "PERSON",
+      "start": 44,
+      "end": 58,
+      "score": 0.85
+    }
+  ],
+  "s-location-11": [
+    {
+      "entity_type": "LOCATION",
+      "start": 44,
+      "end": 52,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-11": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 44,
+      "end": 57,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-11": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 44,
+      "end": 51,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-11": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 44,
+      "end": 54,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-11": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 44,
+      "end": 54,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-11": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 44,
+      "end": 66,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-11": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 44,
+      "end": 60,
+      "score": 0.85
+    }
+  ],
+  "m-11-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 44,
+      "end": 67,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 70,
+      "end": 85,
+      "score": 1.0
+    }
+  ],
+  "m-11-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 44,
+      "end": 56,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 59,
+      "end": 65,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 68,
+      "end": 86,
+      "score": 0.85
+    }
+  ],
+  "m-11-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 44,
+      "end": 64,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 67,
+      "end": 129,
+      "score": 0.95
+    }
+  ],
+  "m-11-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 44,
+      "end": 55,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 58,
+      "end": 71,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 61,
+      "end": 71,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 74,
+      "end": 81,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-12": [
+    {
+      "entity_type": "API_KEY",
+      "start": 38,
+      "end": 97,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-12": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 38,
+      "end": 58,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-12": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 38,
+      "end": 100,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-12": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 38,
+      "end": 136,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-12": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 38,
+      "end": 189,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-12": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 38,
+      "end": 137,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-12": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 38,
+      "end": 117,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-12": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 38,
+      "end": 149,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-12": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 38,
+      "end": 77,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-12": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 38,
+      "end": 103,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-12": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 38,
+      "end": 67,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-12": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 38,
+      "end": 49,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 38,
+      "end": 49,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-12": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 38,
+      "end": 56,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-12": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 38,
+      "end": 61,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-12": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 38,
+      "end": 53,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 37,
+      "end": 53,
+      "score": 0.4
+    }
+  ],
+  "s-us_ssn-12": [
+    {
+      "entity_type": "US_SSN",
+      "start": 38,
+      "end": 49,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-12": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 38,
+      "end": 49,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 38,
+      "end": 41,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-12": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 38,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "s-person-12": [
+    {
+      "entity_type": "PERSON",
+      "start": 38,
+      "end": 50,
+      "score": 0.85
+    }
+  ],
+  "s-location-12": [
+    {
+      "entity_type": "LOCATION",
+      "start": 38,
+      "end": 44,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-12": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 38,
+      "end": 54,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-12": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 38,
+      "end": 46,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-12": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 38,
+      "end": 50,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-12": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 38,
+      "end": 56,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-12": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 38,
+      "end": 60,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-12": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 38,
+      "end": 66,
+      "score": 0.85
+    }
+  ],
+  "m-13-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 40,
+      "end": 63,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 66,
+      "end": 81,
+      "score": 1.0
+    }
+  ],
+  "m-13-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 40,
+      "end": 52,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 55,
+      "end": 61,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 64,
+      "end": 74,
+      "score": 0.85
+    }
+  ],
+  "m-13-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 40,
+      "end": 60,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 63,
+      "end": 125,
+      "score": 0.95
+    }
+  ],
+  "m-13-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 40,
+      "end": 51,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 54,
+      "end": 64,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 67,
+      "end": 75,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-14": [
+    {
+      "entity_type": "API_KEY",
+      "start": 842,
+      "end": 881,
+      "score": 0.9
+    }
+  ],
+  "s-aws_access_key-14": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 842,
+      "end": 862,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-14": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 842,
+      "end": 904,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-14": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 842,
+      "end": 940,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-14": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 842,
+      "end": 993,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-14": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 842,
+      "end": 941,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-14": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 842,
+      "end": 921,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-14": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 842,
+      "end": 953,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-14": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 842,
+      "end": 881,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-14": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 842,
+      "end": 904,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-14": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 842,
+      "end": 871,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-14": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 842,
+      "end": 853,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 842,
+      "end": 853,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-14": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 842,
+      "end": 860,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-14": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 842,
+      "end": 865,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-14": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 842,
+      "end": 857,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-14": [
+    {
+      "entity_type": "US_SSN",
+      "start": 842,
+      "end": 853,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-14": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 842,
+      "end": 853,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-14": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 842,
+      "end": 858,
+      "score": 1.0
+    }
+  ],
+  "s-person-14": [
+    {
+      "entity_type": "PERSON",
+      "start": 842,
+      "end": 859,
+      "score": 0.85
+    }
+  ],
+  "s-location-14": [
+    {
+      "entity_type": "LOCATION",
+      "start": 842,
+      "end": 848,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-14": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 842,
+      "end": 855,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 845,
+      "end": 855,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-14": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 842,
+      "end": 849,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-14": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 842,
+      "end": 854,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-14": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 842,
+      "end": 852,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-14": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 842,
+      "end": 864,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-14": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 842,
+      "end": 863,
+      "score": 0.85
+    }
+  ],
+  "m-14-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 842,
+      "end": 865,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 868,
+      "end": 883,
+      "score": 1.0
+    }
+  ],
+  "m-14-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 842,
+      "end": 856,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 859,
+      "end": 867,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 870,
+      "end": 888,
+      "score": 0.85
+    }
+  ],
+  "m-14-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 842,
+      "end": 862,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 865,
+      "end": 927,
+      "score": 0.95
+    }
+  ],
+  "m-14-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 842,
+      "end": 853,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 856,
+      "end": 869,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 859,
+      "end": 869,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 872,
+      "end": 879,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-15": [
+    {
+      "entity_type": "API_KEY",
+      "start": 60,
+      "end": 116,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-15": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 60,
+      "end": 80,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-15": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 60,
+      "end": 123,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-15": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 60,
+      "end": 159,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-15": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 60,
+      "end": 219,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-15": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 60,
+      "end": 100,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-15": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 60,
+      "end": 139,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-15": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 60,
+      "end": 171,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-15": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 60,
+      "end": 99,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-15": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 60,
+      "end": 125,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-15": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 60,
+      "end": 92,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-15": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 60,
+      "end": 73,
+      "score": 0.95
+    },
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 60,
+      "end": 73,
+      "score": 0.9
+    }
+  ],
+  "s-internal_hostname-15": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 60,
+      "end": 70,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-15": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 60,
+      "end": 83,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-15": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 60,
+      "end": 75,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-15": [
+    {
+      "entity_type": "US_SSN",
+      "start": 60,
+      "end": 71,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-15": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 60,
+      "end": 71,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-15": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 60,
+      "end": 79,
+      "score": 1.0
+    }
+  ],
+  "s-person-15": [
+    {
+      "entity_type": "PERSON",
+      "start": 60,
+      "end": 74,
+      "score": 0.85
+    }
+  ],
+  "s-location-15": [
+    {
+      "entity_type": "LOCATION",
+      "start": 60,
+      "end": 68,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-15": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 60,
+      "end": 76,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-15": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 60,
+      "end": 68,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-15": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 60,
+      "end": 70,
+      "score": 0.95
+    }
+  ],
+  "s-date_time-15": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 60,
+      "end": 79,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-15": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 60,
+      "end": 82,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-15": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 60,
+      "end": 76,
+      "score": 0.85
+    }
+  ],
+  "m-15-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 60,
+      "end": 83,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 86,
+      "end": 101,
+      "score": 1.0
+    }
+  ],
+  "m-15-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 60,
+      "end": 72,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 75,
+      "end": 81,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 84,
+      "end": 100,
+      "score": 0.85
+    }
+  ],
+  "m-15-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 60,
+      "end": 80,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 83,
+      "end": 146,
+      "score": 0.95
+    }
+  ],
+  "m-15-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 60,
+      "end": 71,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 74,
+      "end": 90,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 93,
+      "end": 101,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-16": [
+    {
+      "entity_type": "API_KEY",
+      "start": 2832,
+      "end": 2872,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-16": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 2832,
+      "end": 2852,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-16": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 2832,
+      "end": 2894,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-16": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 2832,
+      "end": 2930,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-16": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 2832,
+      "end": 2983,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-16": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 2832,
+      "end": 2931,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-16": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 2832,
+      "end": 2911,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-16": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 2832,
+      "end": 2943,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-16": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 2832,
+      "end": 2871,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-16": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 2832,
+      "end": 2892,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-16": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 2832,
+      "end": 2861,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-16": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 2832,
+      "end": 2843,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 2832,
+      "end": 2843,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-16": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 2832,
+      "end": 2850,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-16": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 2832,
+      "end": 2855,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-16": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 2832,
+      "end": 2847,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-16": [
+    {
+      "entity_type": "US_SSN",
+      "start": 2832,
+      "end": 2843,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-16": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 2832,
+      "end": 2843,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 2832,
+      "end": 2835,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-16": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 2832,
+      "end": 2851,
+      "score": 1.0
+    }
+  ],
+  "s-person-16": [
+    {
+      "entity_type": "PERSON",
+      "start": 2832,
+      "end": 2848,
+      "score": 0.85
+    }
+  ],
+  "s-location-16": [
+    {
+      "entity_type": "LOCATION",
+      "start": 2832,
+      "end": 2838,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-16": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 2832,
+      "end": 2842,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-16": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 2832,
+      "end": 2840,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-16": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 2832,
+      "end": 2844,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-16": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 2832,
+      "end": 2848,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-16": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 2832,
+      "end": 2854,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-16": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 2832,
+      "end": 2860,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-17": [
+    {
+      "entity_type": "API_KEY",
+      "start": 9,
+      "end": 68,
+      "score": 0.95
+    }
+  ],
+  "s-aws_access_key-17": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 9,
+      "end": 29,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-17": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 8,
+      "end": 72,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-17": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 8,
+      "end": 108,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-17": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 9,
+      "end": 168,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-17": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 9,
+      "end": 49,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-17": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 9,
+      "end": 88,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-17": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 9,
+      "end": 120,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-17": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 9,
+      "end": 48,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-17": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 9,
+      "end": 71,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-17": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 8,
+      "end": 41,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-17": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 9,
+      "end": 22,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 9,
+      "end": 22,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-17": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 9,
+      "end": 19,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-17": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 9,
+      "end": 32,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-17": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 9,
+      "end": 24,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-17": [
+    {
+      "entity_type": "US_SSN",
+      "start": 9,
+      "end": 20,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-17": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 9,
+      "end": 20,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-17": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 9,
+      "end": 25,
+      "score": 1.0
+    }
+  ],
+  "s-person-17": [],
+  "s-location-17": [],
+  "s-street_address-17": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 9,
+      "end": 22,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-17": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 9,
+      "end": 16,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-17": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 9,
+      "end": 19,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-17": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 9,
+      "end": 19,
+      "score": 0.6
+    }
+  ],
+  "s-iban_code-17": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 9,
+      "end": 31,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-17": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 9,
+      "end": 34,
+      "score": 0.9
+    }
+  ],
+  "s-api_key-18": [
+    {
+      "entity_type": "API_KEY",
+      "start": 46,
+      "end": 107,
+      "score": 0.95
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 45,
+      "end": 108,
+      "score": 0.85
+    }
+  ],
+  "s-aws_access_key-18": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 46,
+      "end": 66,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-18": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 46,
+      "end": 108,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-18": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 46,
+      "end": 144,
+      "score": 0.95
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 64,
+      "end": 144,
+      "score": 0.85
+    }
+  ],
+  "s-private_key-18": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 46,
+      "end": 197,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-18": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 46,
+      "end": 145,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-18": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 46,
+      "end": 125,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-18": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 46,
+      "end": 157,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-18": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 46,
+      "end": 85,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-18": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 46,
+      "end": 112,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-18": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 46,
+      "end": 75,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-18": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 46,
+      "end": 57,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 46,
+      "end": 57,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-18": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 46,
+      "end": 64,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-18": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 46,
+      "end": 69,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-18": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 46,
+      "end": 61,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-18": [
+    {
+      "entity_type": "US_SSN",
+      "start": 46,
+      "end": 57,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-18": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 46,
+      "end": 57,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-18": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 46,
+      "end": 65,
+      "score": 1.0
+    }
+  ],
+  "s-person-18": [
+    {
+      "entity_type": "PERSON",
+      "start": 46,
+      "end": 58,
+      "score": 0.85
+    }
+  ],
+  "s-location-18": [
+    {
+      "entity_type": "LOCATION",
+      "start": 46,
+      "end": 52,
+      "score": 0.85
+    }
+  ],
+  "s-street_address-18": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 46,
+      "end": 62,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-18": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 46,
+      "end": 54,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-18": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 46,
+      "end": 58,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-18": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 46,
+      "end": 65,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-18": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 46,
+      "end": 68,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-18": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 46,
+      "end": 67,
+      "score": 0.85
+    }
+  ],
+  "m-18-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 46,
+      "end": 69,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 72,
+      "end": 87,
+      "score": 1.0
+    }
+  ],
+  "m-18-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 46,
+      "end": 60,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 63,
+      "end": 71,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 74,
+      "end": 90,
+      "score": 0.85
+    }
+  ],
+  "m-18-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 46,
+      "end": 66,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 69,
+      "end": 131,
+      "score": 0.95
+    }
+  ],
+  "m-18-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 46,
+      "end": 57,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 60,
+      "end": 76,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 79,
+      "end": 87,
+      "score": 0.85
+    }
+  ],
+  "s-api_key-19": [
+    {
+      "entity_type": "API_KEY",
+      "start": 23,
+      "end": 62,
+      "score": 0.9
+    }
+  ],
+  "s-aws_access_key-19": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 23,
+      "end": 43,
+      "score": 0.95
+    }
+  ],
+  "s-aws_secret_key-19": [
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 23,
+      "end": 85,
+      "score": 0.95
+    }
+  ],
+  "s-aws_session_token-19": [
+    {
+      "entity_type": "AWS_SESSION_TOKEN",
+      "start": 23,
+      "end": 121,
+      "score": 0.95
+    }
+  ],
+  "s-private_key-19": [
+    {
+      "entity_type": "PRIVATE_KEY",
+      "start": 23,
+      "end": 182,
+      "score": 0.99
+    }
+  ],
+  "s-github_token-19": [
+    {
+      "entity_type": "GITHUB_TOKEN",
+      "start": 23,
+      "end": 63,
+      "score": 0.95
+    }
+  ],
+  "s-slack_webhook-19": [
+    {
+      "entity_type": "SLACK_WEBHOOK",
+      "start": 23,
+      "end": 102,
+      "score": 0.95
+    }
+  ],
+  "s-jwt_token-19": [
+    {
+      "entity_type": "JWT_TOKEN",
+      "start": 23,
+      "end": 134,
+      "score": 1.0
+    }
+  ],
+  "s-bearer_token-19": [
+    {
+      "entity_type": "BEARER_TOKEN",
+      "start": 23,
+      "end": 62,
+      "score": 0.85
+    }
+  ],
+  "s-db_connection_string-19": [
+    {
+      "entity_type": "DB_CONNECTION_STRING",
+      "start": 23,
+      "end": 83,
+      "score": 0.95
+    }
+  ],
+  "s-generic_secret_assignment-19": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 23,
+      "end": 55,
+      "score": 0.65
+    }
+  ],
+  "s-private_ip-19": [
+    {
+      "entity_type": "PRIVATE_IP",
+      "start": 23,
+      "end": 36,
+      "score": 0.9
+    },
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 36,
+      "score": 0.6
+    }
+  ],
+  "s-internal_hostname-19": [
+    {
+      "entity_type": "INTERNAL_HOSTNAME",
+      "start": 23,
+      "end": 33,
+      "score": 0.8
+    }
+  ],
+  "s-email_address-19": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 46,
+      "score": 1.0
+    }
+  ],
+  "s-phone_number-19": [
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 23,
+      "end": 38,
+      "score": 1.0
+    }
+  ],
+  "s-us_ssn-19": [
+    {
+      "entity_type": "US_SSN",
+      "start": 23,
+      "end": 34,
+      "score": 0.5
+    }
+  ],
+  "s-masked_us_ssn-19": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 23,
+      "end": 34,
+      "score": 0.85
+    }
+  ],
+  "s-credit_card-19": [
+    {
+      "entity_type": "CREDIT_CARD",
+      "start": 23,
+      "end": 42,
+      "score": 1.0
+    }
+  ],
+  "s-person-19": [
+    {
+      "entity_type": "PERSON",
+      "start": 23,
+      "end": 28,
+      "score": 0.85
+    }
+  ],
+  "s-location-19": [],
+  "s-street_address-19": [
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 23,
+      "end": 33,
+      "score": 0.85
+    },
+    {
+      "entity_type": "PERSON",
+      "start": 23,
+      "end": 29,
+      "score": 0.85
+    }
+  ],
+  "s-postal_code-19": [
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 23,
+      "end": 31,
+      "score": 0.85
+    }
+  ],
+  "s-ip_address-19": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 33,
+      "score": 0.6
+    }
+  ],
+  "s-date_time-19": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 26,
+      "end": 47,
+      "score": 0.85
+    }
+  ],
+  "s-iban_code-19": [
+    {
+      "entity_type": "IBAN_CODE",
+      "start": 23,
+      "end": 45,
+      "score": 1.0
+    }
+  ],
+  "s-prompt_injection-19": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 23,
+      "end": 39,
+      "score": 0.85
+    }
+  ],
+  "m-19-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 46,
+      "score": 1.0
+    },
+    {
+      "entity_type": "PHONE_NUMBER",
+      "start": 49,
+      "end": 64,
+      "score": 1.0
+    }
+  ],
+  "m-19-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 23,
+      "end": 35,
+      "score": 0.85
+    },
+    {
+      "entity_type": "LOCATION",
+      "start": 38,
+      "end": 44,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 47,
+      "end": 54,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 47,
+      "end": 57,
+      "score": 0.6
+    }
+  ],
+  "m-19-2": [
+    {
+      "entity_type": "AWS_ACCESS_KEY",
+      "start": 23,
+      "end": 43,
+      "score": 0.95
+    },
+    {
+      "entity_type": "AWS_SECRET_KEY",
+      "start": 46,
+      "end": 108,
+      "score": 0.95
+    }
+  ],
+  "m-19-3": [
+    {
+      "entity_type": "MASKED_US_SSN",
+      "start": 23,
+      "end": 34,
+      "score": 0.85
+    },
+    {
+      "entity_type": "STREET_ADDRESS",
+      "start": 37,
+      "end": 47,
+      "score": 0.85
+    },
+    {
+      "entity_type": "POSTAL_CODE",
+      "start": 50,
+      "end": 58,
+      "score": 0.85
+    }
+  ],
+  "o-00-0": [],
+  "o-00-1": [],
+  "o-00-2": [],
+  "o-00-3": [],
+  "o-01-0": [],
+  "o-01-1": [],
+  "o-01-2": [],
+  "o-01-3": [],
+  "o-02-0": [],
+  "o-02-1": [],
+  "o-02-2": [],
+  "o-02-3": [],
+  "o-03-0": [],
+  "o-03-1": [],
+  "o-03-2": [],
+  "o-03-3": [],
+  "o-04-0": [],
+  "o-04-1": [],
+  "o-04-2": [],
+  "o-04-3": [],
+  "o-06-0": [],
+  "o-06-1": [],
+  "o-06-2": [],
+  "o-06-3": [],
+  "o-07-0": [],
+  "o-07-1": [],
+  "o-07-2": [],
+  "o-07-3": [],
+  "o-09-0": [],
+  "o-09-1": [],
+  "o-09-2": [],
+  "o-09-3": [],
+  "o-12-0": [],
+  "o-12-1": [],
+  "o-12-2": [],
+  "o-12-3": [],
+  "o-13-0": [],
+  "o-13-1": [],
+  "o-13-2": [],
+  "o-13-3": [],
+  "o-14-0": [],
+  "o-14-1": [],
+  "o-14-2": [],
+  "o-14-3": [],
+  "o-15-0": [],
+  "o-15-1": [],
+  "o-15-2": [],
+  "o-15-3": [],
+  "o-17-0": [],
+  "o-17-1": [],
+  "o-17-2": [],
+  "o-17-3": [],
+  "o-19-0": [],
+  "o-19-1": [],
+  "o-19-2": [],
+  "o-19-3": [],
+  "o-20-0": [],
+  "o-20-1": [],
+  "o-20-2": [],
+  "o-20-3": [],
+  "o-21-0": [],
+  "o-21-1": [],
+  "o-21-2": [],
+  "o-21-3": [],
+  "o-22-0": [],
+  "o-22-1": [],
+  "o-22-2": [],
+  "o-22-3": [],
+  "o-24-0": [],
+  "o-24-1": [],
+  "o-24-2": [],
+  "o-24-3": [],
+  "o-25-0": [],
+  "o-25-1": [],
+  "o-25-2": [],
+  "o-25-3": [],
+  "o-26-0": [],
+  "o-26-1": [],
+  "o-26-2": [],
+  "o-26-3": [],
+  "o-27-0": [],
+  "o-27-1": [],
+  "o-27-2": [],
+  "o-27-3": [],
+  "o-29-0": [],
+  "o-29-1": [],
+  "o-29-2": [],
+  "o-29-3": [],
+  "o-30-0": [],
+  "o-30-1": [],
+  "o-30-2": [],
+  "o-30-3": [],
+  "o-31-0": [],
+  "o-31-1": [],
+  "o-31-2": [],
+  "o-31-3": [],
+  "o-33-0": [],
+  "o-33-1": [],
+  "o-33-2": [],
+  "o-33-3": [],
+  "o-34-0": [],
+  "o-34-1": [],
+  "o-34-2": [],
+  "o-34-3": [],
+  "o-35-0": [],
+  "o-35-1": [],
+  "o-35-2": [],
+  "o-35-3": [],
+  "o-39-0": [],
+  "o-39-1": [],
+  "o-39-2": [],
+  "o-39-3": [],
+  "n-00-0": [],
+  "n-00-1": [],
+  "n-00-2": [],
+  "n-00-3": [],
+  "n-01-0": [],
+  "n-01-1": [],
+  "n-01-2": [],
+  "n-01-3": [],
+  "n-02-0": [],
+  "n-02-1": [],
+  "n-02-2": [],
+  "n-02-3": [],
+  "n-04-0": [],
+  "n-04-1": [],
+  "n-04-2": [],
+  "n-04-3": [],
+  "n-05-0": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 23,
+      "end": 28,
+      "score": 0.85
+    }
+  ],
+  "n-05-1": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 46,
+      "end": 51,
+      "score": 0.85
+    }
+  ],
+  "n-05-2": [],
+  "n-05-3": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 63,
+      "end": 68,
+      "score": 0.85
+    }
+  ],
+  "n-07-0": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 0,
+      "end": 9,
+      "score": 0.6
+    }
+  ],
+  "n-07-1": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 23,
+      "end": 32,
+      "score": 0.6
+    }
+  ],
+  "n-07-2": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 17,
+      "end": 26,
+      "score": 0.6
+    }
+  ],
+  "n-07-3": [
+    {
+      "entity_type": "IP_ADDRESS",
+      "start": 40,
+      "end": 49,
+      "score": 0.6
+    }
+  ],
+  "n-09-0": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 29,
+      "end": 45,
+      "score": 0.85
+    }
+  ],
+  "n-09-1": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 52,
+      "end": 68,
+      "score": 0.85
+    }
+  ],
+  "n-09-2": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 46,
+      "end": 56,
+      "score": 0.85
+    },
+    {
+      "entity_type": "DATE_TIME",
+      "start": 58,
+      "end": 62,
+      "score": 0.85
+    }
+  ],
+  "n-09-3": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 69,
+      "end": 85,
+      "score": 0.85
+    }
+  ],
+  "n-10-0": [
+    {
+      "entity_type": "PERSON",
+      "start": 0,
+      "end": 5,
+      "score": 0.85
+    }
+  ],
+  "n-10-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 23,
+      "end": 28,
+      "score": 0.85
+    }
+  ],
+  "n-10-2": [
+    {
+      "entity_type": "PERSON",
+      "start": 17,
+      "end": 22,
+      "score": 0.85
+    }
+  ],
+  "n-10-3": [
+    {
+      "entity_type": "PERSON",
+      "start": 40,
+      "end": 45,
+      "score": 0.85
+    }
+  ],
+  "n-11-0": [],
+  "n-11-1": [],
+  "n-11-2": [],
+  "n-11-3": [],
+  "n-12-0": [],
+  "n-12-1": [],
+  "n-12-2": [],
+  "n-12-3": [],
+  "n-13-0": [],
+  "n-13-1": [],
+  "n-13-2": [],
+  "n-13-3": [],
+  "n-14-0": [],
+  "n-14-1": [],
+  "n-14-2": [],
+  "n-14-3": [],
+  "n-15-0": [],
+  "n-15-1": [],
+  "n-15-2": [],
+  "n-15-3": [],
+  "n-16-0": [],
+  "n-16-1": [],
+  "n-16-2": [],
+  "n-16-3": [],
+  "n-18-0": [],
+  "n-18-1": [],
+  "n-18-2": [],
+  "n-18-3": [],
+  "n-20-0": [],
+  "n-20-1": [],
+  "n-20-2": [],
+  "n-20-3": [],
+  "n-21-0": [],
+  "n-21-1": [],
+  "n-21-2": [],
+  "n-21-3": [],
+  "n-23-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 13,
+      "end": 34,
+      "score": 1.0
+    }
+  ],
+  "n-23-1": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 36,
+      "end": 57,
+      "score": 1.0
+    }
+  ],
+  "n-23-2": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 30,
+      "end": 51,
+      "score": 1.0
+    }
+  ],
+  "n-23-3": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 53,
+      "end": 74,
+      "score": 1.0
+    }
+  ],
+  "n-25-0": [],
+  "n-25-1": [],
+  "n-25-2": [],
+  "n-25-3": [],
+  "n-28-0": [],
+  "n-28-1": [],
+  "n-28-2": [],
+  "n-28-3": [],
+  "n-29-0": [],
+  "n-29-1": [],
+  "n-29-2": [],
+  "n-29-3": [],
+  "n-30-0": [],
+  "n-30-1": [],
+  "n-30-2": [],
+  "n-30-3": [],
+  "n-31-0": [],
+  "n-31-1": [],
+  "n-31-2": [],
+  "n-31-3": [],
+  "n-32-0": [],
+  "n-32-1": [],
+  "n-32-2": [],
+  "n-32-3": [],
+  "n-34-0": [],
+  "n-34-1": [],
+  "n-34-2": [],
+  "n-34-3": [],
+  "n-35-0": [],
+  "n-35-1": [],
+  "n-35-2": [],
+  "n-35-3": [],
+  "n-37-0": [],
+  "n-37-1": [],
+  "n-37-2": [],
+  "n-37-3": [],
+  "n-38-0": [],
+  "n-38-1": [],
+  "n-38-2": [],
+  "n-38-3": [],
+  "n-39-0": [],
+  "n-39-1": [],
+  "n-39-2": [],
+  "n-39-3": [],
+  "n-41-0": [],
+  "n-41-1": [],
+  "n-41-2": [],
+  "n-41-3": [],
+  "n-42-0": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 0,
+      "end": 15,
+      "score": 0.65
+    }
+  ],
+  "n-42-1": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 23,
+      "end": 39,
+      "score": 0.65
+    }
+  ],
+  "n-42-2": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 17,
+      "end": 32,
+      "score": 0.65
+    }
+  ],
+  "n-42-3": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 40,
+      "end": 55,
+      "score": 0.65
+    }
+  ],
+  "n-43-0": [],
+  "n-43-1": [],
+  "n-43-2": [],
+  "n-43-3": [],
+  "n-45-0": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 29,
+      "end": 57,
+      "score": 0.85
+    }
+  ],
+  "n-45-1": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 52,
+      "end": 80,
+      "score": 0.85
+    }
+  ],
+  "n-45-2": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 46,
+      "end": 74,
+      "score": 0.85
+    }
+  ],
+  "n-45-3": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 69,
+      "end": 97,
+      "score": 0.85
+    }
+  ],
+  "n-46-0": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 27,
+      "end": 52,
+      "score": 0.9
+    }
+  ],
+  "n-46-1": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 50,
+      "end": 75,
+      "score": 0.9
+    }
+  ],
+  "n-46-2": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 44,
+      "end": 69,
+      "score": 0.9
+    }
+  ],
+  "n-46-3": [
+    {
+      "entity_type": "PROMPT_INJECTION",
+      "start": 67,
+      "end": 92,
+      "score": 0.9
+    }
+  ],
+  "n-47-0": [],
+  "n-47-1": [],
+  "n-47-2": [],
+  "n-47-3": [],
+  "n-50-0": [
+    {
+      "entity_type": "LOCATION",
+      "start": 0,
+      "end": 6,
+      "score": 0.85
+    }
+  ],
+  "n-50-1": [
+    {
+      "entity_type": "LOCATION",
+      "start": 23,
+      "end": 29,
+      "score": 0.85
+    }
+  ],
+  "n-50-2": [
+    {
+      "entity_type": "LOCATION",
+      "start": 17,
+      "end": 23,
+      "score": 0.85
+    }
+  ],
+  "n-50-3": [
+    {
+      "entity_type": "LOCATION",
+      "start": 40,
+      "end": 46,
+      "score": 0.85
+    }
+  ],
+  "n-51-0": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 28,
+      "end": 38,
+      "score": 0.85
+    }
+  ],
+  "n-51-1": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 51,
+      "end": 61,
+      "score": 0.85
+    }
+  ],
+  "n-51-2": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 45,
+      "end": 55,
+      "score": 0.85
+    }
+  ],
+  "n-51-3": [
+    {
+      "entity_type": "DATE_TIME",
+      "start": 68,
+      "end": 78,
+      "score": 0.85
+    }
+  ],
+  "n-52-0": [
+    {
+      "entity_type": "PERSON",
+      "start": 0,
+      "end": 12,
+      "score": 0.85
+    }
+  ],
+  "n-52-1": [
+    {
+      "entity_type": "PERSON",
+      "start": 23,
+      "end": 35,
+      "score": 0.85
+    }
+  ],
+  "n-52-2": [
+    {
+      "entity_type": "PERSON",
+      "start": 17,
+      "end": 29,
+      "score": 0.85
+    }
+  ],
+  "n-52-3": [
+    {
+      "entity_type": "PERSON",
+      "start": 40,
+      "end": 52,
+      "score": 0.85
+    }
+  ],
+  "n-53-0": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 0,
+      "end": 19,
+      "score": 1.0
+    }
+  ],
+  "n-53-1": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 23,
+      "end": 42,
+      "score": 1.0
+    }
+  ],
+  "n-53-2": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 17,
+      "end": 36,
+      "score": 1.0
+    }
+  ],
+  "n-53-3": [
+    {
+      "entity_type": "EMAIL_ADDRESS",
+      "start": 40,
+      "end": 59,
+      "score": 1.0
+    }
+  ],
+  "n-55-0": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 6,
+      "end": 29,
+      "score": 0.65
+    }
+  ],
+  "n-55-1": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 29,
+      "end": 52,
+      "score": 0.65
+    }
+  ],
+  "n-55-2": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 23,
+      "end": 46,
+      "score": 0.65
+    }
+  ],
+  "n-55-3": [
+    {
+      "entity_type": "GENERIC_SECRET_ASSIGNMENT",
+      "start": 46,
+      "end": 69,
+      "score": 0.65
+    }
+  ],
+  "n-56-0": [],
+  "n-56-1": [],
+  "n-56-2": [],
+  "n-56-3": [],
+  "n-59-0": [],
+  "n-59-1": [],
+  "n-59-2": [],
+  "n-59-3": []
+}

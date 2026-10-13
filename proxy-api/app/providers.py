@@ -77,6 +77,23 @@ def litellm_model_name(provider: ProviderSpec, model: str) -> str:
     return f"{provider.litellm_prefix}/{model}"
 
 
+COMPLETION_PARAMS = {
+    "messages", "temperature", "top_p", "max_tokens", "max_completion_tokens",
+    "stop", "stream", "stream_options", "n",
+    "presence_penalty", "frequency_penalty",
+    "logit_bias", "logprobs", "top_logprobs",
+    "user", "seed",
+    "tools", "tool_choice", "functions", "function_call",
+    "parallel_tool_calls",
+    "response_format",
+    "reasoning_effort",
+    "thinking",
+    "top_k",
+    "extra_headers",
+    "service_tier",
+}
+
+
 async def forward_chat_completion(
     provider: ProviderSpec,
     api_key: str,
@@ -91,22 +108,7 @@ async def forward_chat_completion(
 
     log.info("upstream_forward", provider=provider.name, litellm_model=model_str)
 
-    _KNOWN_COMPLETION_PARAMS = {
-        "messages", "temperature", "top_p", "max_tokens", "max_completion_tokens",
-        "stop", "stream", "stream_options", "n",
-        "presence_penalty", "frequency_penalty",
-        "logit_bias", "logprobs", "top_logprobs",
-        "user", "seed",
-        "tools", "tool_choice", "functions", "function_call",
-        "parallel_tool_calls",
-        "response_format",
-        "reasoning_effort",
-        "thinking",
-        "top_k",
-        "extra_headers",
-        "service_tier",
-    }
-    clean_body = {k: v for k, v in body.items() if k in _KNOWN_COMPLETION_PARAMS}
+    clean_body = {k: v for k, v in body.items() if k in COMPLETION_PARAMS}
 
     kwargs: dict[str, Any] = {
         "model": model_str,
@@ -138,22 +140,7 @@ async def forward_chat_completion_stream(
 
     log.info("upstream_forward_stream", provider=provider.name, litellm_model=model_str)
 
-    _KNOWN_COMPLETION_PARAMS = {
-        "messages", "temperature", "top_p", "max_tokens", "max_completion_tokens",
-        "stop", "stream", "stream_options", "n",
-        "presence_penalty", "frequency_penalty",
-        "logit_bias", "logprobs", "top_logprobs",
-        "user", "seed",
-        "tools", "tool_choice", "functions", "function_call",
-        "parallel_tool_calls",
-        "response_format",
-        "reasoning_effort",
-        "thinking",
-        "top_k",
-        "extra_headers",
-        "service_tier",
-    }
-    clean_body = {k: v for k, v in body.items() if k in _KNOWN_COMPLETION_PARAMS}
+    clean_body = {k: v for k, v in body.items() if k in COMPLETION_PARAMS}
 
     clean_body["stream"] = True
     if "stream_options" not in clean_body or clean_body.get("stream_options") is None:

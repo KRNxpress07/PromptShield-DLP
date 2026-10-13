@@ -74,3 +74,6 @@ class DLPBlockResponse(BaseModel):
     message: str = "Request blocked: PII detected in prompt"
     request_id: str
     violations: list[DLPViolation]
+    risk_level: str | None = None
+    risk_score: int | None = None
+    entity_types: list[str] = Field(default_factory=list)

@@ -1,0 +1,4 @@
+{
+  "status": "Initial valid measurement retained",
+  "followup": "Add per-completion comparison against frozen serial detector outputs to verify thread stability. No recognizer, corpus, or policy change; final timings include comparison overhead."
+}

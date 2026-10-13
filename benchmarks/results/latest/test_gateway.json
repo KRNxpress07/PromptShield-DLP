@@ -1,0 +1,24 @@
+{
+  "passed": 321,
+  "failed": 1,
+  "skipped": 0,
+  "error": 0,
+  "xfailed": 0,
+  "xpassed": 0,
+  "exit_code": 1,
+  "phase1_passed": 117,
+  "phase2_passed": 110,
+  "failures": [
+    "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+  ],
+  "arguments": [
+    "tests",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "-p",
+    "pytest_asyncio.plugin",
+    "--tb=short",
+    "--show-capture=no"
+  ]
+}

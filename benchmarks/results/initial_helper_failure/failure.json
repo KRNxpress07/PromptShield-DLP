@@ -1,0 +1,5 @@
+{
+  "status": "INCOMPLETE RUN: metrics NOT VERIFIED",
+  "error": "IndexError selecting a blocked safe/hard-negative record with no ground-truth entities",
+  "fix": "Use SAFE_CONTROL stratum when gold is empty. Evaluation helper only; detectors, labels, policy and detection results unchanged. Partial pre-fix observations preserved; sanitization re-executed after helper fix."
+}
