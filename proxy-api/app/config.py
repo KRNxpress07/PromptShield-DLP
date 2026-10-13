@@ -125,7 +125,12 @@ def get_gateway_config() -> dict[str, Any]:
         with open(config_path) as f:
             raw = yaml.safe_load(f)
 
-        _gateway_config = _resolve_env_vars(raw or {})
+        # Behavioral runtime fields are literal configuration, never credential
+        # or environment-variable discovery. Existing provider resolution stays.
+        raw = raw or {}
+        _gateway_config = _resolve_env_vars({k: v for k, v in raw.items() if k != "behavioral_injection"})
+        if "behavioral_injection" in raw:
+            _gateway_config["behavioral_injection"] = raw["behavioral_injection"]
     else:
         _gateway_config = {}
 
@@ -153,3 +158,9 @@ def get_dlp_policy() -> dict[str, Any]:
     """Validate even cached configuration; reject permissive typos."""
     cfg = get_gateway_config()
     return validate_dlp_policy(cfg.get("dlp", {})).model_dump(mode="json")
+
+
+def get_behavioral_policy():
+    """Validate optional literal policy; absent configuration is mode off."""
+    from behavior_runtime.gateway_config import validate_behavioral_config
+    return validate_behavioral_config(get_gateway_config().get("behavioral_injection", {}))

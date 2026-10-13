@@ -1,0 +1,38 @@
+{
+  "behavioral": {
+    "tp": 11,
+    "fp": 4,
+    "tn": 20,
+    "fn": 29,
+    "precision": 0.7333333333333333,
+    "recall": 0.275,
+    "f1": 0.4,
+    "fpr": 0.16666666666666666,
+    "fnr": 0.725
+  },
+  "layered_rule": "static PROMPT_INJECTION OR behavioral severity >= HIGH",
+  "case_count": 64,
+  "static_available": true,
+  "static": {
+    "tp": 0,
+    "fp": 0,
+    "tn": 24,
+    "fn": 40,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "fpr": 0.0,
+    "fnr": 1.0
+  },
+  "layered": {
+    "tp": 11,
+    "fp": 4,
+    "tn": 20,
+    "fn": 29,
+    "precision": 0.7333333333333333,
+    "recall": 0.275,
+    "f1": 0.4,
+    "fpr": 0.16666666666666666,
+    "fnr": 0.725
+  }
+}

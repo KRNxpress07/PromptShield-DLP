@@ -5,11 +5,74 @@
   const color = action => ({ allow: '#00e5c3', mask: '#4c8dff', warn: '#f5b942', block: '#ff5a67' }[action] || '#aab3c2');
   const critical = new Set('PRIVATE_KEY AWS_ACCESS_KEY AWS_SECRET_KEY AWS_SESSION_TOKEN API_KEY GITHUB_TOKEN DB_CONNECTION_STRING SLACK_WEBHOOK PROMPT_INJECTION'.split(' '));
   let activeSource = 'text', selectedFile = null, lastScan = null, originalText = null, revision = 0, busy = false;
+  let behavioralMode = 'off', overrideSupported = false;
+  const behaviorDescriptions = {
+    off: 'Uses the existing Presidio/custom-rule DLP and static prompt-injection detector.',
+    audit: 'Runs the local-model sandbox and displays behavioral findings without blocking based on them.',
+    enforce: 'Runs the local-model sandbox and blocks requests that cross the configured behavioral risk threshold.'
+  };
+  const behaviorReasons = new Set('PROTECTED_READ_ATTEMPT RESTRICTED_READ_ATTEMPT PROTECTED_WRITE_ATTEMPT SENSITIVE_MUTATION_ATTEMPT NETWORK_ATTEMPT COMMAND_ATTEMPT CANARY_IN_MODEL_OUTPUT CANARY_IN_TOOL_ARGUMENT PROTECTED_DATA_EXPOSED PUBLIC_CANARY_OBSERVED FILESYSTEM_MUTATION UNAUTHORIZED_TOOL REPEATED_UNAUTHORIZED_TOOL MALFORMED_TOOL_ACTIVITY EVENT_LIMIT EVIDENCE_INCOMPLETE CANARY_SCAN_INCOMPLETE MODEL_UNAVAILABLE MODEL_ERROR EXECUTION_DISABLED INVALID_PROMPT UNKNOWN_TERMINATION NO_RESTRICTED_BEHAVIOR BEHAVIOR_INPUT_TOO_LARGE BEHAVIOR_CAPACITY_UNAVAILABLE BEHAVIOR_RUNTIME_ERROR BEHAVIOR_RUNTIME_MISSING'.split(' '));
+  function selectBehavior(mode) {
+    behavioralMode = mode;
+    ['off', 'audit', 'enforce'].forEach(value => { $(`behavior-mode-${value}`).classList.toggle('active', value === mode); $(`behavior-mode-${value}`).setAttribute('aria-pressed', String(value === mode)); });
+    $('behavioral-description').textContent = behaviorDescriptions[mode];
+  }
+  function behaviorResult(meta, context = {}) {
+    const mode = ['off', 'audit', 'enforce'].includes(context.mode) ? context.mode : behavioralMode;
+    if (!meta) {
+      $('behavioral-result-card').innerHTML = mode === 'off' ? 'Behavioral sandbox <strong>OFF</strong>' : '<span class="behavior-unavailable">Pending gateway preflight</span>';
+    } else {
+      const severity = ['LOW', 'ELEVATED', 'SUSPICIOUS', 'HIGH', 'CRITICAL'].includes(meta.severity) ? meta.severity : null;
+      const verdict = ['NO_STRONG_EVIDENCE', 'SUSPICIOUS_BEHAVIOR', 'LIKELY_INJECTION_BEHAVIOR', 'CRITICAL_BEHAVIOR', 'NOT_EVALUATED'].includes(meta.verdict) ? meta.verdict : 'NOT_EVALUATED';
+      const complete = ['COMPLETE', 'PARTIAL', 'FAILED'].includes(meta.completeness) ? meta.completeness : 'FAILED';
+      const score = Number.isInteger(meta.score) && meta.score >= 0 && meta.score <= 100 ? meta.score : null;
+      const reasons = Array.isArray(meta.reasons) ? meta.reasons.filter(code => behaviorReasons.has(code)).slice(0, 32) : [];
+      const unavailable = verdict === 'NOT_EVALUATED' || severity === null || score === null;
+      const duration = typeof context.duration === 'number' && Number.isFinite(context.duration) && context.duration >= 0 ? `${Math.round(context.duration)} ms` : 'Not available';
+      $('behavioral-result-card').innerHTML = `<div class="${unavailable ? 'behavior-unavailable' : `behavior-${severity.toLowerCase()}`}"><span class="behavioral-number">${unavailable ? '—' : score}</span><small> Behavioral Risk Score</small></div>${unavailable ? '<p>Behavioral analysis unavailable</p>' : ''}<div class="behavior-facts"><span>Mode <strong>${mode.toUpperCase()}</strong></span><span>Severity <strong>${severity || 'NOT_EVALUATED'}</strong></span><span>Verdict <strong>${verdict}</strong></span><span>Completeness <strong>${complete}</strong></span><span>Duration <strong>${duration}</strong></span><span>Version <strong>${meta.assessment_version === 'behavior-risk-v1' ? 'behavior-risk-v1' : 'Not available'}</strong></span></div><div class="behavior-reasons">${reasons.map(esc).join(' · ') || 'No recorded reason codes'}</div>${mode === 'audit' && context.wouldBlock ? '<p class="audit-hint">Would block in enforce mode</p>' : ''}`;
+    }
+    $('behavioral-final-decision').textContent = `FINAL GATEWAY DECISION · ${context.decision || 'NOT SUBMITTED'}`;
+  }
+  ['off', 'audit', 'enforce'].forEach(mode => $(`behavior-mode-${mode}`).addEventListener('click', () => {
+    if (!overrideSupported || busy || mode === behavioralMode) return;
+    selectBehavior(mode); invalidate();
+  }));
+  async function checkBehaviorStatus() {
+    const currentRevision = revision;
+    $('behavioral-status-check').disabled = true;
+    const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(`${gateway()}/v1/behavioral/status`, { headers: { Authorization: `Bearer ${$('api-key').value.trim()}` }, signal: controller.signal });
+      const data = await response.json();
+      if (currentRevision !== revision) return;
+      if (!response.ok || !['off', 'audit', 'enforce'].includes(data.mode) || typeof data.allow_request_mode_override !== 'boolean') throw new Error('Status unavailable');
+      overrideSupported = data.allow_request_mode_override;
+      ['off', 'audit', 'enforce'].forEach(mode => { $(`behavior-mode-${mode}`).disabled = !overrideSupported; });
+      if (!overrideSupported) selectBehavior(data.mode);
+      $('behavioral-local-status').textContent = `Local behavioral model · ${!data.enabled ? 'OFF' : data.runtime_available === true ? 'CONNECTED' : 'UNAVAILABLE'}`;
+      $('behavioral-override-note').textContent = overrideSupported ? 'Request-local demo modes permitted. Server policy and static DLP remain authoritative.' : `Demo override disabled by server. Configured mode: ${data.mode.toUpperCase()}.`;
+      behaviorResult(null);
+    } catch {
+      overrideSupported = false;
+      ['audit', 'enforce'].forEach(mode => { $(`behavior-mode-${mode}`).disabled = true; });
+      $('behavioral-local-status').textContent = 'Local behavioral model · UNAVAILABLE';
+      $('behavioral-override-note').textContent = 'Status unavailable. Check gateway authentication and server demo permissions. No override will be sent.';
+    } finally { clearTimeout(timer); $('behavioral-status-check').disabled = false; }
+  }
+  $('behavioral-status-check').addEventListener('click', checkBehaviorStatus);
+  ['api-base', 'api-key'].forEach(id => $(id).addEventListener('input', () => {
+    overrideSupported = false; selectBehavior('off');
+    behaviorResult(null);
+    ['audit', 'enforce'].forEach(mode => { $(`behavior-mode-${mode}`).disabled = true; });
+    $('behavioral-local-status').textContent = 'Local behavioral model · OFF';
+  }));
 
   function status(text, kind = 'pending') { $('gateway-status').textContent = text; $('gateway-status').className = `status-chip ${kind}`; }
   function chars() { $('char-count').textContent = `${$('text-input').value.length.toLocaleString()} chars`; }
   function invalidate() {
     revision += 1;
+    behaviorResult(null);
+    $('behavioral-static-card').textContent = 'Analyze the current input to see risk score, policy action, and findings.';
     if (lastScan) {
       lastScan = null; originalText = null;
       $('readout-empty').hidden = true; $('readout-body').hidden = false;
@@ -65,6 +128,8 @@
   }
   function render(data) {
     const action = data.action;
+    $('behavioral-static-card').innerHTML = `<div class="behavioral-number">${data.risk_score}<small> / 100</small></div><p>Policy action <strong>${action.toUpperCase()}</strong> · Findings ${data.violations.length}</p>`;
+    behaviorResult(null, { decision: action === 'block' ? 'BLOCK · STATIC DLP' : 'PENDING GATEWAY PREFLIGHT' });
     $('readout-empty').hidden = true; $('readout-body').hidden = false;
     const types = new Set(data.violations.map(v => v.entity_type));
     $('readout-body').innerHTML = `<div class="risk-summary"><div class="risk-number" style="color:${color(action)}">${data.risk_score}<small> / 100</small></div><span class="policy-action" style="color:${color(action)}">${action.toUpperCase()}</span></div><div class="risk-meta"><span>Risk level <strong>${esc(data.risk_level.toUpperCase())}</strong></span><span>Findings <strong>${data.violations.length}</strong></span><span>Types <strong>${types.size}</strong></span></div><div class="risk-track" role="meter" aria-label="Policy risk score, deterministic heuristic" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${data.risk_score}"><span class="risk-marker" style="left:${data.risk_score}%"></span></div><div class="risk-ticks">${[0, 1, 50, 70, 90, 100].filter(v => v !== 1).map(v => `<span style="left:${v}%">${v}</span>`).join('')}</div><p class="risk-caption">Policy risk score — deterministic heuristic, not a calibrated probability.<br>1–49 low · 50–69 medium · 70–89 high · ≥90 critical</p><div class="action-legend">${['allow', 'mask', 'warn', 'block'].map(name => `<span class="${name}" style="${name === action ? `border-color:${color(action)};background:${color(action)}12` : ''}">${name.toUpperCase()}</span>`).join('')}</div><p class="risk-reason">${esc(data.reason)}</p>${action === 'block' ? '<div class="block-banner">BLOCKED — provider forwarding is unavailable. Edit the input and analyze again.</div>' : '<div class="risk-action-row" id="risk-action-row"></div>'}`;
@@ -124,9 +189,24 @@
       const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` };
       if (provider) headers['x-provider'] = provider;
       if (model) headers['x-model'] = model;
+      if (overrideSupported) headers['X-AISG-Behavioral-Mode'] = behavioralMode;
       const response = await fetch(`${gateway()}/v1/chat/completions`, { method: 'POST', headers, body: JSON.stringify({ ...(model ? { model } : {}), messages: [{ role: 'user', content: text }] }), signal: controller.signal });
       const body = await response.json();
       if (currentRevision !== revision) return;
+      const behavioral = body.behavioral || body.aisg_metadata?.behavioral;
+      const sourceMeta = body.behavioral ? body : body.aisg_metadata || {};
+      const behaviorError = ['behavioral_injection_blocked', 'behavioral_security_unavailable'].includes(body.error);
+      behaviorResult(behavioral, { mode: sourceMeta.behavioral_mode, duration: sourceMeta.behavioral_duration_ms, wouldBlock: sourceMeta.behavioral_would_block === true, decision: response.ok && !body.error ? 'FORWARD' : 'BLOCK' });
+      if (behaviorError) {
+        $('response-pane').hidden = true;
+        $('behavioral-final-decision').textContent = body.error === 'behavioral_injection_blocked' ? 'Request blocked before external LLM · FINAL: BLOCK' : 'Blocked because behavioral security analysis could not complete. · FINAL: BLOCK';
+        status('Request blocked', 'error'); return;
+      }
+      if (['behavioral_mode_override_disabled', 'invalid_behavioral_mode_override'].includes(body.error)) {
+        overrideSupported = false; $('response-pane').hidden = true;
+        $('behavioral-override-note').textContent = 'Server rejected the demo override. Recheck server permissions before retrying.';
+        status('Demo override rejected', 'error'); return;
+      }
       if (!response.ok || body.error) { $('response-card').innerHTML = `<div class="resp-error">${esc(responseMessage(body, `Gateway rejected the request (${response.status}).`))}</div>`; status('Request rejected', 'error'); return; }
       const content = body.choices?.[0]?.message?.content;
       if (typeof content !== 'string') { $('response-card').innerHTML = '<div class="resp-error">No text completion returned.</div>'; return; }

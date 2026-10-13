@@ -26,7 +26,8 @@ RATES = ('precision', 'recall', 'f1', 'fpr', 'fnr')
 TIMINGS = ('mean_ms', 'median_ms', 'p95_ms', 'p99_ms', 'min_ms', 'max_ms', 'stddev_ms')
 SANITIZATION_COUNTS = ('test_prompts', 'sensitive_prompts', 'actually_sanitized_sensitive', 'sensitive_outgoing', 'post_rescan_residual_prompts', 'block_subset_prompts', 'block_subset_requests', 'block_check_failures', 'fault_probes', 'human_template_count')
 SANITIZATION_RATES = ('sanitization_success_rate', 'residual_leakage_rate_sanitized', 'residual_leakage_rate_all_nonblock_sensitive', 'gold_span_replacement_coverage_rate', 'mean_non_sensitive_char_preservation', 'processing_error_rate')
-ASSETS = {'/': 'index.html', '/index.html': 'index.html', '/styles.css': 'styles.css', '/dashboard.js': 'dashboard.js', '/scanner.js': 'scanner.js', '/favicon.svg': 'favicon.svg'}
+ASSETS = {'/': 'index.html', '/index.html': 'index.html', '/styles.css': 'styles.css', '/dashboard.js': 'dashboard.js', '/scanner.js': 'scanner.js', '/favicon.svg': 'favicon.svg', '/local-model.js': 'local-model.js', '/assets/charts.js': 'assets/charts.js', '/assets/charts.css': 'assets/charts.css', '/assets/BKLIT-LICENSE.txt': 'assets/BKLIT-LICENSE.txt'}
+ASSETS['/assets/THIRD-PARTY-NOTICES.txt'] = 'assets/THIRD-PARTY-NOTICES.txt'
 
 
 class InvalidArtifact(ValueError):
@@ -172,6 +173,17 @@ def benchmark_summary(request: Request):
         return JSONResponse(status_code=503, content={'available': False, 'error': 'benchmark_unavailable', 'message': 'Benchmark results not available.'})
     except (OSError, ValueError, TypeError, KeyError, csv.Error, OverflowError):
         return JSONResponse(status_code=503, content={'available': False, 'error': 'benchmark_invalid', 'message': 'Benchmark results could not be validated.'})
+
+
+@app.get('/v1/benchmark/local-model')
+def local_model_summary(request: Request):
+    if request.query_params:
+        return JSONResponse(status_code=422, content={'available': False, 'error': 'unsupported_query'})
+    if __package__:
+        from .local_results import local_summary
+    else:
+        from local_results import local_summary
+    return local_summary()
 
 
 @app.get('/{asset:path}')

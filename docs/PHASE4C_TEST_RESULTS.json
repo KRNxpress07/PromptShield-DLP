@@ -1,0 +1,230 @@
+{
+  "gateway": {
+    "passed": 979,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "phase4c_passed": 200,
+    "failures": [
+      "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+    ],
+    "arguments": [
+      "tests",
+      "-p",
+      "pytest_asyncio.plugin",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "scanner": {
+    "passed": 224,
+    "failed": 10,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "failures": [
+      "tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept"
+    ],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "sdk": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "failures": [],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "framework": {
+    "passed": 31,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "failures": [],
+    "arguments": [
+      "benchmarks/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "dashboard_state_tests": {
+    "exit_code": 0,
+    "passed": 10,
+    "failed": 0,
+    "output": "TAP version 13\n# Subtest: Mask sends only sanitized text; assistant markup remains escaped\nok 1 - Mask sends only sanitized text; assistant markup remains escaped\n  ---\n  duration_ms: 89.9653\n  type: 'test'\n  ...\n# Subtest: Warn provides no raw override\nok 2 - Warn provides no raw override\n  ---\n  duration_ms: 2.6135\n  type: 'test'\n  ...\n# Subtest: Block exposes no send action and displays critical score\nok 3 - Block exposes no send action and displays critical score\n  ---\n  duration_ms: 1.2218\n  type: 'test'\n  ...\n# Subtest: Editing input invalidates assessment and prevents stale forwarding\nok 4 - Editing input invalidates assessment and prevents stale forwarding\n  ---\n  duration_ms: 1.1568\n  type: 'test'\n  ...\n# Subtest: Malformed scan response fails closed in UI\nok 5 - Malformed scan response fails closed in UI\n  ---\n  duration_ms: 2.7143\n  type: 'test'\n  ...\n# Subtest: A changed prompt during a pending scan cannot adopt the stale result\nok 6 - A changed prompt during a pending scan cannot adopt the stale result\n  ---\n  duration_ms: 1.2687\n  type: 'test'\n  ...\n# Subtest: File upload uses document route; only returned text is forwarded\nok 7 - File upload uses document route; only returned text is forwarded\n  ---\n  duration_ms: 6.2731\n  type: 'test'\n  ...\n# Subtest: Missing benchmark data never substitutes measured values\nok 8 - Missing benchmark data never substitutes measured values\n  ---\n  duration_ms: 11.6176\n  type: 'test'\n  ...\n# Subtest: Navigation and presentation mode alter only frontend state\nok 9 - Navigation and presentation mode alter only frontend state\n  ---\n  duration_ms: 1.9519\n  type: 'test'\n  ...\n# Subtest: Dashboard presents actual recorded metrics and both leakage denominators\nok 10 - Dashboard presents actual recorded metrics and both leakage denominators\n  ---\n  duration_ms: 7.4181\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 201.1618\n"
+  },
+  "phase3_preservation": "PASS: frozen backend, benchmark code, results and report unchanged",
+  "baseline_failure_preservation": true,
+  "execution_boundaries": {
+    "external_network_calls": 0,
+    "cloud_model_calls": 0,
+    "sandbox_model_host_tool_access": 0,
+    "evidence": "Offline bootstrap denies external sockets/DNS; fake adapter and MockTransport only; host tripwire test passed.",
+    "real_local_generation": "NOT RUN"
+  },
+  "python_passed": 1254,
+  "python_failed": 11,
+  "total_passed": 1264,
+  "total_failed": 11,
+  "scripted_engine_evaluation": {
+    "evaluation_scope": "Scripted risk-engine evaluation only; not real-model prompt-injection accuracy.",
+    "assessment_version": "behavior-risk-v1",
+    "case_count": 120,
+    "compliance_counts": {
+      "determinism": 120,
+      "expected_severity_compliance": 120,
+      "reason_code_correctness": 120,
+      "override_correctness": 120
+    },
+    "failures": [],
+    "real_local_model_evaluation": "NOT VERIFIED"
+  },
+  "preexisting_file_preservation": {
+    "verified_files": 172,
+    "changed_paths": [],
+    "baseline_manifest_sha256": "8280d07a169813254a285d60139e890ad5dd663c02268cb4f7508bde8eb7a758"
+  },
+  "manual_local_probe": {
+    "model": "llama3.2:1b",
+    "timeout_seconds": 10,
+    "prompt_scope": "Harmless no-tool response, separate from automated tests and corpus",
+    "status": "LOCAL MODEL NOT AVAILABLE",
+    "real_local_model_evaluation": "NOT VERIFIED",
+    "model_downloads": 0,
+    "software_starts": 0,
+    "cloud_model_calls": 0,
+    "real_model_corpus_evaluation": "NOT RUN"
+  },
+  "assessment_version": "behavior-risk-v1",
+  "normalized_signal_count": 15,
+  "weights": {
+    "restricted_read": 35,
+    "protected_read": 55,
+    "protected_write": 65,
+    "sensitive_mutation": 70,
+    "unauthorized_tool": 35,
+    "network": 70,
+    "command": 80,
+    "filesystem_mutation": 15,
+    "tool_canary": 85,
+    "model_canary": 100,
+    "sensitive_exposure": 100,
+    "public_canary": 0,
+    "event_limit": 30,
+    "malformed": 20,
+    "incomplete_scan": 0
+  },
+  "minimum_severity_rules": {
+    "PROTECTED_READ_ATTEMPT": "SUSPICIOUS",
+    "PROTECTED_WRITE_ATTEMPT": "HIGH",
+    "SENSITIVE_MUTATION_ATTEMPT": "HIGH",
+    "NETWORK_ATTEMPT": "HIGH",
+    "COMMAND_ATTEMPT": "HIGH",
+    "CANARY_IN_TOOL_ARGUMENT": "HIGH",
+    "CANARY_IN_MODEL_OUTPUT": "CRITICAL",
+    "PROTECTED_DATA_EXPOSED": "CRITICAL"
+  },
+  "severity_bands": [
+    {
+      "minimum": 0,
+      "maximum": 24,
+      "severity": "LOW"
+    },
+    {
+      "minimum": 25,
+      "maximum": 49,
+      "severity": "ELEVATED"
+    },
+    {
+      "minimum": 50,
+      "maximum": 69,
+      "severity": "SUSPICIOUS"
+    },
+    {
+      "minimum": 70,
+      "maximum": 89,
+      "severity": "HIGH"
+    },
+    {
+      "minimum": 90,
+      "maximum": 100,
+      "severity": "CRITICAL"
+    }
+  ],
+  "new_files": [
+    "proxy-api/injection_sandbox/behavior_risk.py",
+    "proxy-api/injection_sandbox/behavior_verdict.py",
+    "proxy-api/tests/test_behavior_risk.py",
+    "proxy-api/tests/run_phase4c_verification.py",
+    "benchmarks/behavioral_injection/evaluate.py",
+    "benchmarks/behavioral_injection/generate_fixtures.py",
+    "benchmarks/behavioral_injection/cases.json",
+    "benchmarks/behavioral_injection/results.json",
+    "docs/PHASE4C_BEHAVIORAL_RISK_ENGINE.md",
+    "docs/PHASE4C_TEST_RESULTS.json"
+  ],
+  "new_source_fixture_and_handoff_hashes": {
+    "proxy-api/injection_sandbox/behavior_risk.py": "9bd168b413a692f91599b4e43e67af1f9596fc29fc38c161171a128349fd7d36",
+    "proxy-api/injection_sandbox/behavior_verdict.py": "f8b8be5f2c0b21d4baed6dbea67711c86198e535683e58137d311d9a9b1d6ce3",
+    "proxy-api/tests/test_behavior_risk.py": "d5db9740daa1711298fdbe10112557467d9bb775acaf90d474dbe5b87b6b40d1",
+    "proxy-api/tests/run_phase4c_verification.py": "9485aa8ac1422119d0b4fc798625f2d32728700064f34413b3813672cfd9c135",
+    "benchmarks/behavioral_injection/evaluate.py": "d17eae3dd6427817ba8c6c71d0f0bab216301d8d5bd92504d5d7e720edee58b9",
+    "benchmarks/behavioral_injection/generate_fixtures.py": "9ba72b8b47c60cb6aeff79c5153c95d02b4c5f9cb72fb5bad02eaeb07b6d54e9",
+    "benchmarks/behavioral_injection/cases.json": "ef1383689cb263e57b3e4f396bd37c50413dfa1da4a0d2496c64e78b9c0d73da",
+    "benchmarks/behavioral_injection/results.json": "a0424f43c33d71cd0bdff697b371cb6253e1f7e2b310d07b90df546106931ca1",
+    "docs/PHASE4C_BEHAVIORAL_RISK_ENGINE.md": "82c24291dbe157f5b681672d56f5b4f111d149cb5610ebe69f23d3f0d3e9c3d7"
+  },
+  "diff_check": "PASS: git diff --check and whitespace check on all ten new files",
+  "gateway_integration": "NOT YET IMPLEMENTED"
+}

@@ -1,0 +1,10 @@
+{
+  "purpose": "Phase 4E authorized active-source delta layered over immutable Phase 4D source record",
+  "prior_delta_sha256": "9120eaf6d333f9e60068a4fb8075501c4d28acc6b0d7669efff1ac41c671dec7",
+  "changed_source": {
+    "proxy-api/app/routers/proxy.py": {
+      "before_sha256": "b0f182e6533d2d5f444d34275a9311ff3cb9ac2f4b3b6e43fc19c5cddf3d04b8",
+      "after_sha256": "d55b5f9d4a456e34701dd30e198dc58d7d0e050974e2efe52ff8270a705845cb"
+    }
+  }
+}

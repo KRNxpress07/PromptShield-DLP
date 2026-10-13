@@ -1,0 +1,12 @@
+{
+  "name": "promptshield-research-charts",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {"build": "node build.mjs"},
+  "dependencies": {
+    "@visx/event": "4.0.0", "@visx/grid": "4.0.0", "@visx/responsive": "4.0.0",
+    "@visx/scale": "4.0.0", "@visx/shape": "4.0.0", "clsx": "2.1.1",
+    "motion": "12.27.0", "react": "19.2.0", "react-dom": "19.2.0", "tailwind-merge": "2.6.0"
+  },
+  "devDependencies": {"esbuild": "0.25.12", "@tailwindcss/cli": "4.1.8", "tailwindcss": "4.1.8", "playwright": "1.56.0"}
+}

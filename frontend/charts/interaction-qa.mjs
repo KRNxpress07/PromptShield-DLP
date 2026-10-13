@@ -1,0 +1,14 @@
+import {chromium} from 'playwright';
+import {writeFileSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const b=await chromium.launch({executablePath:'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'});
+const p=await b.newPage({viewport:{width:1366,height:768}});const checks={};
+await p.goto('http://127.0.0.1:8788/#local-model');await p.waitForFunction(()=>document.getElementById('local-model-metrics').textContent.includes('73.33%'));
+await p.locator('[data-local-page="comparison"]').click();await p.waitForTimeout(2000);
+await p.locator('#local-comparison-charts rect[fill="#A78BFA"]').first().hover();
+await p.locator('.research-tooltip').waitFor({state:'visible'});const tooltip=await p.locator('.research-tooltip').textContent();assert.match(tooltip,/Behavioral local model/);assert.match(tooltip,/73\.33/);checks.aggregateTooltip=tooltip;
+await p.locator('#presentation-toggle').click();await p.locator('#presentation-section').selectOption('scanner');assert.equal(await p.locator('.connection-panel').isVisible(),false);assert.equal(await p.locator('#behavior-mode-off').isVisible(),true);assert.equal(await p.locator('#behavior-mode-audit').isDisabled(),true);checks.presentationConfigHidden=true;checks.defaultScannerModesPreserved=true;
+await p.locator('#presentation-toggle').click();
+await p.route('**/v1/benchmark/local-model',route=>route.fulfill({status:503,contentType:'application/json',body:'{}'}));await p.goto('http://127.0.0.1:8788/#local-model');await p.locator('#reload-data').click();await p.waitForTimeout(1000);const missing=await p.locator('#local-model-metrics').textContent();assert.match(missing,/N\/A/);assert.doesNotMatch(missing,/73\.33|27\.50|29\.69/);checks.missingArtifactHasNoFallback=true;
+await p.unroute('**/v1/benchmark/local-model');await p.locator('#reload-data').click();await p.waitForFunction(()=>document.getElementById('local-model-metrics').textContent.includes('73.33%'));checks.reloadRestoresSavedEvidence=true;
+await b.close();writeFileSync('../../docs/FINAL_FRONTEND_INTERACTION_QA.json',JSON.stringify(checks,null,2));console.log(JSON.stringify(checks));

@@ -128,7 +128,8 @@ test('Dashboard presents actual recorded metrics and both leakage denominators',
   assert.match(f.$('headline-metrics').innerHTML, new RegExp(f1.replace('.', '\\.')));
   assert.match(f.$('sanitization-metrics').innerHTML, /Residual leakage • sanitized/);
   assert.match(f.$('sanitization-metrics').innerHTML, /Residual leakage • all non-block/);
-  assert.match(f.$('baseline-fpr').innerHTML, /bar-fill bad/);
-  assert.match(f.$('throughput-chart').innerHTML, /Zero-based vertical axis/);
+  assert.match(f.$('baseline-fpr').innerHTML, /bklit-chart/);
+  assert.match(f.$('baseline-fpr').innerHTML, /&quot;color&quot;:&quot;bad&quot;/);
+  assert.match(f.$('throughput-chart').innerHTML, /zero-based axis/);
   assert.doesNotMatch(f.$('headline-metrics').innerHTML, /accuracy|secure|protection/);
 });

@@ -1,0 +1,638 @@
+[
+  {
+    "width": 1920,
+    "height": 1080,
+    "group": "performance",
+    "overflow": false,
+    "bottom": 882.046875,
+    "charts": [],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "group": "comparison",
+    "overflow": false,
+    "bottom": 903.625,
+    "charts": [
+      {
+        "width": 1594,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "group": "validation",
+    "overflow": false,
+    "bottom": 953.390625,
+    "charts": [
+      {
+        "width": 766,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "overview",
+    "errors": [],
+    "overflow": false,
+    "bottom": 661.546875,
+    "charts": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "benchmarks",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2614.0625,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "detection",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2916.953125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 26,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "sanitization",
+    "errors": [],
+    "overflow": false,
+    "bottom": 679.9375,
+    "charts": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "sanitization-examples",
+    "errors": [],
+    "overflow": false,
+    "bottom": 831.53125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "performance",
+    "errors": [],
+    "overflow": false,
+    "bottom": 961.71875,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "performance-throughput",
+    "errors": [],
+    "overflow": false,
+    "bottom": 1062.28125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "view": "scanner",
+    "errors": [],
+    "overflow": false,
+    "bottom": 1220.6875,
+    "charts": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "group": "performance",
+    "overflow": false,
+    "bottom": 882.046875,
+    "charts": [],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "group": "comparison",
+    "overflow": false,
+    "bottom": 899.625,
+    "charts": [
+      {
+        "width": 1482,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "group": "validation",
+    "overflow": false,
+    "bottom": 869.703125,
+    "charts": [
+      {
+        "width": 714,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "overview",
+    "errors": [],
+    "overflow": false,
+    "bottom": 661.546875,
+    "charts": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "benchmarks",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2529.453125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "detection",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2876.953125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 26,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "sanitization",
+    "errors": [],
+    "overflow": false,
+    "bottom": 679.9375,
+    "charts": []
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "sanitization-examples",
+    "errors": [],
+    "overflow": false,
+    "bottom": 831.53125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "performance",
+    "errors": [],
+    "overflow": false,
+    "bottom": 863.71875,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "performance-throughput",
+    "errors": [],
+    "overflow": false,
+    "bottom": 850.28125,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1600,
+    "height": 900,
+    "view": "scanner",
+    "errors": [],
+    "overflow": false,
+    "bottom": 1220.6875,
+    "charts": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "group": "performance",
+    "overflow": false,
+    "bottom": 732.8125,
+    "charts": [],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "group": "comparison",
+    "overflow": false,
+    "bottom": 760.859375,
+    "charts": [
+      {
+        "width": 1268,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "group": "validation",
+    "overflow": false,
+    "bottom": 759.140625,
+    "charts": [
+      {
+        "width": 609,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": true,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "overview",
+    "errors": [],
+    "overflow": false,
+    "bottom": 627.546875,
+    "charts": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "benchmarks",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2366.375,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 3,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "detection",
+    "errors": [],
+    "overflow": false,
+    "bottom": 2794.921875,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 26,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "sanitization",
+    "errors": [],
+    "overflow": false,
+    "bottom": 630.578125,
+    "charts": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "sanitization-examples",
+    "errors": [],
+    "overflow": false,
+    "bottom": 760.171875,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "performance",
+    "errors": [],
+    "overflow": false,
+    "bottom": 757.359375,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "performance-throughput",
+    "errors": [],
+    "overflow": false,
+    "bottom": 753.921875,
+    "charts": [
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      },
+      {
+        "svg": true,
+        "bars": 4,
+        "error": false
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "view": "scanner",
+    "errors": [],
+    "overflow": false,
+    "bottom": 1211.328125,
+    "charts": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "group": "performance",
+    "overflow": false,
+    "bottom": 2180.453125,
+    "charts": [],
+    "configHidden": false,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "group": "comparison",
+    "overflow": false,
+    "bottom": 1383.140625,
+    "charts": [
+      {
+        "width": 316,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": false,
+    "errors": [],
+    "externalRequests": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "group": "validation",
+    "overflow": false,
+    "bottom": 2144.8125,
+    "charts": [
+      {
+        "width": 316,
+        "svg": true,
+        "error": false
+      }
+    ],
+    "configHidden": false,
+    "errors": [],
+    "externalRequests": []
+  }
+]

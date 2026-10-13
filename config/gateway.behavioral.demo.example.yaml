@@ -1,0 +1,15 @@
+# Merge-only LOCAL DEMO section. Preserve existing auth, providers and DLP.
+# Production override permission remains false unless explicitly opted in.
+behavioral_injection:
+  mode: "off"
+  allow_request_mode_override: true
+  provider: ollama
+  model: llama3.2:1b
+  base_url: http://127.0.0.1:11434
+  timeout_seconds: 10
+  block_severity: HIGH
+  fail_closed_on_not_evaluated: true
+  fail_closed_on_partial: false
+  max_concurrent: 2
+  max_queue: 16
+  queue_timeout_seconds: 2

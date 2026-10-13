@@ -1,0 +1,219 @@
+{
+  "gateway": {
+    "passed": 1126,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "phase4c_passed": 200,
+    "phase4d_passed": 147,
+    "phase1_passed": 117,
+    "phase2_passed": 110,
+    "failures": [
+      "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+    ],
+    "arguments": [
+      "tests",
+      "-p",
+      "pytest_asyncio.plugin",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "scanner": {
+    "passed": 224,
+    "failed": 10,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase1_passed": 23,
+    "phase2_passed": 166,
+    "failures": [
+      "tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept"
+    ],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "sdk": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase1_passed": 1,
+    "phase2_passed": 0,
+    "failures": [],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "framework": {
+    "passed": 30,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase1_passed": 0,
+    "phase2_passed": 0,
+    "failures": [
+      "benchmarks/tests/test_framework.py::test_frozen_dataset_and_source_unchanged"
+    ],
+    "arguments": [
+      "benchmarks/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "dashboard_state_tests": {
+    "exit_code": 0,
+    "passed": 10,
+    "failed": 0,
+    "output": "TAP version 13\n# Subtest: Mask sends only sanitized text; assistant markup remains escaped\nok 1 - Mask sends only sanitized text; assistant markup remains escaped\n  ---\n  duration_ms: 15.7725\n  type: 'test'\n  ...\n# Subtest: Warn provides no raw override\nok 2 - Warn provides no raw override\n  ---\n  duration_ms: 2.1787\n  type: 'test'\n  ...\n# Subtest: Block exposes no send action and displays critical score\nok 3 - Block exposes no send action and displays critical score\n  ---\n  duration_ms: 1.237\n  type: 'test'\n  ...\n# Subtest: Editing input invalidates assessment and prevents stale forwarding\nok 4 - Editing input invalidates assessment and prevents stale forwarding\n  ---\n  duration_ms: 1.3394\n  type: 'test'\n  ...\n# Subtest: Malformed scan response fails closed in UI\nok 5 - Malformed scan response fails closed in UI\n  ---\n  duration_ms: 1.6039\n  type: 'test'\n  ...\n# Subtest: A changed prompt during a pending scan cannot adopt the stale result\nok 6 - A changed prompt during a pending scan cannot adopt the stale result\n  ---\n  duration_ms: 1.0031\n  type: 'test'\n  ...\n# Subtest: File upload uses document route; only returned text is forwarded\nok 7 - File upload uses document route; only returned text is forwarded\n  ---\n  duration_ms: 1.5628\n  type: 'test'\n  ...\n# Subtest: Missing benchmark data never substitutes measured values\nok 8 - Missing benchmark data never substitutes measured values\n  ---\n  duration_ms: 8.9285\n  type: 'test'\n  ...\n# Subtest: Navigation and presentation mode alter only frontend state\nok 9 - Navigation and presentation mode alter only frontend state\n  ---\n  duration_ms: 2.5522\n  type: 'test'\n  ...\n# Subtest: Dashboard presents actual recorded metrics and both leakage denominators\nok 10 - Dashboard presents actual recorded metrics and both leakage denominators\n  ---\n  duration_ms: 5.7996\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 104.4611\n"
+  },
+  "phase3_preservation": "PASS: historical freeze manifest, benchmark code, results and report unchanged; active source matches separate authorized Phase 4D delta",
+  "known_failure_preservation": true,
+  "historical_source_freeze_assertion": "Original assertion retained and fails because authorized active gateway source changed; historical dataset/results untouched.",
+  "execution_boundaries": {
+    "external_network_calls": 0,
+    "cloud_model_calls": 0,
+    "sandbox_model_host_tool_access": 0,
+    "evidence": "Offline bootstrap denies external sockets/DNS; fake adapter and MockTransport only; host tripwire test passed.",
+    "real_local_generation": "NOT RUN"
+  },
+  "python_passed": 1400,
+  "python_failed": 12,
+  "total_passed": 1410,
+  "total_failed": 12,
+  "scripted_engine_evaluation": {
+    "evaluation_scope": "Scripted risk-engine evaluation only; not real-model prompt-injection accuracy.",
+    "assessment_version": "behavior-risk-v1",
+    "case_count": 120,
+    "compliance_counts": {
+      "determinism": 120,
+      "expected_severity_compliance": 120,
+      "reason_code_correctness": 120,
+      "override_correctness": 120
+    },
+    "failures": [],
+    "real_local_model_evaluation": "NOT VERIFIED"
+  },
+  "preservation": {
+    "preexisting_files": 183,
+    "unchanged_files": 179,
+    "authorized_changed_files": [
+      "proxy-api/app/config.py",
+      "proxy-api/app/egress.py",
+      "proxy-api/app/main.py",
+      "proxy-api/app/routers/proxy.py"
+    ],
+    "unexpected_changed_files": [],
+    "baseline_manifest_sha256": "54edd28a7e8e692263a33c6dd2a44b520e7754b246eb9811125be03168857868"
+  },
+  "configuration_defaults": {
+    "mode": "off",
+    "block_severity": "HIGH",
+    "fail_closed_on_not_evaluated": true,
+    "fail_closed_on_partial": false,
+    "max_concurrent": 2,
+    "max_queue": 16,
+    "queue_timeout_seconds": 2
+  },
+  "final_targeted_verification": {
+    "purpose": "Final OFF fast-path skips preflight and active source delta matches latest source",
+    "passed": 3,
+    "failed": 0,
+    "nodes": [
+      "test_off_no_model_no_metadata_unchanged[False]",
+      "test_off_no_model_no_metadata_unchanged[True]",
+      "test_phase4d_active_source_delta_and_historical_freeze"
+    ]
+  },
+  "phase1_total_passed": 141,
+  "phase2_total_passed": 276,
+  "provider_block_checks": "PASS: both forwarding mocks uncalled for behavioral enforcement blocks/security failures and static short-circuits",
+  "streaming_block_checks": {
+    "status": "PASS",
+    "negative_stream_cases": 21,
+    "scope": "15 static/DLP short-circuit cases plus six enforce-mode behavioral rejection/failure scenarios"
+  },
+  "real_local_model_generation": "NOT VERIFIED; no new manual real-model run and no real local inference in automated tests",
+  "gateway_integration": "IMPLEMENTED; default OFF; AUDIT and ENFORCE verified using fake adapters",
+  "new_files": [
+    "proxy-api/behavior_runtime/gateway.py",
+    "proxy-api/behavior_runtime/gateway_config.py",
+    "proxy-api/tests/test_behavior_gateway_integration.py",
+    "proxy-api/tests/run_phase4d_verification.py",
+    "config/gateway.behavioral.example.yaml",
+    "docs/PHASE4D_GATEWAY_INTEGRATION.md",
+    "docs/PHASE4D_SOURCE_DELTA.json",
+    "docs/PHASE4D_TEST_RESULTS.json"
+  ],
+  "modified_files": [
+    "proxy-api/app/config.py",
+    "proxy-api/app/egress.py",
+    "proxy-api/app/main.py",
+    "proxy-api/app/routers/proxy.py"
+  ],
+  "diff_check": "PASS: git diff --check and whitespace validation of all new/changed files",
+  "implementation_and_handoff_hashes": {
+    "proxy-api/behavior_runtime/gateway.py": "b8d482f82dda84d05e53de9e37472f8c502f1a31dff34649482a382b67e46eeb",
+    "proxy-api/behavior_runtime/gateway_config.py": "c3cae3a40563624d6a4a813afd9b9f5f6fb097f8cecef9cc73b7d647ab952970",
+    "proxy-api/tests/test_behavior_gateway_integration.py": "532bf27efab7f7c747a60e994987de88f9a634beac8bc55a5279327250d9472a",
+    "proxy-api/tests/run_phase4d_verification.py": "1439e02f02d548d810810164350f4bad33ae8ba14279327076e1bebf9c5686ce",
+    "config/gateway.behavioral.example.yaml": "cd15510e1799dc4be4c2589bab8758cea9cd636a8aef0317bb828aa9b26faf16",
+    "docs/PHASE4D_GATEWAY_INTEGRATION.md": "b2c83c1f89dbad20ee0c8d26b70f297ea286f64ad30fe6b6dedd99c898b320f8",
+    "docs/PHASE4D_SOURCE_DELTA.json": "9120eaf6d333f9e60068a4fb8075501c4d28acc6b0d7669efff1ac41c671dec7",
+    "proxy-api/app/config.py": "8b0da4a752f5ec4f86b22d9094f862db7af20bdf9c97d6a3a66f264d978b1c2a",
+    "proxy-api/app/egress.py": "add1a344cb81626b1929b1f9fbf077a3a105ff1ccf0468b66e270dde1bdacde0",
+    "proxy-api/app/main.py": "52cea68c389f515326ef6ef1d8e5473560a1dd2bac743c30f78b5ab3bb5939cc",
+    "proxy-api/app/routers/proxy.py": "b0f182e6533d2d5f444d34275a9311ff3cb9ac2f4b3b6e43fc19c5cddf3d04b8"
+  }
+}

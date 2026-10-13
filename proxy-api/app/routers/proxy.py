@@ -23,7 +23,8 @@ from fastapi.responses import JSONResponse, StreamingResponse
 
 from .. import dlp, providers, risk, egress
 from ..auth import authenticate
-from ..config import get_settings, get_provider_keys, get_dlp_policy
+from ..config import get_settings, get_provider_keys, get_dlp_policy, get_behavioral_policy
+from behavior_runtime.gateway import policy_outcome, unavailable, effective_mode, ModeOverrideError
 from ..models import (
     ChatCompletionRequest,
     DLPBlockResponse,
@@ -37,6 +38,19 @@ router = APIRouter(prefix="/v1", tags=["proxy"])
 def _generate_request_id() -> str:
     """Generate a unique opaque request ID (req_ + 16 hex chars)."""
     return f"req_{uuid.uuid4().hex[:16]}"
+
+
+@router.get("/behavioral/status")
+async def behavioral_status(request: Request):
+    key = request.headers.get("authorization", "").removeprefix("Bearer ").strip()
+    if authenticate(key) is None:
+        raise HTTPException(status_code=403, detail="Invalid or missing API key")
+    if request.query_params:
+        return JSONResponse(status_code=422, content={"error": "unsupported_query"})
+    runtime = getattr(request.app.state, "behavioral_preflight", None)
+    if runtime is None:
+        return JSONResponse(status_code=503, content={"error": "behavioral_status_unavailable"})
+    return JSONResponse(content=await runtime.status(), headers={"Cache-Control": "no-store"})
 
 
 @router.post("/chat/completions")
@@ -75,6 +89,16 @@ async def chat_completions(
     key_record = authenticate(raw_key)
     if key_record is None:
         raise HTTPException(status_code=403, detail="Invalid or missing API key")
+    runtime = getattr(request.app.state, "behavioral_preflight", None)
+    behavioral_policy = runtime.config if runtime is not None else get_behavioral_policy()
+    overrides = request.headers.getlist("x-aisg-behavioral-mode")
+    try:
+        if len(overrides) > 1:
+            raise ModeOverrideError("invalid_behavioral_mode_override", 400)
+        mode = effective_mode(behavioral_policy, overrides[0] if overrides else None)
+    except ModeOverrideError as error:
+        return JSONResponse(status_code=error.status,
+            content={"error": error.code, "message": "Behavioral demo mode override is invalid or not permitted by the server."})
 
     # ── 2. Provider resolution ───────────────────────────────────────────────
     model_name = request.headers.get("x-model") or body.model or settings.default_model
@@ -133,6 +157,30 @@ async def chat_completions(
         )
     # Both provider entry points are strictly below the final safety decision.
     upstream_body = decision.payload
+    # Static block, sanitization and residual verification already succeeded.
+    # Both provider paths remain strictly below this additional policy boundary.
+    behavioral = None
+    if runtime is not None:
+        if mode != "off":
+            behavioral = await runtime.evaluate(upstream_body, trusted_model=trusted_model,
+                                                **({"mode": mode} if overrides else {}))
+    else:
+        policy = behavioral_policy.model_copy(update={"mode": mode})
+        if mode != "off":
+            behavioral = policy_outcome(policy, unavailable("runtime_missing"), time.monotonic())
+    if behavioral is not None:
+        request.state.behavioral = behavioral.telemetry(mode)
+        rlog.info("behavioral_preflight_complete", **request.state.behavioral)
+        would_block = policy_outcome(behavioral_policy.model_copy(update={"mode": "enforce"}),
+                                     behavioral.assessment, time.monotonic()).blocked
+        if behavioral.blocked:
+            message = ("Request blocked by behavioral prompt-injection policy."
+                       if behavioral.status_code == 422 else "Behavioral prompt-injection analysis could not be completed.")
+            return JSONResponse(status_code=behavioral.status_code,
+                content={"error": behavioral.error_code, "message": message, "behavioral": behavioral.metadata(),
+                         "behavioral_mode": mode, "behavioral_duration_ms": behavioral.duration_ms,
+                         "behavioral_would_block": would_block},
+                headers={"x-request-id": request_id})
     model_name = upstream_body["model"]
     rlog.info("provider_resolved", provider=provider_name, model=model_name)
     upstream_start = time.monotonic()
@@ -263,6 +311,12 @@ async def chat_completions(
         aisg_meta["dlp_action"] = "redact" if decision.sanitized else assessment.action.value
         aisg_meta["violations_count"] = len(violations_list)
         aisg_meta["entity_types_detected"] = sorted({v["entity_type"] for v in violations_list})
+    if behavioral is not None:
+        aisg_meta["behavioral"] = behavioral.metadata()
+        aisg_meta["behavioral_duration_ms"] = behavioral.duration_ms
+        aisg_meta["behavioral_mode"] = mode
+        aisg_meta["behavioral_would_block"] = would_block
+
     data["aisg_metadata"] = aisg_meta
 
     resp_headers = {

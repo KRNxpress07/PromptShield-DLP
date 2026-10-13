@@ -1,0 +1,229 @@
+{
+  "gateway": {
+    "passed": 1161,
+    "failed": 2,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "phase4c_passed": 200,
+    "phase4d_passed": 146,
+    "phase4e_passed": 36,
+    "phase1_passed": 117,
+    "phase2_passed": 110,
+    "failures": [
+      "tests/test_behavior_gateway_integration.py::test_phase4d_active_source_delta_and_historical_freeze",
+      "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+    ],
+    "arguments": [
+      "tests",
+      "-p",
+      "pytest_asyncio.plugin",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "scanner": {
+    "passed": 224,
+    "failed": 10,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 23,
+    "phase2_passed": 166,
+    "failures": [
+      "tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept"
+    ],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "sdk": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 1,
+    "phase2_passed": 0,
+    "failures": [],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "framework": {
+    "passed": 30,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 0,
+    "phase2_passed": 0,
+    "failures": [
+      "benchmarks/tests/test_framework.py::test_frozen_dataset_and_source_unchanged"
+    ],
+    "arguments": [
+      "benchmarks/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "dashboard_state_tests": {
+    "exit_code": 0,
+    "passed": 22,
+    "failed": 0,
+    "output": "TAP version 13\n# Subtest: Demo sends only supported request mode off\nok 1 - Demo sends only supported request mode off\n  ---\n  duration_ms: 18.6413\n  type: 'test'\n  ...\n# Subtest: Demo sends only supported request mode audit\nok 2 - Demo sends only supported request mode audit\n  ---\n  duration_ms: 3.2505\n  type: 'test'\n  ...\n# Subtest: Demo sends only supported request mode enforce\nok 3 - Demo sends only supported request mode enforce\n  ---\n  duration_ms: 1.8946\n  type: 'test'\n  ...\n# Subtest: No unsupported mode header or auto-polling\nok 4 - No unsupported mode header or auto-polling\n  ---\n  duration_ms: 3.0548\n  type: 'test'\n  ...\n# Subtest: Permission-disabled selector cannot weaken server mode\nok 5 - Permission-disabled selector cannot weaken server mode\n  ---\n  duration_ms: 1.3717\n  type: 'test'\n  ...\n# Subtest: Behavioral block hides provider panel and private data: behavioral_injection_blocked\nok 6 - Behavioral block hides provider panel and private data: behavioral_injection_blocked\n  ---\n  duration_ms: 1.3465\n  type: 'test'\n  ...\n# Subtest: Behavioral block hides provider panel and private data: behavioral_security_unavailable\nok 7 - Behavioral block hides provider panel and private data: behavioral_security_unavailable\n  ---\n  duration_ms: 1.1774\n  type: 'test'\n  ...\n# Subtest: NOT_EVALUATED audit shows unavailable but forwards\nok 8 - NOT_EVALUATED audit shows unavailable but forwards\n  ---\n  duration_ms: 1.6289\n  type: 'test'\n  ...\n# Subtest: Mode changes invalidate old scan/send handler\nok 9 - Mode changes invalidate old scan/send handler\n  ---\n  duration_ms: 1.9007\n  type: 'test'\n  ...\n# Subtest: Status failures do not show exception or send override\nok 10 - Status failures do not show exception or send override\n  ---\n  duration_ms: 1.4016\n  type: 'test'\n  ...\n# Subtest: Server override rejection is clear and never shown as provider response\nok 11 - Server override rejection is clear and never shown as provider response\n  ---\n  duration_ms: 1.3986\n  type: 'test'\n  ...\n# Subtest: Credential edits clear capability and restore the OFF result\nok 12 - Credential edits clear capability and restore the OFF result\n  ---\n  duration_ms: 1.4637\n  type: 'test'\n  ...\n# Subtest: Mask sends only sanitized text; assistant markup remains escaped\nok 13 - Mask sends only sanitized text; assistant markup remains escaped\n  ---\n  duration_ms: 18.4233\n  type: 'test'\n  ...\n# Subtest: Warn provides no raw override\nok 14 - Warn provides no raw override\n  ---\n  duration_ms: 2.1553\n  type: 'test'\n  ...\n# Subtest: Block exposes no send action and displays critical score\nok 15 - Block exposes no send action and displays critical score\n  ---\n  duration_ms: 1.2573\n  type: 'test'\n  ...\n# Subtest: Editing input invalidates assessment and prevents stale forwarding\nok 16 - Editing input invalidates assessment and prevents stale forwarding\n  ---\n  duration_ms: 1.7909\n  type: 'test'\n  ...\n# Subtest: Malformed scan response fails closed in UI\nok 17 - Malformed scan response fails closed in UI\n  ---\n  duration_ms: 1.217\n  type: 'test'\n  ...\n# Subtest: A changed prompt during a pending scan cannot adopt the stale result\nok 18 - A changed prompt during a pending scan cannot adopt the stale result\n  ---\n  duration_ms: 1.1779\n  type: 'test'\n  ...\n# Subtest: File upload uses document route; only returned text is forwarded\nok 19 - File upload uses document route; only returned text is forwarded\n  ---\n  duration_ms: 2.1224\n  type: 'test'\n  ...\n# Subtest: Missing benchmark data never substitutes measured values\nok 20 - Missing benchmark data never substitutes measured values\n  ---\n  duration_ms: 8.9164\n  type: 'test'\n  ...\n# Subtest: Navigation and presentation mode alter only frontend state\nok 21 - Navigation and presentation mode alter only frontend state\n  ---\n  duration_ms: 2.0788\n  type: 'test'\n  ...\n# Subtest: Dashboard presents actual recorded metrics and both leakage denominators\nok 22 - Dashboard presents actual recorded metrics and both leakage denominators\n  ---\n  duration_ms: 4.5011\n  type: 'test'\n  ...\n1..22\n# tests 22\n# suites 0\n# pass 22\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 116.42\n"
+  },
+  "phase3_preservation": "PASS: historical freeze manifest, benchmark code, results and report unchanged; active source matches separate authorized Phase 4E delta",
+  "known_failure_preservation": true,
+  "historical_source_freeze_assertion": "Original assertion retained and fails because authorized active gateway source changed; historical dataset/results untouched.",
+  "execution_boundaries": {
+    "external_network_calls": 0,
+    "cloud_model_calls": 0,
+    "sandbox_model_host_tool_access": 0,
+    "evidence": "Offline bootstrap denies external sockets/DNS; fake adapter and MockTransport only; host tripwire test passed.",
+    "real_local_generation": "NOT RUN"
+  },
+  "python_passed": 1435,
+  "python_failed": 13,
+  "total_passed": 1457,
+  "total_failed": 13,
+  "scripted_engine_evaluation": {
+    "evaluation_scope": "Scripted risk-engine evaluation only; not real-model prompt-injection accuracy.",
+    "assessment_version": "behavior-risk-v1",
+    "case_count": 120,
+    "compliance_counts": {
+      "determinism": 120,
+      "expected_severity_compliance": 120,
+      "reason_code_correctness": 120,
+      "override_correctness": 120
+    },
+    "failures": [],
+    "real_local_model_evaluation": "NOT VERIFIED"
+  },
+  "real_local_validation": "VERIFIED via separate explicit manual calls; automated suite uses fake/MockTransport only",
+  "browser_rendering": "NOT VERIFIED: browser inventory empty; in-app-browser creation unavailable; no screenshots",
+  "manual_result_files": [
+    "docs/PHASE4E_REAL_MODEL_VALIDATION.json",
+    "benchmarks/behavioral_real/results_llama32.json",
+    "benchmarks/behavioral_real/comparison.json",
+    "benchmarks/behavioral_real/latency.csv"
+  ],
+  "historical_source_assertions": [
+    "Phase 3 original active-source freeze",
+    "Phase 4D exact active-source provenance; authorized Phase 4E route change recorded separately"
+  ],
+  "phase1_total_passed": 141,
+  "phase2_total_passed": 276,
+  "final_frontend_verification": {
+    "passed": 22,
+    "failed": 0,
+    "purpose": "Includes credential-reset OFF state fix"
+  },
+  "preservation": {
+    "existing_files": 190,
+    "unchanged_files": 182,
+    "authorized_changed_files": [
+      "frontend/index.html",
+      "frontend/scanner.js",
+      "frontend/styles.css",
+      "proxy-api/app/routers/proxy.py",
+      "proxy-api/behavior_runtime/gateway.py",
+      "proxy-api/behavior_runtime/gateway_config.py",
+      "proxy-api/behavior_runtime/ollama.py",
+      "proxy-api/tools/run_behavior_probe.py"
+    ],
+    "unexpected_changed_files": [],
+    "baseline_manifest_sha256": "36d132f23da97d36448aaed8bb36f4548c1abe56431a4b49e6b323899e83c845"
+  },
+  "new_files": [
+    "benchmarks/behavioral_real/run_manual.py",
+    "benchmarks/behavioral_real/cases.json",
+    "benchmarks/behavioral_real/results_llama32.json",
+    "benchmarks/behavioral_real/comparison.json",
+    "benchmarks/behavioral_real/latency.csv",
+    "config/gateway.behavioral.demo.example.yaml",
+    "docs/PHASE4E_REAL_MODEL_AND_FRONTEND_DEMO.md",
+    "docs/PHASE4E_REAL_MODEL_VALIDATION.json",
+    "docs/PHASE4E_SOURCE_DELTA.json",
+    "docs/PHASE4E_TEST_RESULTS.json",
+    "proxy-api/behavior_runtime/manual_validation.py",
+    "proxy-api/tests/test_phase4e_demo.py",
+    "proxy-api/tests/run_phase4e_verification.py",
+    "frontend/tests/test_behavioral_demo.js"
+  ],
+  "implementation_result_and_handoff_hashes": {
+    "benchmarks/behavioral_real/run_manual.py": "44684a003726eb54db1f9ee1b2a1ba52424e014068c5e7e21b566f0470156fb4",
+    "benchmarks/behavioral_real/cases.json": "160d9363faca686dd783b41b28bfa3cd01f4a19075abb87aa3eb7cd9becb5960",
+    "benchmarks/behavioral_real/results_llama32.json": "d6f07d8086f08ef6ce3590619d51796e1a400994b6a475ab55469fbb4a871c2c",
+    "benchmarks/behavioral_real/comparison.json": "5e4b988c28b4316a440c74bc2e9d3d120e06694713a5844bb47343dc060d8457",
+    "benchmarks/behavioral_real/latency.csv": "3f8489b014b6ea73f054d42581f2b58aa508c8fcee0447f12e13880ca8b56a5f",
+    "config/gateway.behavioral.demo.example.yaml": "fe305de0a921945c9d5c12ce3ca4c61e07591e449f2ff11a7389deae509026f2",
+    "docs/PHASE4E_REAL_MODEL_AND_FRONTEND_DEMO.md": "564806df8066073253315fc32ea29acbaaf126899e2ba155d4431ad85457a4c1",
+    "docs/PHASE4E_REAL_MODEL_VALIDATION.json": "48deffcec31bffd3273a431152df259abb3c834f640561da0c4665bfc70c8702",
+    "docs/PHASE4E_SOURCE_DELTA.json": "b18b245d09052ceeb6ea5dfd144805838c7412c5874ad2da47c8138f94da2cea",
+    "proxy-api/behavior_runtime/manual_validation.py": "847626aa74a9b31bfebe13e27deb0e4e4c714d4a9c435206f1c26712cf4c0f8a",
+    "proxy-api/tests/test_phase4e_demo.py": "4f3e4755903b1adf3c25af0fdc8638ff6f396043a5553472c816882630a90708",
+    "proxy-api/tests/run_phase4e_verification.py": "14ca9e97ee64370f40043c51996a3fb6b930baed99a932d80ee7bd8d8e806120",
+    "frontend/tests/test_behavioral_demo.js": "81a137677705b4eb4147d0bb1ba40561436a93617c148ceba4587e8d83f7a764",
+    "frontend/index.html": "5f489e016105e0a6c8bb93573a321bfc0ab6e0d8154d9d45fdd9b1faa27cc381",
+    "frontend/scanner.js": "fa84841c5bb32d2b2cd77e9793f6cde66a9450b96150a24e5b7f25dcbb37c234",
+    "frontend/styles.css": "8eee55c1cfb30fa468d5e3e07f19e19b5821c770418ab6996ec1c4f7ddd83ee1",
+    "proxy-api/app/routers/proxy.py": "d55b5f9d4a456e34701dd30e198dc58d7d0e050974e2efe52ff8270a705845cb",
+    "proxy-api/behavior_runtime/gateway.py": "188b32c98b3db155fc56299040f269d45b99579cea7924546c0443e28645e704",
+    "proxy-api/behavior_runtime/gateway_config.py": "b1fe684640342aa1170e4917e8ce91193c730ba55df0ab2f1263a559d2b5cb85",
+    "proxy-api/behavior_runtime/ollama.py": "8a3845e42419d0e6b993af8f14f4f97c66bc4eb5806328dc28e0d7d8c4c75d55",
+    "proxy-api/tools/run_behavior_probe.py": "57986796f921936d70e0d53aea01e8afc41b5191c4773e7b730b3c83b3efc8eb"
+  },
+  "diff_check": "PASS: git diff --check and whitespace checks on every new/changed file",
+  "manual_result_privacy": "PASS: no trusted canary tokens or transcript data in real validation/results/comparison records"
+}

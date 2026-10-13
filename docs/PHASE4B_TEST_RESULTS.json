@@ -1,0 +1,178 @@
+{
+  "gateway": {
+    "passed": 779,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "failures": [
+      "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+    ],
+    "arguments": [
+      "tests",
+      "-p",
+      "pytest_asyncio.plugin",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "scanner": {
+    "passed": 224,
+    "failed": 10,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "failures": [
+      "tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept"
+    ],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "sdk": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "failures": [],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "framework": {
+    "passed": 31,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "failures": [],
+    "arguments": [
+      "benchmarks/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "dashboard_state_tests": {
+    "exit_code": 0,
+    "passed": 10,
+    "failed": 0,
+    "output": "TAP version 13\n# Subtest: Mask sends only sanitized text; assistant markup remains escaped\nok 1 - Mask sends only sanitized text; assistant markup remains escaped\n  ---\n  duration_ms: 18.7109\n  type: 'test'\n  ...\n# Subtest: Warn provides no raw override\nok 2 - Warn provides no raw override\n  ---\n  duration_ms: 2.9645\n  type: 'test'\n  ...\n# Subtest: Block exposes no send action and displays critical score\nok 3 - Block exposes no send action and displays critical score\n  ---\n  duration_ms: 1.5502\n  type: 'test'\n  ...\n# Subtest: Editing input invalidates assessment and prevents stale forwarding\nok 4 - Editing input invalidates assessment and prevents stale forwarding\n  ---\n  duration_ms: 1.2299\n  type: 'test'\n  ...\n# Subtest: Malformed scan response fails closed in UI\nok 5 - Malformed scan response fails closed in UI\n  ---\n  duration_ms: 1.7154\n  type: 'test'\n  ...\n# Subtest: A changed prompt during a pending scan cannot adopt the stale result\nok 6 - A changed prompt during a pending scan cannot adopt the stale result\n  ---\n  duration_ms: 0.9733\n  type: 'test'\n  ...\n# Subtest: File upload uses document route; only returned text is forwarded\nok 7 - File upload uses document route; only returned text is forwarded\n  ---\n  duration_ms: 1.6982\n  type: 'test'\n  ...\n# Subtest: Missing benchmark data never substitutes measured values\nok 8 - Missing benchmark data never substitutes measured values\n  ---\n  duration_ms: 7.8842\n  type: 'test'\n  ...\n# Subtest: Navigation and presentation mode alter only frontend state\nok 9 - Navigation and presentation mode alter only frontend state\n  ---\n  duration_ms: 2.4665\n  type: 'test'\n  ...\n# Subtest: Dashboard presents actual recorded metrics and both leakage denominators\nok 10 - Dashboard presents actual recorded metrics and both leakage denominators\n  ---\n  duration_ms: 6.8544\n  type: 'test'\n  ...\n1..10\n# tests 10\n# suites 0\n# pass 10\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 110.5734\n"
+  },
+  "phase3_preservation": "PASS: frozen backend, benchmark code, results and report unchanged",
+  "baseline_failure_preservation": true,
+  "execution_boundaries": {
+    "external_network_calls": 0,
+    "cloud_model_calls": 0,
+    "sandbox_model_host_tool_access": 0,
+    "evidence": "Offline bootstrap denies external sockets/DNS; fake adapter and MockTransport only; host tripwire test passed.",
+    "real_local_generation": "NOT RUN"
+  },
+  "python_passed": 1054,
+  "python_failed": 11,
+  "total_passed": 1064,
+  "total_failed": 11,
+  "preexisting_file_preservation": {
+    "verified_files": 160,
+    "changed_paths": [],
+    "baseline_manifest_sha256": "cb525bdace0e6feb15066b24c438b38b0e063bb28e9fbca56de8efb76e9469b3"
+  },
+  "manual_local_probe": {
+    "runtime_installed": true,
+    "service_status": 200,
+    "installed_local_models": [
+      "llama3.2:1b",
+      "mistral:latest"
+    ],
+    "generation_status": "NOT VERIFIED",
+    "probes": [
+      {
+        "model": "llama3.2:1b",
+        "timeout_seconds": 5,
+        "status": "LOCAL MODEL NOT AVAILABLE"
+      },
+      {
+        "model": "llama3.2:1b",
+        "timeout_seconds": 10,
+        "status": "LOCAL MODEL NOT AVAILABLE"
+      }
+    ],
+    "model_downloads": 0,
+    "software_starts": 0,
+    "cloud_model_calls": 0
+  },
+  "diff_check": "PASS: git diff --check and whitespace check on all twelve new files",
+  "final_targeted_verification": {
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "failed": 0
+  },
+  "new_files": [
+    "proxy-api/injection_sandbox/model_adapter.py",
+    "proxy-api/injection_sandbox/tool_schema.py",
+    "proxy-api/injection_sandbox/executor.py",
+    "proxy-api/injection_sandbox/transcript.py",
+    "proxy-api/injection_sandbox/behavior.py",
+    "proxy-api/behavior_runtime/__init__.py",
+    "proxy-api/behavior_runtime/ollama.py",
+    "proxy-api/tools/run_behavior_probe.py",
+    "proxy-api/tests/test_behavior_executor.py",
+    "proxy-api/tests/run_phase4b_verification.py",
+    "docs/PHASE4B_LOCAL_MODEL_EXECUTION.md",
+    "docs/PHASE4B_TEST_RESULTS.json"
+  ],
+  "new_source_and_handoff_hashes": {
+    "proxy-api/injection_sandbox/model_adapter.py": "9267bc9047377af7fb5b5f1c1360256028e5303e5afb5a400c4d2b96473655e4",
+    "proxy-api/injection_sandbox/tool_schema.py": "27adfe67d3a50eb93d479a1b8a11eee0473c2de1723cf29529c9870a13e7d420",
+    "proxy-api/injection_sandbox/executor.py": "162452a69e83ee6336863362dfccf7c7cdbab41d48c04b4e794838e3c4be05c5",
+    "proxy-api/injection_sandbox/transcript.py": "d25c05847b0bd04edf30b3d50ed635abe336e19a9ebe003257649cb7f7e4e30c",
+    "proxy-api/injection_sandbox/behavior.py": "41af9ac0547e716d7ae548d166bc0790b30fc5097cb03e39f6cfa7518271d837",
+    "proxy-api/behavior_runtime/__init__.py": "264d0a7b6d5bf5bedd5aa30ba9922a0221e281c32e75c967f2570d82cf042422",
+    "proxy-api/behavior_runtime/ollama.py": "e361e8fb54c0a7b60c3f64775c796bc145c846bfd91f55185928d9d8bc3b936a",
+    "proxy-api/tools/run_behavior_probe.py": "1c015c8a1339d69332547c142b394fd7d12b20ed68a5948ed6c1685fd03e6e8a",
+    "proxy-api/tests/test_behavior_executor.py": "fc0d9502c1558bb3f0bef346ec727180c8c46e027e1a380b994d7b14afa07df0",
+    "proxy-api/tests/run_phase4b_verification.py": "e7db9f670e1be2562fcb01d412561ac6a99e98a9aff57984ef02b3210713b220",
+    "docs/PHASE4B_LOCAL_MODEL_EXECUTION.md": "a2c381de27badf37d6592d0e547de674271d442d17c95b8f72cf881e296e8162"
+  }
+}

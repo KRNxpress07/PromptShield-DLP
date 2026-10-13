@@ -70,14 +70,11 @@ def _validate_messages(messages: Any) -> None:
                 raise UnsupportedDLPContent()
 
 
-async def inspect_outbound_payload(
-    client: httpx.AsyncClient,
-    payload: dict[str, Any],
-    policy: dict[str, Any],
-    *,
-    trusted_model: bool = False,
-) -> OutboundResult:
-    """Bounded leaf inspection, shared Phase 1 policy, safe reconstruction."""
+def provider_text_inventory(payload: dict[str, Any], *, trusted_model: bool = False):
+    """The single Phase 2 forwarding inventory, shared with behavioral preflight.
+
+    Returns the filtered payload, path/key metadata, and validated text leaves.
+    """
     _validate_messages(payload.get("messages"))
     headers = payload.get("extra_headers") or {}
     if not isinstance(headers, dict) or any(
@@ -135,6 +132,18 @@ async def inspect_outbound_payload(
         {key: value for key, value in payload.items() if key in COMPLETION_PARAMS or key == "model"},
         (), 0,
     )
+    return output, paths, texts
+
+
+async def inspect_outbound_payload(
+    client: httpx.AsyncClient,
+    payload: dict[str, Any],
+    policy: dict[str, Any],
+    *,
+    trusted_model: bool = False,
+) -> OutboundResult:
+    """Bounded leaf inspection, shared Phase 1 policy, safe reconstruction."""
+    output, paths, texts = provider_text_inventory(payload, trusted_model=trusted_model)
     decision = await dlp.inspect_messages(client, texts, policy)
     if decision.assessment.action.value == "block":
         return OutboundResult(output, decision.scan, decision.assessment, False)

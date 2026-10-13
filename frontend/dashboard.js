@@ -8,7 +8,7 @@
   const count = value => finite(value) ? value.toLocaleString('en-US') : 'Not available';
   const names = { regex_simple: 'Regex baseline', presidio_builtin: 'Presidio built-in', project: 'PromptShield project' };
   const colors = { regex_simple: 'baseline', presidio_builtin: 'builtin', project: '' };
-  const views = ['overview', 'scanner', 'benchmarks', 'detection', 'sanitization', 'performance', 'methodology'];
+  const views = ['overview', 'scanner', 'benchmarks', 'detection', 'sanitization', 'performance', 'methodology', 'local-model'];
   let data = null, sortKey = 'f1', sortDirection = 1, loadVersion = 0;
   const na = '<div class="no-data">Not available</div>';
 
@@ -21,10 +21,17 @@
       if (active) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
     });
     $('current-section').textContent = view === 'scanner' ? 'LIVE SCANNER' : view.toUpperCase();
+    $('presentation-section').value = view;
     history.replaceState(null, '', `#${view}`);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
   document.querySelectorAll('[data-view],[data-go]').forEach(button => button.addEventListener('click', () => activate(button.dataset.view || button.dataset.go)));
+  $('presentation-section').addEventListener('change', () => activate($('presentation-section').value));
+  document.querySelectorAll('[data-research-group]').forEach(button => button.addEventListener('click', () => {
+    const group = button.dataset.researchGroup, page = button.dataset.researchPage;
+    document.querySelectorAll(`[id^="${group}-page-"]`).forEach(panel => { panel.hidden = panel.id !== `${group}-page-${page}`; });
+    document.querySelectorAll(`[data-research-group="${group}"]`).forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); });
+  }));
   window.addEventListener('hashchange', () => activate(location.hash.slice(1)));
   $('presentation-toggle').addEventListener('click', () => {
     const enabled = document.body.classList.toggle('presentation');
@@ -39,11 +46,8 @@
   function axis(max, unit) { return `<div class="chart-axis"><span>0${esc(unit)}</span><span>${esc(dec(max, unit === '%' ? 0 : 1))}${esc(unit)}</span></div>`; }
   function bars(items, max = 100, unit = '%', digits = 2) {
     if (!items.length || items.every(item => !finite(item.value))) return na;
-    return items.map(item => {
-      const value = finite(item.value) ? `${item.value.toFixed(digits)}${unit}` : 'Not available';
-      const width = finite(item.value) ? Math.min(100, Math.max(0, item.value / max * 100)) : 0;
-      return `<div class="bar-row"><div class="bar-caption"><span>${esc(item.label)}</span><strong>${esc(value)}</strong></div><div class="bar-track" title="${esc(item.label)}: ${esc(value)}"><div class="bar-fill ${item.color || ''}" style="width:${width}%"></div></div></div>`;
-    }).join('') + axis(max, unit);
+    const spec = esc(JSON.stringify({items, unit})).replace(/"/g, '&quot;');
+    return `<div class="bklit-chart" data-chart="${spec}" role="img" aria-label="Measured values; zero-based axis"></div><div class="chart-ledger">${items.map((item, index) => `<div><span><small>${String(index + 1).padStart(2, '0')}</small> ${esc(item.label)}</span><strong>${finite(item.value) ? esc(item.value.toFixed(digits) + unit) : 'N/A'}</strong></div>`).join('')}</div>`;
   }
   function comparison(metric, subset = null) {
     return Object.keys(names).map(name => {
@@ -125,10 +129,7 @@
       button.textContent = `${label} ${active ? sortDirection === 1 ? '↑' : '↓' : '↕'}`;
     });
     const all = [...(data?.per_entity || [])].sort((a, b) => (a.strict?.f1 ?? -1) - (b.strict?.f1 ?? -1));
-    $('entity-f1-chart').innerHTML = all.map(row => {
-      const [q] = quality(row.strict?.f1);
-      return bars([{ label: row.entity, value: finite(row.strict?.f1) ? row.strict.f1 * 100 : null, color: q === 'needs' ? 'bad' : q === 'moderate' ? 'warn' : q === 'strong' ? 'builtin' : '' }]).replace(/<div class="chart-axis">[\s\S]*?<\/div>$/, '');
-    }).join('') || na;
+    $('entity-f1-chart').innerHTML = bars(rows.map(row => ({label:row.entity, value:finite(row.strict?.f1)?row.strict.f1*100:null})));
   }
   $('entity-search').addEventListener('input', renderEntities);
   $('entity-status').addEventListener('change', renderEntities);
@@ -151,22 +152,12 @@
     $('before-after').innerHTML = example ? `<label>BEFORE / SYNTHETIC</label><pre>${esc(example.original)}</pre><label>AFTER / ACTUAL SANITIZED OUTPUT</label><pre class="after">${esc(example.sanitized)}</pre>` : na;
     const actions = s?.actions;
     const totals = actions && ['block', 'warn', 'mask', 'allow'].every(key => finite(actions[key])) ? Object.values(actions).reduce((sum, value) => sum + value, 0) : null;
-    $('action-counts').innerHTML = totals ? ['block', 'warn', 'mask', 'allow'].map(key => {
-      const label = { block: 'Blocked', warn: 'Warn / sanitize', mask: 'Mask', allow: 'Allow' }[key];
-      return `<div class="bar-row"><div class="bar-caption"><span>${label}</span><strong>${count(actions[key])} <span class="annotation">/ ${count(totals)}</span></strong></div><div class="bar-track"><div class="bar-fill ${key === 'block' ? 'bad' : key === 'warn' ? 'warn' : key === 'mask' ? 'builtin' : ''}" style="width:${actions[key] / totals * 100}%"></div></div></div>`;
-    }).join('') + axis(100, '%') : na;
+    $('action-counts').innerHTML = totals ? bars(['block', 'warn', 'mask', 'allow'].map(key => ({label: {block:'Blocked',warn:'Warn / sanitize',mask:'Mask',allow:'Allow'}[key],value:actions[key]})), null, ' prompts', 0) : na;
     $('human-pairs').textContent = count(s?.human_template_count);
   }
 
   function lineChart(rows, key, color, unit) {
-    const points = rows.filter(row => finite(row[key])).sort((a, b) => a.workers - b.workers);
-    if (!points.length) return na;
-    const max = Math.ceil(Math.max(...points.map(row => row[key])) / (unit === 'ms' ? 100 : 10)) * (unit === 'ms' ? 100 : 10) || 1;
-    const left = 47, right = 542, top = 35, bottom = 202;
-    const x = worker => left + (worker - 1) / 7 * (right - left), y = value => bottom - value / max * (bottom - top);
-    const grid = [0, .25, .5, .75, 1].map(f => `<line class="grid-line" x1="${left}" x2="${right}" y1="${y(max * f)}" y2="${y(max * f)}"/><text x="${left - 10}" y="${y(max * f) + 3}" text-anchor="end">${dec(max * f, 0)}</text>`).join('');
-    const path = points.map((row, i) => `${i === 0 ? 'M' : 'L'}${x(row.workers)},${y(row[key])}`).join(' ');
-    return `<svg class="line-chart" viewBox="0 0 590 245" role="img" aria-label="${esc(unit)} by scanner workers. Zero-based vertical axis.">${grid}<path d="${path}" fill="none" stroke="${color}" stroke-width="2"/>${points.map(row => `<circle cx="${x(row.workers)}" cy="${y(row[key])}" r="4" fill="${color}"><title>${row.workers} workers: ${dec(row[key], 3)} ${esc(unit)}</title></circle><text class="point-label" text-anchor="${row.workers === 8 ? 'end' : row.workers === 1 ? 'start' : 'middle'}" x="${x(row.workers)}" y="${y(row[key]) - 12}">${dec(row[key], 2)}</text><text text-anchor="middle" x="${x(row.workers)}" y="${bottom + 19}">${row.workers}</text>`).join('')}<text x="${left}" y="14">${esc(unit)}</text><text x="${right}" y="238" text-anchor="end">scanner workers</text></svg>`;
+    return bars([...rows].sort((a,b) => a.workers - b.workers).map(row => ({label: `${row.workers} workers`, value: row[key]})), null, ` ${unit}`, 2);
   }
   function renderPerformance() {
     $('latency-stages').innerHTML = ['scanner_only', 'gateway_dlp'].map(stage => {
@@ -181,8 +172,8 @@
       $(stage === 'scanner_only' ? 'scanner-size-chart' : 'gateway-size-chart').innerHTML = bars(items, max, ' ms');
     });
     const throughput = data?.throughput || [];
-    $('throughput-chart').innerHTML = lineChart(throughput, 'prompts_per_second', '#00e5c3', 'prompts/s');
-    $('queue-chart').innerHTML = lineChart(throughput, 'p95_ms', '#4c8dff', 'ms');
+    $('throughput-chart').innerHTML = lineChart(throughput, 'prompts_per_second', '#A78BFA', 'prompts/s');
+    $('queue-chart').innerHTML = lineChart(throughput, 'p95_ms', '#D29A5A', 'ms');
     $('throughput-table').innerHTML = throughput.length ? `<table class="compact-table"><thead><tr><th>Workers</th><th>Prompts/s</th><th>P95 queued ms</th><th>Completed</th><th>Error rate</th></tr></thead><tbody>${[...throughput].sort((a, b) => a.workers - b.workers).map(row => `<tr><td>${row.workers}</td><td>${dec(row.prompts_per_second, 3)}</td><td>${dec(row.p95_ms, 3)}</td><td>${count(row.completed)}</td><td>${pct(row.error_rate)}</td></tr>`).join('')}</tbody></table>` : na;
   }
   $('latency-stat').addEventListener('change', renderPerformance);

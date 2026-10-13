@@ -26,6 +26,8 @@ from starlette.responses import Response
 from .config import get_settings, get_dlp_policy, get_api_keys, get_provider_keys, DLPConfigurationError
 from .dlp import PresidioError
 from .log_utils import log_scrubber, register_secrets, SecretSafeFormatter
+from .config import get_behavioral_policy
+from behavior_runtime.gateway import BehavioralPreflight
 
 settings = get_settings()
 _log_level = getattr(logging, settings.log_level.upper(), logging.INFO)
@@ -58,13 +60,18 @@ async def lifespan(app: FastAPI):
     global _http_client
     # Startup rejects policy typos before accepting requests or opening clients.
     get_dlp_policy()
+    behavioral_config = get_behavioral_policy()
+    app.state.behavioral_preflight = BehavioralPreflight(behavioral_config)
     register_secrets([record.get("key", "") for record in get_api_keys()])
     register_secrets(get_provider_keys().values())
     _log.info("startup_begin", log_level=settings.log_level)
     _http_client = httpx.AsyncClient(timeout=10.0)
     _log.info("startup_http_client_ready")
-    yield
-    await _http_client.aclose()
+    try:
+        yield
+    finally:
+        app.state.behavioral_preflight.close()
+        await _http_client.aclose()
 
 
 app = FastAPI(

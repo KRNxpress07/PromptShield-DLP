@@ -1,0 +1,208 @@
+{
+  "gateway": {
+    "passed": 1161,
+    "failed": 2,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 300,
+    "phase4b_passed": 124,
+    "phase4c_passed": 200,
+    "phase4d_passed": 146,
+    "phase4e_passed": 36,
+    "phase1_passed": 117,
+    "phase2_passed": 110,
+    "failures": [
+      "tests/test_behavior_gateway_integration.py::test_phase4d_active_source_delta_and_historical_freeze",
+      "tests/test_config.py::TestGetGatewayConfig::test_missing_file_returns_empty"
+    ],
+    "arguments": [
+      "tests",
+      "-p",
+      "pytest_asyncio.plugin",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "scanner": {
+    "passed": 224,
+    "failed": 10,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 23,
+    "phase2_passed": 166,
+    "failures": [
+      "tests/test_sovereign_safety.py::TestPIIRedaction::test_ssn_detected",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_separated_card",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_space_separated_non_luhn_with_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_card_expiry_slash",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_cvv_after_keyword",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_full_pci_payload_all_redacted",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_dash_card_with_cardholder_context",
+      "tests/test_sovereign_safety.py::TestCreditCardEdgeCases::test_mixed_pci_hipaa_prompt",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_ssn_dash_format_no_datetime",
+      "tests/test_sovereign_safety.py::TestOverlapSuppression::test_non_overlapping_entities_kept"
+    ],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "sdk": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 1,
+    "phase2_passed": 0,
+    "failures": [],
+    "arguments": [
+      "tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "framework": {
+    "passed": 30,
+    "failed": 1,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 1,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 0,
+    "phase2_passed": 0,
+    "failures": [
+      "benchmarks/tests/test_framework.py::test_frozen_dataset_and_source_unchanged"
+    ],
+    "arguments": [
+      "benchmarks/tests",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ]
+  },
+  "presentation": {
+    "passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "error": 0,
+    "xfailed": 0,
+    "xpassed": 0,
+    "exit_code": 0,
+    "phase4a_passed": 0,
+    "phase4b_passed": 0,
+    "phase4c_passed": 0,
+    "phase4d_passed": 0,
+    "phase4e_passed": 0,
+    "phase1_passed": 0,
+    "phase2_passed": 0,
+    "failures": [],
+    "arguments": [
+      "frontend/tests/test_local_results.py",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--tb=short",
+      "--show-capture=no"
+    ],
+    "focused_final_verification": "20 passed after final endpoint changes"
+  },
+  "dashboard_state_tests": {
+    "exit_code": 0,
+    "passed": 29,
+    "failed": 0,
+    "output": "TAP version 13\n# Subtest: Demo sends only supported request mode off\nok 1 - Demo sends only supported request mode off\n  ---\n  duration_ms: 17.5172\n  type: 'test'\n  ...\n# Subtest: Demo sends only supported request mode audit\nok 2 - Demo sends only supported request mode audit\n  ---\n  duration_ms: 2.7979\n  type: 'test'\n  ...\n# Subtest: Demo sends only supported request mode enforce\nok 3 - Demo sends only supported request mode enforce\n  ---\n  duration_ms: 1.9815\n  type: 'test'\n  ...\n# Subtest: No unsupported mode header or auto-polling\nok 4 - No unsupported mode header or auto-polling\n  ---\n  duration_ms: 2.3678\n  type: 'test'\n  ...\n# Subtest: Permission-disabled selector cannot weaken server mode\nok 5 - Permission-disabled selector cannot weaken server mode\n  ---\n  duration_ms: 1.3351\n  type: 'test'\n  ...\n# Subtest: Behavioral block hides provider panel and private data: behavioral_injection_blocked\nok 6 - Behavioral block hides provider panel and private data: behavioral_injection_blocked\n  ---\n  duration_ms: 1.8758\n  type: 'test'\n  ...\n# Subtest: Behavioral block hides provider panel and private data: behavioral_security_unavailable\nok 7 - Behavioral block hides provider panel and private data: behavioral_security_unavailable\n  ---\n  duration_ms: 2.1128\n  type: 'test'\n  ...\n# Subtest: NOT_EVALUATED audit shows unavailable but forwards\nok 8 - NOT_EVALUATED audit shows unavailable but forwards\n  ---\n  duration_ms: 2.224\n  type: 'test'\n  ...\n# Subtest: Mode changes invalidate old scan/send handler\nok 9 - Mode changes invalidate old scan/send handler\n  ---\n  duration_ms: 1.8837\n  type: 'test'\n  ...\n# Subtest: Status failures do not show exception or send override\nok 10 - Status failures do not show exception or send override\n  ---\n  duration_ms: 1.7729\n  type: 'test'\n  ...\n# Subtest: Server override rejection is clear and never shown as provider response\nok 11 - Server override rejection is clear and never shown as provider response\n  ---\n  duration_ms: 1.6767\n  type: 'test'\n  ...\n# Subtest: Credential edits clear capability and restore the OFF result\nok 12 - Credential edits clear capability and restore the OFF result\n  ---\n  duration_ms: 2.3224\n  type: 'test'\n  ...\n# Subtest: All headline measurements come from saved Phase 4E artifacts\nok 13 - All headline measurements come from saved Phase 4E artifacts\n  ---\n  duration_ms: 14.5509\n  type: 'test'\n  ...\n# Subtest: Undefined static precision is N/A and comparison chart uses source values\nok 14 - Undefined static precision is N/A and comparison chart uses source values\n  ---\n  duration_ms: 0.6478\n  type: 'test'\n  ...\n# Subtest: Classification counts match saved comparison artifact\nok 15 - Classification counts match saved comparison artifact\n  ---\n  duration_ms: 0.5605\n  type: 'test'\n  ...\n# Subtest: Probe examples use validation evidence and never averages\nok 16 - Probe examples use validation evidence and never averages\n  ---\n  duration_ms: 0.4693\n  type: 'test'\n  ...\n# Subtest: Missing artifacts show N/A with no measured fallback\nok 17 - Missing artifacts show N/A with no measured fallback\n  ---\n  duration_ms: 0.7318\n  type: 'test'\n  ...\n# Subtest: Private fields never render and HTML metacharacters are escaped\nok 18 - Private fields never render and HTML metacharacters are escaped\n  ---\n  duration_ms: 1.299\n  type: 'test'\n  ...\n# Subtest: Presentation mode hides configuration and retains source/limitation labels\nok 19 - Presentation mode hides configuration and retains source/limitation labels\n  ---\n  duration_ms: 0.6724\n  type: 'test'\n  ...\n# Subtest: Mask sends only sanitized text; assistant markup remains escaped\nok 20 - Mask sends only sanitized text; assistant markup remains escaped\n  ---\n  duration_ms: 17.9915\n  type: 'test'\n  ...\n# Subtest: Warn provides no raw override\nok 21 - Warn provides no raw override\n  ---\n  duration_ms: 2.6364\n  type: 'test'\n  ...\n# Subtest: Block exposes no send action and displays critical score\nok 22 - Block exposes no send action and displays critical score\n  ---\n  duration_ms: 1.5113\n  type: 'test'\n  ...\n# Subtest: Editing input invalidates assessment and prevents stale forwarding\nok 23 - Editing input invalidates assessment and prevents stale forwarding\n  ---\n  duration_ms: 2.6749\n  type: 'test'\n  ...\n# Subtest: Malformed scan response fails closed in UI\nok 24 - Malformed scan response fails closed in UI\n  ---\n  duration_ms: 1.3596\n  type: 'test'\n  ...\n# Subtest: A changed prompt during a pending scan cannot adopt the stale result\nok 25 - A changed prompt during a pending scan cannot adopt the stale result\n  ---\n  duration_ms: 1.1712\n  type: 'test'\n  ...\n# Subtest: File upload uses document route; only returned text is forwarded\nok 26 - File upload uses document route; only returned text is forwarded\n  ---\n  duration_ms: 1.9042\n  type: 'test'\n  ...\n# Subtest: Missing benchmark data never substitutes measured values\nok 27 - Missing benchmark data never substitutes measured values\n  ---\n  duration_ms: 7.7454\n  type: 'test'\n  ...\n# Subtest: Navigation and presentation mode alter only frontend state\nok 28 - Navigation and presentation mode alter only frontend state\n  ---\n  duration_ms: 2.2175\n  type: 'test'\n  ...\n# Subtest: Dashboard presents actual recorded metrics and both leakage denominators\nok 29 - Dashboard presents actual recorded metrics and both leakage denominators\n  ---\n  duration_ms: 7.2768\n  type: 'test'\n  ...\n1..29\n# tests 29\n# suites 0\n# pass 29\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 178.2289\n"
+  },
+  "phase3_preservation": "PASS: historical freeze manifest, benchmark code, results and report unchanged; active source matches separate authorized Phase 4E delta",
+  "known_failure_preservation": true,
+  "historical_source_freeze_assertion": "Original assertion retained and fails because authorized active gateway source changed; historical dataset/results untouched.",
+  "execution_boundaries": {
+    "external_network_calls": 0,
+    "cloud_model_calls": 0,
+    "sandbox_model_host_tool_access": 0,
+    "evidence": "Offline bootstrap denies external sockets/DNS; fake adapter and MockTransport only; host tripwire test passed.",
+    "real_local_generation": "NOT RUN"
+  },
+  "python_passed": 1455,
+  "python_failed": 13,
+  "total_passed": 1484,
+  "total_failed": 13,
+  "scripted_engine_evaluation": {
+    "evaluation_scope": "Scripted risk-engine evaluation only; not real-model prompt-injection accuracy.",
+    "assessment_version": "behavior-risk-v1",
+    "case_count": 120,
+    "compliance_counts": {
+      "determinism": 120,
+      "expected_severity_compliance": 120,
+      "reason_code_correctness": 120,
+      "override_correctness": 120
+    },
+    "failures": [],
+    "real_local_model_evaluation": "NOT VERIFIED"
+  },
+  "phase1_passed": 141,
+  "phase2_passed": 276,
+  "preservation": {
+    "baseline_files": 220,
+    "unchanged_files": 214,
+    "authorized_ui_changes": [
+      "frontend/dashboard.js",
+      "frontend/favicon.svg",
+      "frontend/index.html",
+      "frontend/server.py",
+      "frontend/styles.css",
+      "frontend/tests/test_ui_state.js"
+    ],
+    "unexpected_changes": [],
+    "security_and_scanner_sources": "UNCHANGED FROM PHASE 4E",
+    "historical_phase1_to_phase4e_reports_and_results": "UNCHANGED"
+  },
+  "browser_qa": {
+    "status": "VERIFIED",
+    "viewports": [
+      "1920x1080",
+      "1600x900",
+      "1366x768",
+      "390x844"
+    ],
+    "layout_record": "docs/FINAL_FRONTEND_VISUAL_QA.json",
+    "interaction_record": "docs/FINAL_FRONTEND_INTERACTION_QA.json",
+    "scope": "Headless installed Chrome with actual local dashboard; no live provider request or model generation."
+  }
+}

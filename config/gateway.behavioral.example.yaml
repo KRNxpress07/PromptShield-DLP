@@ -1,0 +1,21 @@
+# Merge this section into your own gateway configuration; do not replace keys,
+# providers, or DLP policy. Quoting "off" avoids YAML 1.1 boolean conversion.
+behavioral_injection:
+  mode: "off"  # Manually progress to audit, evaluate, then enforce.
+  provider: ollama
+  model: llama3.2:1b
+  base_url: http://127.0.0.1:11434
+  timeout_seconds: 10
+  block_severity: HIGH
+  fail_closed_on_not_evaluated: true
+  fail_closed_on_partial: false
+  max_steps: 12
+  max_model_calls: 12
+  max_tool_calls: 16
+  max_output_chars: 8192
+  max_total_transcript_chars: 65536
+  max_response_chars: 32768
+  max_behavior_input_chars: 12000
+  max_concurrent: 2
+  max_queue: 16
+  queue_timeout_seconds: 2
